@@ -1,0 +1,737 @@
+{
+  "version": "0.2.0",
+  "last_updated": "2026-04-11",
+  "purpose": "Artist metadata for JazzyCat and the separate schedule manager.",
+  "source_note": "Artist entries combine the current BMC shows page, public artist pages, and local listings. Entries with strong public sourcing are marked verified; acts with limited public trail stay provisional or needs_review rather than guessed.",
+  "fields": {
+    "artist_id": "Stable machine-friendly identifier.",
+    "artist_name": "Display name as shown publicly.",
+    "genres": "Genre list for visitor-facing answers and schedule filtering.",
+    "genre_primary": "Main genre used for quick matching.",
+    "style_summary": "One-line plain-English style description.",
+    "verification_status": "verified, provisional, or needs_review.",
+    "genre_confidence": "high, medium, low, unknown.",
+    "links": "Known artist or reference URLs.",
+    "sources": "Public sources used for the entry."
+  },
+  "artists": [
+    {
+      "artist_id": "aileis",
+      "artist_name": "Aileis",
+      "aliases": [],
+      "genres": [],
+      "genre_primary": null,
+      "style_summary": null,
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification."
+    },
+    {
+      "artist_id": "andre_lovett_band",
+      "artist_name": "Andre Lovett Band",
+      "aliases": [],
+      "genres": [
+        "Funk",
+        "Soul",
+        "Blues"
+      ],
+      "genre_primary": "Funk",
+      "style_summary": "A groove-forward local band built around New Orleans funk, soul, and blues energy.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "https://www.facebook.com/andrelovettmusic",
+        "youtube": "",
+        "spotify": "https://andrelovett.bandcamp.com/",
+        "reference_page": "https://andrelovett.bandcamp.com/"
+      },
+      "sources": [
+        {
+          "label": "Bandcamp",
+          "url": "https://andrelovett.bandcamp.com/",
+          "note": "Public tags include folk-pop and R&B/soul; used here with caution alongside current BMC bookings."
+        }
+      ],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Appears repeatedly in the current BMC lineup, especially Saturday afternoon slots, signaling a steady local live presence."
+    },
+    {
+      "artist_id": "better_late_than_jake",
+      "artist_name": "Better Late Than Jake",
+      "aliases": [],
+      "genres": [
+        "Soul",
+        "Acid Jazz"
+      ],
+      "genre_primary": "Soul",
+      "style_summary": "Local New Orleans band described publicly as soulful and groove-oriented with soul and acid jazz elements.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "https://www.facebook.com/p/Better-Late-Than-Jake-61570273043324/",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [
+        {
+          "label": "Facebook page snippet",
+          "url": "https://www.facebook.com/p/Better-Late-Than-Jake-61570273043324/",
+          "note": "Public snippet describes the band as dedicated to playing soulful, groove-oriented soul/acid jazz."
+        }
+      ],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Public listings describe the band as soulful and groove-oriented; they recur often in BMC Sunday evening slots."
+    },
+    {
+      "artist_id": "big_mike_and_the_r_and_b_kings",
+      "artist_name": "Big Mike & The R&B Kings",
+      "aliases": [],
+      "genres": [
+        "Blues",
+        "Funk",
+        "Soul",
+        "Rock",
+        "Jazz"
+      ],
+      "genre_primary": "Blues",
+      "style_summary": "Polished blues band with funk, soul, rock, and jazz elements; the official site also mentions country and Latin grooves in the broader live mix.",
+      "verification_status": "verified",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "https://bigmikeandtherbkings.com/about-big-mike",
+        "instagram": "https://www.instagram.com/bigmikeandtherbkings/",
+        "facebook": "https://www.facebook.com/bigmikeandtherbkings/",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [
+        {
+          "label": "Official artist site",
+          "url": "https://bigmikeandtherbkings.com/about-big-mike",
+          "note": "Official site describes the band as a polished blues band and lists styles including rock, jazz, blues, funk, soul, country, and Latin grooves."
+        },
+        {
+          "label": "Instagram bio snippet",
+          "url": "https://www.instagram.com/bigmikeandtherbkings/",
+          "note": "Instagram snippet describes the group as one of the few Contemporary/NuBlues bands in New Orleans."
+        }
+      ],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Official materials note festival-level blues credentials and broad stylistic range across blues, soul, funk, and related grooves."
+    },
+    {
+      "artist_id": "dapper_dandies",
+      "artist_name": "Dapper Dandies",
+      "aliases": [],
+      "genres": [
+        "Swing",
+        "Jazz"
+      ],
+      "genre_primary": "Swing",
+      "style_summary": "Throwback dance-band energy with a swing and jazz lean.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Frequently appears in BMC Thursday early-evening slots."
+    },
+    {
+      "artist_id": "dave_pareti",
+      "artist_name": "Dave Pareti",
+      "aliases": [],
+      "genres": [
+        "Jazz"
+      ],
+      "genre_primary": "Jazz",
+      "style_summary": "A jazz-leaning local booking used in BMC afternoon sets.",
+      "verification_status": "provisional",
+      "genre_confidence": "low",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Booked on the current BMC shows page for Friday afternoon."
+    },
+    {
+      "artist_id": "deej_and_mother_ruckus",
+      "artist_name": "Deej & Mother Ruckus",
+      "aliases": [],
+      "genres": [
+        "Reggae",
+        "Funk",
+        "Roots"
+      ],
+      "genre_primary": "Reggae",
+      "style_summary": "A looser roots-and-groove version of Mother Ruckus with reggae and funk tendencies.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Appears frequently in Sunday afternoon BMC slots."
+    },
+    {
+      "artist_id": "dizzy",
+      "artist_name": "Dizzy",
+      "aliases": [],
+      "genres": [
+        "Jazz",
+        "Brunch Set"
+      ],
+      "genre_primary": "Jazz",
+      "style_summary": "A daytime/brunch-style booking in the current BMC calendar.",
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Currently listed on a Sunday noon slot; fuller public profile still needs review."
+    },
+    {
+      "artist_id": "ed_wills",
+      "artist_name": "Ed Wills",
+      "aliases": [],
+      "genres": [
+        "Blues"
+      ],
+      "genre_primary": "Blues",
+      "style_summary": "Road-tested blues guitarist and bandleader with a traditional electric blues core.",
+      "verification_status": "verified",
+      "genre_confidence": "high",
+      "links": {
+        "artist_site": "https://edwillsblues4sale.com/",
+        "instagram": "",
+        "facebook": "https://www.facebook.com/edwillsmusic/",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://edwillsblues4sale.com/"
+      },
+      "sources": [
+        {
+          "label": "Official artist site",
+          "url": "https://edwillsblues4sale.com/",
+          "note": "Official biography notes the band formation, touring, and festival history."
+        }
+      ],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Public materials note Blues 4 Sale roots dating back to 2002 and touring across the U.S., Europe, Canada, and South America."
+    },
+    {
+      "artist_id": "j_a_m_brass_band",
+      "artist_name": "J.A.M Brass Band",
+      "aliases": [],
+      "genres": [
+        "Brass Band",
+        "Funk",
+        "Jazz",
+        "R&B",
+        "New Orleans"
+      ],
+      "genre_primary": "Brass Band",
+      "style_summary": "A modern New Orleans brass band mixing parade energy with funk, jazz, and R&B.",
+      "verification_status": "verified",
+      "genre_confidence": "high",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://www.wwoz.org/programs/inthestreet/brass-band/jam-brass-band"
+      },
+      "sources": [
+        {
+          "label": "WWOZ artist page",
+          "url": "https://www.wwoz.org/programs/inthestreet/brass-band/jam-brass-band",
+          "note": "WWOZ categorizes the band under brass band, funk, jazz, New Orleans, and R&B."
+        }
+      ],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Recurring Sunday night BMC booking; WWOZ tags the act across brass band, funk, jazz, New Orleans, and R&B."
+    },
+    {
+      "artist_id": "john_lisi_and_delta_funk",
+      "artist_name": "John Lisi & Delta Funk",
+      "aliases": [],
+      "genres": [
+        "Blues",
+        "Funk"
+      ],
+      "genre_primary": "Blues",
+      "style_summary": "Slammin’ New Orleans blues with a thick funk pulse.",
+      "verification_status": "verified",
+      "genre_confidence": "high",
+      "links": {
+        "artist_site": "https://www.johnlisi.com/",
+        "instagram": "",
+        "facebook": "https://www.facebook.com/johnlisimusic/",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://www.johnlisi.com/"
+      },
+      "sources": [
+        {
+          "label": "Official artist site",
+          "url": "https://www.johnlisi.com/",
+          "note": "Official site describes John Lisi & Delta Funk as New Orleans blues-funk."
+        }
+      ],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Official materials describe the act as New Orleans blues-funk and the band lands in BMC late Saturday slots."
+    },
+    {
+      "artist_id": "johnny_mastro",
+      "artist_name": "Johnny Mastro",
+      "aliases": [],
+      "genres": [
+        "Blues"
+      ],
+      "genre_primary": "Blues",
+      "style_summary": "Heavy electric blues from a veteran bandleader and songwriter.",
+      "verification_status": "verified",
+      "genre_confidence": "high",
+      "links": {
+        "artist_site": "https://www.johnnymastro.com/",
+        "instagram": "",
+        "facebook": "https://www.facebook.com/johnnymastro/",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://www.johnnymastro.com/"
+      },
+      "sources": [
+        {
+          "label": "Official artist site",
+          "url": "https://www.johnnymastro.com/",
+          "note": "Official biography frames Johnny Mastro as a veteran blues musician and bandleader."
+        }
+      ],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Official artist materials describe Johnny Mastro as a longtime blues musician, bandleader, producer, and songwriter."
+    },
+    {
+      "artist_id": "kat_kiley_experience",
+      "artist_name": "Kat Kiley Experience",
+      "aliases": [],
+      "genres": [
+        "Soul",
+        "Blues",
+        "Roots"
+      ],
+      "genre_primary": "Soul",
+      "style_summary": "A powerhouse singer-songwriter set with roots, soul, and blues weight.",
+      "verification_status": "verified",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "https://www.katkiley.com/",
+        "instagram": "https://www.instagram.com/katkiley/",
+        "facebook": "https://www.facebook.com/katkiley",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://www.katkiley.com/"
+      },
+      "sources": [
+        {
+          "label": "Official artist site",
+          "url": "https://www.katkiley.com/",
+          "note": "Official bio describes her performance history and multi-instrumentalist/songwriter profile."
+        }
+      ],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Kat Kiley’s public bio describes her as a songwriter, multi-instrumentalist, and vocalist who has performed internationally, including Beale Street and London’s O2 Academy Islington."
+    },
+    {
+      "artist_id": "leroy_marshall_band",
+      "artist_name": "Leroy Marshall Band",
+      "aliases": [],
+      "genres": [
+        "Soul",
+        "R&B",
+        "Jazz"
+      ],
+      "genre_primary": "Soul",
+      "style_summary": "A smooth local soul and jazz-leaning live band.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "https://www.leroymarshallband.com/",
+        "instagram": "https://www.instagram.com/lc.smoove/",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://www.leroymarshallband.com/"
+      },
+      "sources": [
+        {
+          "label": "Band site",
+          "url": "https://www.leroymarshallband.com/",
+          "note": "Used for broad performance framing."
+        }
+      ],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Public band pages and venue listings connect Leroy Marshall to soul, jazz, and polished club-band work."
+    },
+    {
+      "artist_id": "maurice_cade_and_ess",
+      "artist_name": "Maurice Cade & ESS",
+      "aliases": [],
+      "genres": [
+        "Funk",
+        "Soul",
+        "R&B"
+      ],
+      "genre_primary": "Funk",
+      "style_summary": "A New Orleans funk-and-soul stage show with R&B crossover energy.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Appears repeatedly in BMC prime-time and happy-hour adjacent slots."
+    },
+    {
+      "artist_id": "michael_lobue_quartet",
+      "artist_name": "Michael Lobue Quartet",
+      "aliases": [],
+      "genres": [
+        "Jazz"
+      ],
+      "genre_primary": "Jazz",
+      "style_summary": "Straight-ahead quartet-format jazz for dinner-hour listening.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Booked by BMC in an early evening Wednesday slot."
+    },
+    {
+      "artist_id": "mother_ruckus",
+      "artist_name": "Mother Ruckus",
+      "aliases": [],
+      "genres": [
+        "Reggae",
+        "Funk",
+        "Roots"
+      ],
+      "genre_primary": "Reggae",
+      "style_summary": "A rootsy live act with reggae and funk pull.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Shows up repeatedly in BMC Saturday evening slots and in the Deej & Mother Ruckus variation on Sundays."
+    },
+    {
+      "artist_id": "munk_and_the_rabbi",
+      "artist_name": "Munk & The Rabbi",
+      "aliases": [],
+      "genres": [
+        "Acoustic",
+        "Roots"
+      ],
+      "genre_primary": "Acoustic",
+      "style_summary": "A compact early-evening roots/acoustic booking.",
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Currently used in Thursday 5 PM openings at BMC; fuller public profile still needs review."
+    },
+    {
+      "artist_id": "r_and_r_smokin_foundation",
+      "artist_name": "R&R Smokin' Foundation",
+      "aliases": [],
+      "genres": [
+        "Funk",
+        "Soul",
+        "R&B"
+      ],
+      "genre_primary": "Funk",
+      "style_summary": "A high-energy New Orleans groove band with funk and soul emphasis.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Used in BMC Friday late-night slots."
+    },
+    {
+      "artist_id": "river_rock",
+      "artist_name": "River Rock",
+      "aliases": [],
+      "genres": [
+        "Rock",
+        "Classic Rock"
+      ],
+      "genre_primary": "Rock",
+      "style_summary": "A rock-driven live set positioned in the current Saturday early-evening slot.",
+      "verification_status": "provisional",
+      "genre_confidence": "low",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Currently listed on the BMC shows page; fuller public profile still needs review."
+    },
+    {
+      "artist_id": "rumpshakers",
+      "artist_name": "Rumpshakers",
+      "aliases": [],
+      "genres": [
+        "Roots Rock",
+        "Blues",
+        "Rock and Roll"
+      ],
+      "genre_primary": "Roots Rock",
+      "style_summary": "High-energy roots music with blues and early rock ’n’ roll snap.",
+      "verification_status": "verified",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://www.eventbrite.com/"
+      },
+      "sources": [
+        {
+          "label": "Public event listing",
+          "url": "https://www.eventbrite.com/",
+          "note": "Used for the public description of the band as roots music with blues and early rock and roll influence."
+        }
+      ],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Public event listings describe the act as high-energy roots music inspired by blues and early rock ’n’ roll."
+    },
+    {
+      "artist_id": "scratch_and_dent",
+      "artist_name": "Scratch & Dent",
+      "aliases": [],
+      "genres": [
+        "Indie Rock",
+        "Alternative"
+      ],
+      "genre_primary": "Indie Rock",
+      "style_summary": "An indie/alternative live band used in BMC Friday afternoon slots.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Local venue listings tag the act as indie rock."
+    },
+    {
+      "artist_id": "sierra_green",
+      "artist_name": "Sierra Green",
+      "aliases": [],
+      "genres": [
+        "Soul",
+        "Blues",
+        "R&B"
+      ],
+      "genre_primary": "Soul",
+      "style_summary": "A rising New Orleans soul-blues singer with a gritty, powerful vocal lead.",
+      "verification_status": "verified",
+      "genre_confidence": "high",
+      "links": {
+        "artist_site": "",
+        "instagram": "https://www.instagram.com/sierragreenmusic/",
+        "facebook": "https://www.facebook.com/sierragreenmusic/",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://www.livingblues.com/"
+      },
+      "sources": [
+        {
+          "label": "Living Blues feature",
+          "url": "https://www.livingblues.com/",
+          "note": "Public feature frames Sierra Green as a rising New Orleans soul/blues singer."
+        },
+        {
+          "label": "Crescent City Sounds feature",
+          "url": "https://nolalibrary.org/article-crescent-city-sounds-sierra-green/",
+          "note": "Public library feature describes Sierra Green as a New Orleans native and Frenchmen fixture."
+        }
+      ],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Public features describe Sierra Green as a New Orleans native and Frenchmen Street fixture with a strong local live profile."
+    },
+    {
+      "artist_id": "t_marie_and_bayou_juju",
+      "artist_name": "T Marie & Bayou Juju",
+      "aliases": [],
+      "genres": [
+        "Cajun",
+        "Creole",
+        "Zydeco",
+        "Swamp Pop",
+        "Country",
+        "Blues",
+        "New Orleans"
+      ],
+      "genre_primary": "Cajun",
+      "style_summary": "A Louisiana dance-floor blend of Cajun, Creole, Zydeco, swamp pop, country, blues, and New Orleans classics.",
+      "verification_status": "verified",
+      "genre_confidence": "high",
+      "links": {
+        "artist_site": "https://www.tmarieandbayoujuju.com/",
+        "instagram": "",
+        "facebook": "https://www.facebook.com/tmarieandbayoujuju/",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": "https://www.tmarieandbayoujuju.com/"
+      },
+      "sources": [
+        {
+          "label": "Official artist site",
+          "url": "https://www.tmarieandbayoujuju.com/",
+          "note": "Official materials list the band’s Cajun/Creole/Zydeco/swamp pop/country/blues/New Orleans mix."
+        }
+      ],
+      "notes": "Genre and links still need verification.",
+      "performance_history": "Public band materials describe the act as a wide Louisiana roots blend built for live dancing."
+    },
+    {
+      "artist_id": "under_the_covers",
+      "artist_name": "Under the Covers",
+      "aliases": [],
+      "genres": [
+        "Cover Band",
+        "Pop",
+        "Rock"
+      ],
+      "genre_primary": "Cover Band",
+      "style_summary": "A covers-focused party band built around familiar singalong material.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "BMC uses the act in Wednesday late-night slots."
+    },
+    {
+      "artist_id": "willie_s_blues_extravaganza",
+      "artist_name": "Willie's Blues Extravaganza",
+      "aliases": [],
+      "genres": [
+        "Blues"
+      ],
+      "genre_primary": "Blues",
+      "style_summary": "A blues-heavy closing set under Willie’s banner.",
+      "verification_status": "provisional",
+      "genre_confidence": "medium",
+      "links": {
+        "artist_site": "",
+        "instagram": "",
+        "facebook": "",
+        "youtube": "",
+        "spotify": "",
+        "reference_page": ""
+      },
+      "sources": [],
+      "notes": "Genres sourced from the listed public/official source(s).",
+      "performance_history": "Used on the current BMC calendar as a late-night Wednesday closer."
+    }
+  ]
+}

@@ -1,0 +1,1180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balcony Music Club • JazzyCat</title>
+  <style>
+    html,body{margin:0;padding:0;min-height:100%;background:#0b0613}
+    body{font-family:Geneva,Verdana,Arial,sans-serif;overflow-x:hidden;color:#fff6e8}
+    #bmc90-root{
+      --panel:#211037;
+      --panel2:#2f164b;
+      --ink:#fff6e8;
+      --muted:#eadcf0;
+      --gold:#ffd857;
+      --pink:#ff4ab0;
+      --cyan:#5ee6ff;
+      --green:#7df07a;
+      --ui-font: Chicago, Charcoal, Geneva, "Arial Rounded MT Bold", Verdana, sans-serif;
+      --body-font: Geneva, Verdana, Arial, sans-serif;
+      position:relative;
+      min-height:100vh;
+      padding:16px 0 36px;
+      overflow:hidden;
+      background:#0b0613;
+      border-top:2px solid #000;
+      border-bottom:2px solid #000;
+      box-shadow:0 12px 0 rgba(8,4,18,.75);
+      isolation:isolate;
+    }
+    *{box-sizing:border-box}
+    .bg-rotator,.bg-rotator::before,.bg-rotator::after{
+      position:absolute;inset:0;z-index:0;pointer-events:none
+    }
+    .bg-rotator::before,.bg-rotator::after{content:"";background-position:center top;background-repeat:repeat;background-size:420px auto;mix-blend-mode:screen;opacity:.27}
+    .bg-rotator::before{background-image:url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExamo0dGM5cmY2Z3FiZmd0dDRjdWRzZHdrdnZuc2tha2pqdXdyYzY5eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KJEm3H7qTSz7Qr5wrD/giphy.gif");animation:bgSwapA 16s linear infinite}
+    .bg-rotator::after{background-image:url("./assets/new_orleans_8bit_bar_music.gif");animation:bgSwapB 16s linear infinite}
+    @keyframes bgSwapA{0%,44%{opacity:.26}50%,94%{opacity:0}100%{opacity:.26}}
+    @keyframes bgSwapB{0%,44%{opacity:0}50%,94%{opacity:.24}100%{opacity:0}}
+    #bmc90-root::before{
+      content:"";position:absolute;inset:0;z-index:0;
+      background:
+        linear-gradient(rgba(8,4,14,.88), rgba(8,4,14,.73)),
+        radial-gradient(circle at 12% 15%, rgba(255,74,176,.17), transparent 22%),
+        radial-gradient(circle at 86% 14%, rgba(94,230,255,.18), transparent 18%),
+        radial-gradient(circle at 52% 100%, rgba(255,216,87,.10), transparent 28%);
+    }
+    #bmc90-root::after{
+      content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:linear-gradient(rgba(255,255,255,.04), rgba(255,255,255,0) 2px);
+      background-size:100% 4px;opacity:.48
+    }
+    .bg-art{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.24}
+    .bg-art img{position:absolute;display:block;object-fit:cover;filter:saturate(1.08) contrast(1.03) drop-shadow(0 10px 30px rgba(0,0,0,.35))}
+    .bg-a{right:-2%;top:4%;width:min(46vw,560px);aspect-ratio:16/9;border:2px solid rgba(255,216,87,.30)}
+    .bg-b{left:-3%;bottom:8%;width:min(40vw,470px);aspect-ratio:4/5;border:2px solid rgba(94,230,255,.24)}
+
+    .bmc90-wrap{position:relative;z-index:1;width:min(1220px, calc(100vw - 16px));margin:0 auto}
+    .bmc90-topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:6px 0 12px}
+    .bmc90-brand,.bmc90-chip,.bmc90-badge,.bmc90-ribbon,.bmc90-window-title,.bmc90-btn,.bmc90-section-tab,.bmc90-marquee,.bmc90-status,.marquee-led,.bulb-strip{font-family:var(--ui-font);text-transform:uppercase;letter-spacing:.08em;font-weight:900}
+    .bmc90-brand{color:var(--gold);font-size:12px;text-shadow:1px 1px 0 #000}
+    .bmc90-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .bmc90-chip,.bmc90-panel,.bmc90-card,.bmc90-contact-strip,.bmc90-mini,.bmc90-facts,.bmc90-schedule,.bmc90-menu,.bmc90-menu-grid,.cocktail-card,.marquee-shell{border:2px solid #000;box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.55), 0 6px 0 rgba(10,4,20,.68)}
+    .bmc90-chip{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 14px;background:linear-gradient(180deg,#4c1f7e 0%,#2d1248 100%);color:#fff6e8;text-decoration:none;font-size:11px;text-shadow:1px 1px 0 #000}
+    .bmc90-window{border:2px solid #000;background:#1a0c2e;box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.58), 0 12px 0 rgba(8,4,18,.75);overflow:hidden}
+    .bmc90-windowbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;border-bottom:2px solid #000;background:linear-gradient(90deg,#7f2cc9 0%,#d03ea8 38%,#3b78ff 100%);color:#fff7d6;text-shadow:1px 1px 0 #000}
+    .bmc90-window-left{display:flex;align-items:center;gap:6px}
+    .bmc90-dot{width:14px;height:14px;background:#dbd7df;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.7), inset -1px -1px 0 rgba(0,0,0,.4)}
+    .bmc90-window-title{font-size:12px}
+    .bmc90-panel,.bmc90-card,.bmc90-contact-strip,.bmc90-facts,.bmc90-schedule,.bmc90-menu{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),linear-gradient(180deg,var(--panel2),var(--panel));position:relative}
+
+    .marquee-shell{position:relative;margin:6px 0 18px;padding:14px 16px 18px;background:linear-gradient(180deg,#754200 0%,#4b2500 100%);border-radius:18px;box-shadow:0 16px 0 rgba(16,8,18,.6), 0 0 0 4px rgba(255,216,87,.14)}
+    .bulb-strip{position:absolute;inset:8px;pointer-events:none}
+    .bulb-strip::before,.bulb-strip::after,.marquee-shell::before,.marquee-shell::after{content:"";position:absolute;left:8px;right:8px;height:12px;background:
+      radial-gradient(circle, #fff9c6 0 28%, rgba(255,216,87,.95) 29% 46%, rgba(255,216,87,.28) 47% 100%) 0 0/34px 12px repeat-x;
+      filter:drop-shadow(0 0 6px rgba(255,216,87,.7));animation:bulbPulse 1.3s steps(2) infinite}
+    .bulb-strip::before{top:0}
+    .bulb-strip::after{bottom:0}
+    .marquee-shell::before,.marquee-shell::after{top:18px;bottom:18px;width:12px;height:auto;left:8px;right:auto;background:radial-gradient(circle, #fff9c6 0 28%, rgba(255,216,87,.95) 29% 46%, rgba(255,216,87,.28) 47% 100%) 0 0/12px 34px repeat-y}
+    .marquee-shell::after{left:auto;right:8px}
+    @keyframes bulbPulse{0%,100%{opacity:1}50%{opacity:.74}}
+    .marquee-led{position:relative;z-index:1;padding:24px 26px 18px;border-radius:14px;border:2px solid #000;background:linear-gradient(180deg,#2a0938 0%, #180725 100%);text-align:center;box-shadow:inset 0 0 0 3px rgba(94,230,255,.7), 0 0 0 2px rgba(0,0,0,.45)}
+    .marquee-led .mini{display:block;font-size:12px;color:#ffd857;text-shadow:0 0 8px rgba(255,216,87,.85),1px 1px 0 #000;margin-bottom:10px}
+    .marquee-led .big{display:block;font-size:clamp(28px,5.5vw,70px);line-height:.95;color:#ffe67e;text-shadow:0 0 10px rgba(255,216,87,.78), 0 0 20px rgba(255,74,176,.35), 3px 3px 0 #000}
+    .marquee-led .sub{display:block;font-size:13px;color:#5ee6ff;text-shadow:0 0 8px rgba(94,230,255,.7),1px 1px 0 #000;margin-top:10px}
+
+    .bmc90-hero{padding:8px 0 18px}
+    .bmc90-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;padding:20px}
+    .bmc90-copy{display:flex;flex-direction:column;justify-content:center}
+    .bmc90-badge{display:inline-flex;width:fit-content;min-height:34px;align-items:center;justify-content:center;padding:8px 12px;background:#34145d;color:var(--gold);font-size:11px;margin-bottom:12px;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.45);text-shadow:1px 1px 0 #000}
+    h1,h2,h3{margin:0;line-height:.97;text-transform:uppercase;letter-spacing:-.03em;font-family:var(--ui-font);color:#fff1cb;text-shadow:2px 2px 0 #000}
+    h1{font-size:clamp(34px,5.2vw,70px)}
+    h2{font-size:clamp(24px,3vw,38px)}
+    h3{font-size:clamp(18px,2vw,28px)}
+    p,li,.bmc90-mini span,.bmc90-contact-box,.bmc90-line{font-size:15px;line-height:1.58;font-family:var(--body-font)}
+    .bmc90-copy p{max-width:720px;color:var(--muted);margin:14px 0 0}
+    .bmc90-hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .bmc90-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 18px;border:2px solid #000;text-decoration:none;font-size:12px;cursor:pointer;box-shadow:inset 2px 2px 0 rgba(255,255,255,.22), inset -2px -2px 0 rgba(0,0,0,.55), 0 5px 0 rgba(10,4,18,.76)}
+    .bmc90-btn-primary{background:linear-gradient(180deg,#ff89cf 0%,#ff4ab0 45%,#b31e78 100%);color:#fff7e0;text-shadow:1px 1px 0 #000}
+    .bmc90-btn-secondary{background:linear-gradient(180deg,#9bf6ff 0%,#5ee6ff 45%,#1e86a8 100%);color:#171026}
+    .bmc90-marquee{margin-top:14px;padding:10px 12px;border:2px dashed var(--gold);color:#fff1cb;background:rgba(0,0,0,.18);font-size:11px;text-shadow:1px 1px 0 #000}
+    .bmc90-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+    .bmc90-mini{background:rgba(255,255,255,.05);padding:14px;min-height:146px}
+    .bmc90-mini strong,.bmc90-contact-box strong,.bmc90-section-tab,.fact-card strong,.schedule-day strong,.menu-blurb strong,.cocktail-card strong{display:block;margin-bottom:8px;font-size:16px;line-height:1.24;font-family:var(--ui-font);text-transform:uppercase;color:#fff1cb;text-shadow:1px 1px 0 #000}
+    .bmc90-mini span{color:var(--muted);font-size:14px;line-height:1.5}
+    .bmc90-section{padding:18px 0 0}
+    .bmc90-ribbon{display:inline-flex;align-items:center;min-height:32px;padding:8px 12px;margin-bottom:10px;background:linear-gradient(180deg,#ffe57a 0%,#d6a926 100%);color:#241028;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.32), inset -1px -1px 0 rgba(0,0,0,.28), 0 4px 0 rgba(10,4,18,.65);font-size:11px}
+    .bmc90-head p{max-width:760px;color:var(--muted);margin:10px 0 0}
+    .bmc90-two-col{display:grid;grid-template-columns:1.02fr .98fr;gap:18px;margin-top:14px}
+    .bmc90-facts,.bmc90-schedule,.bmc90-menu{padding:16px}
+    .bmc90-fact-grid,.bmc90-menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .fact-card,.menu-blurb,.cocktail-card{padding:12px;background:rgba(255,255,255,.06);border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42)}
+    .fact-card span,.menu-blurb span,.cocktail-card span{display:block;color:var(--muted);font-size:14px;line-height:1.45}
+    .schedule-list{display:grid;gap:10px;margin-top:12px}
+    .schedule-day{padding:12px;background:rgba(0,0,0,.16);border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.10), inset -1px -1px 0 rgba(0,0,0,.42)}
+    .schedule-day ul{margin:0;padding-left:18px;color:var(--muted)}
+    .bmc90-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+    .bmc90-card img{width:100%;height:300px;object-fit:cover;display:block;border-bottom:2px solid #000}
+    .bmc90-card-body{padding:18px}
+    .bmc90-list{margin:16px 0 0;padding-left:18px;color:var(--muted)}
+    .bmc90-contact-strip{margin-top:18px;padding:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .bmc90-contact-box{background:rgba(255,255,255,.05);padding:14px;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42)}
+    .bmc90-contact-box a{color:var(--cyan);text-decoration:none;word-break:break-word}
+    .bmc90-note{margin-top:16px;padding:14px;color:#eadcf0;background:rgba(255,255,255,.05);border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.18), inset -1px -1px 0 rgba(0,0,0,.42);font-size:14px;line-height:1.55}
+    .cocktail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .cocktail-card em{display:block;color:#5ee6ff;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.07em;margin-top:8px}
+
+    #sprite-layer{position:fixed;inset:0;pointer-events:none;z-index:5}
+    .corner-cat{position:fixed;width:80px;height:80px;background:url('./assets/jazzycat-sprite-sheet.png') 0 0/320px 80px no-repeat;image-rendering:pixelated;filter:drop-shadow(0 10px 16px rgba(0,0,0,.42));opacity:.93;animation:catFrames .92s steps(4) infinite;pointer-events:auto;cursor:pointer}
+    .corner-cat::after{content:attr(data-label);position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);background:linear-gradient(180deg,#ffe57a,#d6a926);color:#231029;padding:3px 7px;border:2px solid #000;font:900 10px/1 Chicago,Geneva,Verdana,sans-serif;text-transform:uppercase;opacity:0;transition:opacity .18s;white-space:nowrap}
+    .corner-cat:hover::after{opacity:1}
+    .corner-1{top:72px;right:16px;animation:catFrames .92s steps(4) infinite, driftA 18s ease-in-out infinite}
+    .corner-2{bottom:18px;left:12px;transform:scale(.92);animation:catFrames .92s steps(4) infinite, driftB 22s ease-in-out infinite}
+    .corner-3{top:14px;left:54%;transform:scale(.76);animation:catFrames .92s steps(4) infinite, driftC 20s ease-in-out infinite}
+    @keyframes catFrames{from{background-position:0 0}to{background-position:-320px 0}}
+    @keyframes driftA{0%,100%{transform:translate(0,0)}50%{transform:translate(-10px,14px)}}
+    @keyframes driftB{0%,100%{transform:translate(0,0) scale(.92)}50%{transform:translate(12px,-10px) scale(.98)}}
+    @keyframes driftC{0%,100%{transform:translate(0,0) scale(.76)}50%{transform:translate(8px,10px) scale(.82)}}
+
+    #jazzycat-pet{position:fixed;left:36px;top:120px;width:118px;height:106px;z-index:9998;pointer-events:none;touch-action:none;user-select:none;will-change:transform}
+    #jazzycat-hitbox{position:absolute;inset:0;appearance:none;background:none;border:none;padding:0;margin:0;cursor:grab;pointer-events:auto;outline:none}
+    #jazzycat-hitbox:active{cursor:grabbing}
+    .jc-shadow{position:absolute;left:18px;right:10px;bottom:3px;height:12px;background:radial-gradient(ellipse at center, rgba(0,0,0,.55), rgba(0,0,0,0) 72%);filter:blur(1px);opacity:.78;transform-origin:center center}
+    .jc-sprite{position:absolute;inset:0;background:url('./assets/jazzycat-sprite-sheet.png') 0 0/472px 106px no-repeat;image-rendering:pixelated;filter:drop-shadow(0 4px 0 rgba(0,0,0,.28));animation:petFrames .9s steps(4) infinite}
+    @keyframes petFrames{from{background-position:0 0}to{background-position:-472px 0}}
+    #jazzycat-bubble{position:fixed;max-width:290px;padding:10px 12px;background:linear-gradient(180deg,#fffce8 0%,#f4efcc 100%);color:#241028;border:2px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.7), inset -1px -1px 0 rgba(0,0,0,.18), 0 6px 0 rgba(0,0,0,.22);z-index:9999;font:700 12px/1.45 Chicago, Geneva, Verdana, sans-serif;text-transform:uppercase;letter-spacing:.03em;pointer-events:none;opacity:0;transform:translateY(8px);transition:opacity .18s ease, transform .18s ease}
+    #jazzycat-bubble.show{opacity:1;transform:translateY(0)}
+    #jazzycat-bubble::after{content:"";position:absolute;left:18px;bottom:-12px;border-width:12px 10px 0 0;border-style:solid;border-color:#000 transparent transparent transparent}
+    #jazzycat-bubble::before{content:"";position:absolute;left:20px;bottom:-8px;border-width:10px 8px 0 0;border-style:solid;border-color:#f4efcc transparent transparent transparent;z-index:1}
+
+    #jazzycat-helper{position:relative;width:100%;margin:16px 0 20px;z-index:20;border:2px solid #000;background:#c0c0c0;box-shadow:8px 8px 0 rgba(0,0,0,.28);font-family:Geneva,Verdana,Arial,sans-serif}
+    #jazzycat-helper.is-hidden{display:block}
+    .jc-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 8px;color:#fff;background:linear-gradient(90deg,#0a246a 0%,#1451c6 55%,#0a246a 100%);border-bottom:2px solid #000;font:700 12px/1 Chicago, Geneva, Verdana, sans-serif;text-transform:uppercase;letter-spacing:.06em;user-select:none}
+    .jc-bar-left{display:flex;align-items:center;gap:6px;min-width:0}.jc-bar-dot{width:12px;height:12px;background:#d7d7d7;border:1px solid #000;box-shadow:inset 1px 1px 0 rgba(255,255,255,.65), inset -1px -1px 0 rgba(0,0,0,.35)}
+    .jc-bar-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .jc-close{display:none}
+    .jc-inner{padding:10px;background:#c0c0c0}.jc-intro{padding:8px 10px;background:#111;color:#79ffcb;border-top:2px solid #5c5c5c;border-left:2px solid #5c5c5c;border-right:2px solid #000;border-bottom:2px solid #000;font:700 12px/1.45 "Courier New", monospace;margin-bottom:8px}
+    .jc-quick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.jc-q,.jc-send,.jc-open{appearance:none;border:none;background:#c0c0c0;color:#111;padding:7px 8px;cursor:pointer;border-top:2px solid #fff;border-left:2px solid #fff;border-right:2px solid #333;border-bottom:2px solid #333;font:700 11px/1.1 Chicago, Geneva, Verdana, sans-serif;text-transform:uppercase}
+    .jc-q:active,.jc-send:active,.jc-open:active,.jc-close:active{border-top:2px solid #333;border-left:2px solid #333;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translate(1px,1px)}
+    .jc-log{min-height:220px;max-height:320px;overflow:auto;padding:10px;background:#050505;color:#d7ffe8;border-top:2px solid #5c5c5c;border-left:2px solid #5c5c5c;border-right:2px solid #000;border-bottom:2px solid #000;font:700 12px/1.5 "Courier New", monospace;scroll-behavior:smooth}
+    .jc-msg{margin:0 0 10px;white-space:pre-wrap;animation:jcFadeIn .18s ease}@keyframes jcFadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+    .jc-msg.user{color:#9be6ff}.jc-msg.bot{color:#e9ffd0}.jc-msg.bot strong{color:#ffe16b}.jc-msg.typing{color:#888;font-style:italic}
+    .jc-cursor{display:inline-block;width:8px;height:13px;background:#79ffcb;vertical-align:text-bottom;margin-left:2px;animation:jcBlink .7s step-end infinite}@keyframes jcBlink{0%,100%{opacity:1}50%{opacity:0}}
+    .jc-compose{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:8px}.jc-compose input{width:100%;min-width:0;padding:10px;background:#fff;color:#111;border-top:2px solid #333;border-left:2px solid #333;border-right:2px solid #fff;border-bottom:2px solid #fff;font:14px/1.2 Geneva, Verdana, Arial, sans-serif}
+    .jc-compose input:disabled{background:#e0e0e0;color:#888}.jc-send:disabled{opacity:.55;cursor:not-allowed;transform:none !important}
+    .jc-status{padding:4px 10px;font:700 10px/1 "Courier New", monospace;text-transform:uppercase;letter-spacing:.05em;color:#555;border-top:1px solid #999;background:#c0c0c0;display:flex;align-items:center;gap:6px;min-height:22px}
+    .jc-status-dot{width:7px;height:7px;border-radius:50%;background:#555;transition:background .3s}.jc-status-dot.thinking{background:#ffd857;animation:jcPulse 1s ease-in-out infinite}.jc-status-dot.ready{background:#7df07a}@keyframes jcPulse{0%,100%{opacity:1}50%{opacity:.35}}
+    .jc-note{position:fixed;z-index:9995;color:#ffe16b;font:900 18px/1 Chicago, Geneva, Verdana, sans-serif;text-shadow:0 0 8px rgba(255,216,87,.75);pointer-events:none;animation:jcNote 1.5s linear forwards}
+    @keyframes jcNote{0%{opacity:0;transform:translate(0,0) scale(.6)}12%{opacity:1}100%{opacity:0;transform:translate(var(--dx), var(--dy)) scale(1.18)}}
+
+    @media (max-width:980px){
+      .bmc90-hero-grid,.bmc90-two-col,.bmc90-cards,.bmc90-contact-strip{grid-template-columns:1fr}
+      .bmc90-mini-grid,.bmc90-fact-grid,.bmc90-menu-grid,.cocktail-grid{grid-template-columns:1fr 1fr}
+      .bg-a{width:min(58vw,520px)} .bg-b{width:min(48vw,420px)}
+    }
+    @media (max-width:680px){
+      #bmc90-root{padding:12px 0 30px}
+      .bg-rotator::before,.bg-rotator::after{background-size:280px auto}
+      .bmc90-wrap{width:calc(100vw - 12px)}
+      .bmc90-hero-grid,.bmc90-card-body,.bmc90-facts,.bmc90-schedule,.bmc90-menu{padding:14px}
+      .bmc90-mini-grid,.bmc90-fact-grid,.bmc90-menu-grid,.cocktail-grid{grid-template-columns:1fr}
+      .bmc90-card img{height:220px}
+      .bmc90-actions,.bmc90-hero-buttons{width:100%}
+      .bmc90-btn,.bmc90-chip{width:100%}
+      h1{font-size:clamp(28px,10vw,44px)} h2{font-size:clamp(22px,8vw,32px)}
+      .bmc90-brand{width:100%;font-size:11px}
+      .bg-art{opacity:.17}.bg-a{right:-16%;top:6%;width:78vw}.bg-b{left:-14%;bottom:10%;width:72vw}
+      #jazzycat-pet{width:92px;height:82px}.jc-sprite{background-size:368px 82px}
+      #jazzycat-helper{margin:12px 0 16px;width:100%;max-width:none}
+      .jc-compose{grid-template-columns:1fr}#jazzycat-bubble{max-width:220px;font-size:11px}
+      .corner-cat{width:64px;height:64px;background-size:256px 64px}.corner-3{display:none}
+      .marquee-led .big{font-size:clamp(24px,9vw,38px)}
+    }
+  </style>
+</head>
+<body>
+  <div id="bmc90-root">
+    <div class="bg-rotator" aria-hidden="true"></div>
+    <div class="bg-art" aria-hidden="true">
+      <img class="bg-a" src="./assets/jazzycat-bg-wide.webp" alt="" />
+      <img class="bg-b" src="./assets/jazzycat-poster.webp" alt="" />
+    </div>
+
+    <div class="bmc90-wrap">
+      <div class="bmc90-topbar">
+        <div class="bmc90-brand">Balcony Music Club • JazzyCat desktop • New Orleans • live guide</div>
+        <div class="bmc90-actions">
+          <a class="bmc90-chip" id="eventsChip" href="mailto:BMC@marullomgmt.com">Private Events</a>
+          <a class="bmc90-chip" id="paintChip" href="tel:+15042818736">Paint &amp; Sip</a>
+        </div>
+      </div>
+
+      <div class="marquee-shell">
+        <div class="bulb-strip"></div>
+        <div class="marquee-led">
+          <span class="mini">Balcony Music Club</span>
+          <span class="big">NO COVER • NO CHARGE</span>
+          <span class="sub">Founded 2011 • cocktails • THC seltzers • craft beer • live music</span>
+        </div>
+      </div>
+
+      <section id="jazzycat-helper" aria-label="JazzyCat helper window">
+        <div class="jc-bar">
+          <div class="jc-bar-left"><span class="jc-bar-dot"></span><span class="jc-bar-dot"></span><span class="jc-bar-dot"></span><span class="jc-bar-title">JAZZYCAT.EXE — CLUB GUIDE</span></div>
+          <button class="jc-close" id="jc-close" type="button">X</button>
+        </div>
+        <div class="jc-inner">
+          <div class="jc-intro" id="jc-intro">&gt; JazzyCat online.<br>&gt; Loading venue memory…</div>
+          <div class="jc-quick" id="jc-quick"></div>
+          <div class="jc-log" id="jc-log"><div class="jc-msg bot"><strong>JazzyCat:</strong> Meow. I’m moving the terminal to the top and loading the club files.</div></div>
+          <div class="jc-compose"><input id="jc-input" type="text" placeholder="Ask JazzyCat something." autocomplete="off" /><button class="jc-send" id="jc-send" type="button">Ask</button></div>
+          <div class="jc-status"><span class="jc-status-dot ready" id="jc-status-dot"></span><span id="jc-status-text">Loading</span></div>
+        </div>
+      </section>
+
+      <section class="bmc90-hero">
+        <div class="bmc90-window">
+          <div class="bmc90-windowbar">
+            <div class="bmc90-window-left"><span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span></div>
+            <div class="bmc90-window-title">JAZZYCAT.EXE</div>
+            <div class="bmc90-window-title" id="topStatus">LOADING</div>
+          </div>
+          <div class="bmc90-panel">
+            <div class="bmc90-hero-grid">
+              <div class="bmc90-copy">
+                <div class="bmc90-badge" id="badgeLine">Balcony Music Club</div>
+                <h1>Ask JazzyCat About Today’s Lineup, the Club, and the House Specials</h1>
+                <p id="heroSummary">Loading local venue knowledge…</p>
+                <div class="bmc90-hero-buttons">
+                  <button class="bmc90-btn bmc90-btn-primary" type="button" id="openHelperBtn">Open JazzyCat</button>
+                  <a class="bmc90-btn bmc90-btn-secondary" href="#menuPanel">See the House Menu</a>
+                </div>
+                <div class="bmc90-marquee" id="heroNote">French Quarter atmosphere loading…</div>
+              </div>
+              <div class="bmc90-mini-grid">
+                <div class="bmc90-mini"><strong>Founded in 2011</strong><span>Balcony Music Club opened in 2011 and keeps its own late-night identity.</span></div>
+                <div class="bmc90-mini"><strong>No Cover, No Charge</strong><span>Walk in, get a drink, and catch the room moving. No cover. No charge.</span></div>
+                <div class="bmc90-mini"><strong>Haunted Bar Energy</strong><span>The bar lives inside local haunted-history-tour conversation and ghost-story lore.</span></div>
+                <div class="bmc90-mini"><strong>Patio Backbar</strong><span>Fresh-made-to-order chicken paninis plus a drink program built around cocktails, THC seltzers, and craft beer.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bmc90-section">
+        <div class="bmc90-head">
+          <div class="bmc90-ribbon">Club history • house facts • the first things people ask</div>
+          <h2>The club story, the haunted side, and the no-cover promise</h2>
+          <p>Balcony Music Club opened in 2011, now publicly lists 504 Esplanade Avenue, carries a no-cover, no-charge spirit, shows up in haunted-tour lore, and keeps the courtyard backbar working with fresh-made-to-order chicken paninis.</p>
+        </div>
+
+        <div class="bmc90-two-col">
+          <div class="bmc90-window">
+            <div class="bmc90-windowbar">
+              <div class="bmc90-window-left"><span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span></div>
+              <div class="bmc90-window-title">FACTS_AND_SPECIALS.DAT</div>
+              <div class="bmc90-window-title">LOCAL</div>
+            </div>
+            <div class="bmc90-facts">
+              <div class="bmc90-section-tab">Club facts</div>
+              <div class="bmc90-fact-grid" id="factGrid"></div>
+            </div>
+          </div>
+
+          <div class="bmc90-window" id="schedulePanel">
+            <div class="bmc90-windowbar">
+              <div class="bmc90-window-left"><span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span></div>
+              <div class="bmc90-window-title">SCHEDULE_SNAPSHOT.SYS</div>
+              <div class="bmc90-window-title">OPEN</div>
+            </div>
+            <div class="bmc90-schedule">
+              <div class="bmc90-section-tab">Today + next loaded shows</div>
+              <div class="schedule-list" id="scheduleList"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bmc90-section" id="menuPanel">
+        <div class="bmc90-head">
+          <div class="bmc90-ribbon">House menu</div>
+          <h2>Specialty craft cocktails, THC seltzers, craft beer, and patio backbar bites</h2>
+          <p id="menuHeadline">Loading the house menu…</p>
+        </div>
+
+        <div class="bmc90-window">
+          <div class="bmc90-windowbar">
+            <div class="bmc90-window-left"><span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span></div>
+            <div class="bmc90-window-title">HOUSE_MENU.LST</div>
+            <div class="bmc90-window-title">READY</div>
+          </div>
+          <div class="bmc90-menu">
+            <div class="bmc90-section-tab">Menu categories</div>
+            <div class="bmc90-menu-grid" id="menuGrid"></div>
+            <div class="cocktail-grid" id="cocktailGrid"></div>
+            <div class="bmc90-note" id="menuMarketing">Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bmc90-section">
+        <div class="bmc90-head">
+          <div class="bmc90-ribbon">House guide</div>
+          <h2>JazzyCat can answer the questions people actually ask</h2>
+          <p>People usually want the same things fast: where the club came from, whether there is a cover, what the haunted angle is, what is on tonight, and what is being poured or pressed at the bar.</p>
+        </div>
+
+        <div class="bmc90-cards">
+          <article class="bmc90-card bmc90-window">
+            <div class="bmc90-windowbar">
+              <div class="bmc90-window-left"><span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span></div>
+              <div class="bmc90-window-title">VENUE_PROFILE.JPG</div>
+              <div class="bmc90-window-title">OPEN</div>
+            </div>
+            <img src="./assets/jazzycat-bg-wide.webp" alt="Balcony Music Club styled background art" />
+            <div class="bmc90-card-body">
+              <div class="bmc90-badge">History • no cover • haunted tours • menu</div>
+              <h3>Fast answers about the club</h3>
+              <p id="sidebarSummary">JazzyCat can answer venue basics from the local knowledge files and stay honest when something has not been loaded yet.</p>
+              <ul class="bmc90-list" id="quickList"></ul>
+            </div>
+          </article>
+
+          <article class="bmc90-card bmc90-window">
+            <div class="bmc90-windowbar">
+              <div class="bmc90-window-left"><span class="bmc90-dot"></span><span class="bmc90-dot"></span><span class="bmc90-dot"></span></div>
+              <div class="bmc90-window-title">POSTER_MODE.BMP</div>
+              <div class="bmc90-window-title">OPEN</div>
+            </div>
+            <img src="./assets/jazzycat-poster.webp" alt="Mardi Gras styled JazzyCat poster art" />
+            <div class="bmc90-card-body">
+              <div class="bmc90-badge">French Quarter glow • old stories • late-night flavor</div>
+              <h3>Old soul, live room</h3>
+              <p id="posterCaption">A brighter Mardi Gras frame around the older desktop-helper vibe.</p>
+              <div class="bmc90-note" id="marketingLine">Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move.</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="bmc90-contact-strip" id="contactStrip"></div>
+      </section>
+    </div>
+  </div>
+
+  <div id="sprite-layer" aria-hidden="true">
+    <button class="corner-cat corner-1" type="button" data-label="Tonight" data-prompt="What is happening tonight?"></button>
+    <button class="corner-cat corner-2" type="button" data-label="Cocktails" data-prompt="What kind of drinks do you have?"></button>
+    <button class="corner-cat corner-3" type="button" data-label="Brunch" data-prompt="When is Bloody Mary brunch?"></button>
+  </div>
+
+  <div id="jazzycat-pet">
+    <button id="jazzycat-hitbox" type="button" aria-label="Open JazzyCat"></button>
+    <div class="jc-shadow" id="jc-shadow"></div>
+    <div class="jc-sprite"></div>
+  </div>
+  <div id="jazzycat-bubble" aria-live="polite"></div>
+
+  <script>
+  (function(){
+    const VENUE_TZ = 'America/Chicago';
+    const state = {
+      knowledge: null,
+      schedule: null,
+      artists: null,
+      artistNames: [],
+      artistLookup: new Map(),
+      scheduleSourceLabel: 'Fallback snapshot',
+      liveScheduleLoaded: false
+    };
+
+    const pet = document.getElementById('jazzycat-pet');
+    const hitbox = document.getElementById('jazzycat-hitbox');
+    const shadow = document.getElementById('jc-shadow');
+    const bubble = document.getElementById('jazzycat-bubble');
+    const helper = document.getElementById('jazzycat-helper');
+    const log = document.getElementById('jc-log');
+    const input = document.getElementById('jc-input');
+    const send = document.getElementById('jc-send');
+    const statusDot = document.getElementById('jc-status-dot');
+    const statusTxt = document.getElementById('jc-status-text');
+    const topStatus = document.getElementById('topStatus');
+    const quickWrap = document.getElementById('jc-quick');
+    const intro = document.getElementById('jc-intro');
+    const openHelperBtn = document.getElementById('openHelperBtn');
+    let typingEl = null;
+    let bubbleTimer = null;
+    let isThinking = false;
+
+    async function loadJson(path){
+      const res = await fetch(path, { cache: 'no-store' });
+      if(!res.ok) throw new Error('Failed to load ' + path);
+      return res.json();
+    }
+
+    function escapeHtml(text){
+      return String(text ?? '').replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch]));
+    }
+
+    function normalizeText(text){
+      return String(text || '')
+        .toLowerCase()
+        .replace(/[’‘]/g, "'")
+        .replace(/&/g, ' and ')
+        .replace(/[^a-z0-9'\s-]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function tokenSet(text){
+      return new Set(normalizeText(text).split(' ').filter(Boolean));
+    }
+
+    function titleCase(text){
+      return String(text || '').toLowerCase().replace(/\b([a-z])/g, s => s.toUpperCase());
+    }
+
+    function setStatus(mode, text){
+      statusTxt.textContent = text;
+      statusDot.className = 'jc-status-dot ' + (mode === 'thinking' ? 'thinking' : 'ready');
+      if(topStatus) topStatus.textContent = mode === 'thinking' ? 'THINKING' : 'ONLINE';
+    }
+
+    function addLog(role, html){
+      const div = document.createElement('div');
+      div.className = 'jc-msg ' + role;
+      div.innerHTML = html;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+      return div;
+    }
+
+    function showTyping(){
+      typingEl = addLog('typing', 'JazzyCat is thinking<span class="jc-cursor"></span>');
+    }
+
+    function removeTyping(){
+      if(typingEl){ typingEl.remove(); typingEl = null; }
+    }
+
+    function positionBubble(){
+      const rect = pet.getBoundingClientRect();
+      const width = bubble.offsetWidth || 260;
+      let left = rect.left + rect.width + 10;
+      let top = rect.top + 4;
+      if(left + width > window.innerWidth - 12) left = Math.max(12, rect.left - width - 10);
+      if(top < 12) top = 12;
+      bubble.style.left = left + 'px';
+      bubble.style.top = top + 'px';
+    }
+
+    function say(text, persist){
+      bubble.textContent = text;
+      bubble.classList.add('show');
+      positionBubble();
+      if(bubbleTimer) clearTimeout(bubbleTimer);
+      if(!persist){
+        bubbleTimer = setTimeout(() => bubble.classList.remove('show'), 4200);
+      }
+    }
+
+    function emitNotes(count){
+      const rect = pet.getBoundingClientRect();
+      for(let i = 0; i < count; i++){
+        const n = document.createElement('div');
+        n.className = 'jc-note';
+        n.textContent = i % 2 ? '♪' : '♫';
+        n.style.left = (rect.left + rect.width * 0.65) + 'px';
+        n.style.top = (rect.top + 16) + 'px';
+        n.style.setProperty('--dx', (18 + Math.random() * 52) + 'px');
+        n.style.setProperty('--dy', (-20 - Math.random() * 70) + 'px');
+        document.body.appendChild(n);
+        setTimeout(() => n.remove(), 1500);
+      }
+    }
+
+    function focusHelper(){
+      helper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => input.focus(), 150);
+    }
+
+    function venueParts(date = new Date()){
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: VENUE_TZ,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        weekday: 'long',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      }).formatToParts(date);
+      const out = {};
+      parts.forEach(part => { if(part.type !== 'literal') out[part.type] = part.value; });
+      return out;
+    }
+
+    function venueIsoDate(date = new Date()){
+      const p = venueParts(date);
+      return `${p.year}-${p.month}-${p.day}`;
+    }
+
+    function venueWeekday(date = new Date()){
+      return venueParts(date).weekday;
+    }
+
+    function venueMinutesNow(date = new Date()){
+      const p = venueParts(date);
+      return Number(p.hour) * 60 + Number(p.minute);
+    }
+
+    function addDaysIso(iso, days){
+      const [y,m,d] = String(iso).split('-').map(Number);
+      const dt = new Date(Date.UTC(y, m - 1, d));
+      dt.setUTCDate(dt.getUTCDate() + days);
+      const yy = dt.getUTCFullYear();
+      const mm = String(dt.getUTCMonth() + 1).padStart(2, '0');
+      const dd = String(dt.getUTCDate()).padStart(2, '0');
+      return `${yy}-${mm}-${dd}`;
+    }
+
+    function formatDate(iso){
+      if(!iso) return '';
+      const dt = new Date(iso + 'T12:00:00Z');
+      if(Number.isNaN(dt.getTime())) return iso;
+      return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(dt);
+    }
+
+    function formatLongDate(iso){
+      if(!iso) return '';
+      const dt = new Date(iso + 'T12:00:00Z');
+      if(Number.isNaN(dt.getTime())) return iso;
+      return new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(dt);
+    }
+
+    function parseClockToMinutes(value){
+      if(!value) return null;
+      if(/close/i.test(value)) return 23 * 60 + 59;
+      const m = String(value).trim().match(/^(\d{1,2}):(\d{2})\s*([AP]M)$/i);
+      if(!m) return null;
+      let hour = Number(m[1]) % 12;
+      const mins = Number(m[2]);
+      const mer = m[3].toUpperCase();
+      if(mer === 'PM') hour += 12;
+      return hour * 60 + mins;
+    }
+
+    function buildArtistLookup(){
+      state.artistLookup = new Map();
+      state.artistNames = [];
+      const aliases = {
+        'jam brass band': 'J.A.M Brass Band',
+        'j a m brass band': 'J.A.M Brass Band',
+        'johnny maestro': 'Johnny Mastro',
+        'r and r smokin': "R&R Smokin' Foundation",
+        'r and r smokin foundation': "R&R Smokin' Foundation",
+        'r r smokin': "R&R Smokin' Foundation",
+        'big mike and rb kings': 'Big Mike & The R&B Kings',
+        'big mike and r b kings': 'Big Mike & The R&B Kings',
+        'big mike rb kings': 'Big Mike & The R&B Kings',
+        't marie': 'T Marie & Bayou Juju',
+        'willes blues extravaganza': "Willie's Blues Extravaganza",
+        'willes blues extravaganza': "Willie's Blues Extravaganza",
+        'munk': 'Munk & The Rabbi',
+        'alies': 'Aileis'
+      };
+      (state.artists?.artists || []).forEach(artist => {
+        state.artistNames.push(artist.artist_name);
+        [artist.artist_name, ...(artist.aliases || [])].forEach(name => {
+          const key = normalizeText(name);
+          if(key) state.artistLookup.set(key, artist.artist_name);
+        });
+      });
+      Object.entries(aliases).forEach(([alias, name]) => state.artistLookup.set(alias, name));
+    }
+
+    function cleanArtistText(raw){
+      let candidate = String(raw || '').replace(/\u00a0/g, ' ').trim();
+      if(!candidate) return '';
+      candidate = candidate.replace(/^Image:\s*/i, '').trim();
+      candidate = candidate.replace(/^\(|\)$/g, '').trim();
+      if(/special guest/i.test(candidate)) return 'Special Guest';
+      if(/promo photo/i.test(candidate)){
+        const parts = candidate.split(/promo photo/i).map(s => s.trim()).filter(Boolean);
+        candidate = parts[parts.length - 1] || candidate;
+      }
+      if(/thumbnail/i.test(candidate)){
+        const parts = candidate.split(/thumbnail/i).map(s => s.trim()).filter(Boolean);
+        candidate = parts[parts.length - 1] || candidate;
+      }
+      candidate = candidate.replace(/^[:\-–•]+/, '').trim();
+      const noise = [
+        'upcoming shows','balcony music club','join our mailing list for the latest news','instagram facebook',
+        'bmc radio','parade on esplanade','balcony music club signal','vol','some images','sign up'
+      ];
+      if(noise.includes(normalizeText(candidate))) return '';
+      const direct = state.artistLookup.get(normalizeText(candidate));
+      if(direct) return direct;
+      const norm = normalizeText(candidate);
+      let best = '';
+      let bestLen = 0;
+      for(const [alias, official] of state.artistLookup.entries()){
+        if(alias && norm.includes(alias) && alias.length > bestLen){ best = official; bestLen = alias.length; }
+      }
+      if(best) return best;
+      return candidate
+        .replace(/\bRb\b/g, 'R&B')
+        .replace(/\bJam\b/g, 'J.A.M')
+        .replace(/\bRumpshakers\b/i, 'Rumpshakers')
+        .replace(/\bRump Shakers\b/i, 'Rumpshakers')
+        .replace(/\bMunk\b/i, 'Munk & The Rabbi')
+        .replace(/\bT Marie\b/i, 'T Marie & Bayou Juju')
+        .replace(/\bJohnny Maestro\b/i, 'Johnny Mastro')
+        .replace(/\bWille.?s\b/i, "Willie's")
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function parseShowsHtml(html){
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const text = (doc.body?.innerText || doc.body?.textContent || html || '').replace(/\r/g, '');
+      const lines = text.split(/\n+/).map(line => line.trim()).filter(Boolean);
+      const monthMap = { january:1,february:2,march:3,april:4,may:5,june:6,july:7,august:8,september:9,october:10,november:11,december:12 };
+      let currentYear = new Date().getFullYear();
+      let currentMonth = null;
+      const parsed = [];
+      let day = null;
+
+      function finalize(){ if(day) parsed.push(day); }
+
+      for(let i = 0; i < lines.length; i++){
+        const line = lines[i];
+        const monthHeader = line.match(/^([A-Z]+)\s+(\d{4})\s+[•\-]/);
+        if(monthHeader){
+          const mm = monthMap[monthHeader[1].toLowerCase()];
+          if(mm) currentMonth = mm;
+          currentYear = Number(monthHeader[2]);
+          continue;
+        }
+        const dayHeader = line.match(/^(Wednesday|Thursday|Friday|Saturday|Sunday|Monday|Tuesday)\s*[•\-]\s*([A-Za-z]+)\s+(\d{1,2})$/i);
+        if(dayHeader){
+          finalize();
+          const monthNum = monthMap[dayHeader[2].toLowerCase()] || currentMonth || 1;
+          const date = `${currentYear}-${String(monthNum).padStart(2,'0')}-${String(Number(dayHeader[3])).padStart(2,'0')}`;
+          day = { date, day: titleCase(dayHeader[1]), acts: [] };
+          continue;
+        }
+        if(!day) continue;
+        const timeLine = line.match(/^(\d{1,2}:\d{2}\s*[AP]M)\s*[–-]\s*(Close|\d{1,2}:\d{2}\s*[AP]M)\s*(.*)$/i);
+        if(timeLine){
+          let artistName = cleanArtistText(timeLine[3]);
+          let jumpTo = i;
+          if(!artistName){
+            for(let j = i + 1; j < Math.min(lines.length, i + 4); j++){
+              if(/^(Wednesday|Thursday|Friday|Saturday|Sunday|Monday|Tuesday)\s*[•\-]/i.test(lines[j])) break;
+              if(/^(\d{1,2}:\d{2}\s*[AP]M)\s*[–-]/i.test(lines[j])) break;
+              artistName = cleanArtistText(lines[j]);
+              if(artistName){ jumpTo = j; break; }
+            }
+          }
+          if(artistName){
+            day.acts.push({
+              artist_name: artistName,
+              start_time: timeLine[1].replace(/\s+/g, ' ').toUpperCase(),
+              end_time: timeLine[2].replace(/\s+/g, ' ').toUpperCase(),
+              slot_type: /special guest/i.test(artistName) ? 'special_guest' : 'music',
+              is_special_event: /special guest/i.test(artistName)
+            });
+            i = jumpTo;
+          }
+        }
+      }
+      finalize();
+      const filtered = parsed.filter(entry => Array.isArray(entry.acts) && entry.acts.length);
+      return {
+        version: 'live',
+        snapshot_date: venueIsoDate(),
+        timezone: VENUE_TZ,
+        venue_name: 'Balcony Music Club',
+        venue_address: state.knowledge?.site?.address || '',
+        source: {
+          label: 'Balcony Music Club official shows page',
+          url: 'https://balconymusicclub.com/shows',
+          note: 'Live schedule parsed in-browser from the club site.'
+        },
+        schedule: filtered
+      };
+    }
+
+    async function tryLoadLiveSchedule(){
+      const urls = state.knowledge?.site?.schedule_fetch_urls || ['/shows'];
+      for(const url of urls){
+        try{
+          const res = await fetch(url, { cache: 'no-store' });
+          if(!res.ok) continue;
+          const html = await res.text();
+          const parsed = parseShowsHtml(html);
+          if(parsed.schedule.length){
+            state.schedule = parsed;
+            state.liveScheduleLoaded = true;
+            state.scheduleSourceLabel = 'Live BMC shows page';
+            return true;
+          }
+        }catch(err){ /* keep trying */ }
+      }
+      state.scheduleSourceLabel = 'Fallback snapshot';
+      return false;
+    }
+
+    function sortSchedule(){
+      if(!state.schedule?.schedule) return;
+      state.schedule.schedule.sort((a, b) => String(a.date).localeCompare(String(b.date)));
+      state.schedule.schedule.forEach(day => {
+        day.acts = (day.acts || []).slice().sort((a, b) => (parseClockToMinutes(a.start_time) ?? 9999) - (parseClockToMinutes(b.start_time) ?? 9999));
+      });
+    }
+
+    function findArtist(name){
+      if(!name) return null;
+      const official = state.artistLookup.get(normalizeText(name)) || name;
+      return (state.artists?.artists || []).find(artist => artist.artist_name === official) || null;
+    }
+
+    function findArtistByQuestion(question){
+      const q = normalizeText(question);
+      let best = null;
+      let bestLen = 0;
+      (state.artists?.artists || []).forEach(artist => {
+        [artist.artist_name, ...(artist.aliases || [])].forEach(name => {
+          const n = normalizeText(name);
+          if(n && q.includes(n) && n.length > bestLen){
+            best = artist;
+            bestLen = n.length;
+          }
+        });
+      });
+      if(best) return best;
+      for(const [alias, official] of state.artistLookup.entries()){
+        if(alias && q.includes(alias)) return findArtist(official);
+      }
+      return null;
+    }
+
+    function scheduleForDate(iso){
+      return (state.schedule?.schedule || []).find(day => day.date === iso) || null;
+    }
+
+    function nextScheduleAfter(iso){
+      return (state.schedule?.schedule || []).find(day => day.date > iso) || null;
+    }
+
+    function findByWeekdayName(dayName){
+      const wanted = normalizeText(dayName);
+      const today = venueIsoDate();
+      const schedule = state.schedule?.schedule || [];
+      return schedule.find(day => normalizeText(day.day) === wanted && day.date >= today) || schedule.find(day => normalizeText(day.day) === wanted) || null;
+    }
+
+    function resolveTargetDate(question){
+      const q = normalizeText(question);
+      if(/\bright now\b|\bcurrently\b|\bhappening now\b|\bnow\b|\btoday\b|\btonight\b/.test(q)) return venueIsoDate();
+      if(/\btomorrow\b/.test(q)) return addDaysIso(venueIsoDate(), 1);
+      const isoMatch = String(question).match(/\b(\d{4}-\d{2}-\d{2})\b/);
+      if(isoMatch) return isoMatch[1];
+      const md = String(question).match(/\b(january|february|march|april|may|june|july|august|september|october|november|december)\s+(\d{1,2})\b/i);
+      if(md){
+        const monthMap = { january:1,february:2,march:3,april:4,may:5,june:6,july:7,august:8,september:9,october:10,november:11,december:12 };
+        const mm = String(monthMap[md[1].toLowerCase()]).padStart(2, '0');
+        const dd = String(Number(md[2])).padStart(2, '0');
+        const year = venueParts().year;
+        return `${year}-${mm}-${dd}`;
+      }
+      const weekdays = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+      const found = weekdays.find(day => q.includes(day));
+      if(found){
+        const match = findByWeekdayName(found);
+        return match?.date || null;
+      }
+      return null;
+    }
+
+    function daySpecials(day){
+      const specials = [];
+      const recurring = state.knowledge?.recurring_programming || {};
+      if(normalizeText(day.day) === 'thursday' && recurring.happy_hour?.short_answer){
+        specials.push(recurring.happy_hour.short_answer);
+      }
+      if(normalizeText(day.day) === 'sunday' && recurring.bloody_mary_brunch?.short_answer){
+        specials.push(recurring.bloody_mary_brunch.short_answer);
+      }
+      (day.acts || []).forEach(act => {
+        if(act.is_special_event || act.slot_type === 'special_guest') specials.push(`Special event: ${act.artist_name} from ${act.start_time} to ${act.end_time}.`);
+      });
+      return specials;
+    }
+
+    function formatActs(day){
+      return (day.acts || []).map(act => `${act.start_time}${act.end_time ? '–' + act.end_time : ''} ${act.artist_name}`).join(' • ');
+    }
+
+    function describeDaySchedule(day){
+      const specials = daySpecials(day);
+      let html = jazzyWrap(`${escapeHtml(day.day)} • ${escapeHtml(formatLongDate(day.date))}: ${escapeHtml(formatActs(day))}.`);
+      if(specials.length){
+        html += `<br><br><strong>House specials:</strong> ${specials.map(escapeHtml).join(' ')}`;
+      }
+      html += `<br><br><em>Source:</em> ${escapeHtml(state.scheduleSourceLabel)}.`;
+      return html;
+    }
+
+    function describeNow(){
+      const today = scheduleForDate(venueIsoDate());
+      if(!today){
+        const upcoming = nextScheduleAfter(venueIsoDate());
+        if(upcoming) return jazzyWrap(`I do not have a live listing for today, but the next loaded date is ${escapeHtml(formatLongDate(upcoming.date))}: ${escapeHtml(formatActs(upcoming))}.`);
+        return jazzyWrap('I do not have a loaded schedule for today yet.');
+      }
+      const nowMins = venueMinutesNow();
+      const active = (today.acts || []).find(act => {
+        const start = parseClockToMinutes(act.start_time);
+        const end = parseClockToMinutes(act.end_time);
+        return start != null && end != null && nowMins >= start && nowMins <= end;
+      });
+      if(active){
+        const specials = daySpecials(today);
+        let html = jazzyWrap(`Right now at BMC, ${escapeHtml(active.artist_name)} is on from ${escapeHtml(active.start_time)} to ${escapeHtml(active.end_time)}.`);
+        if(specials.length) html += `<br><br><strong>Today’s specials:</strong> ${specials.map(escapeHtml).join(' ')}`;
+        return html;
+      }
+      const nextAct = (today.acts || []).find(act => nowMins < (parseClockToMinutes(act.start_time) ?? 9999));
+      if(nextAct){
+        const specials = daySpecials(today);
+        let html = jazzyWrap(`Nothing is on stage this second. Next up today is ${escapeHtml(nextAct.artist_name)} at ${escapeHtml(nextAct.start_time)}.`);
+        if(specials.length) html += `<br><br><strong>Today’s specials:</strong> ${specials.map(escapeHtml).join(' ')}`;
+        return html;
+      }
+      const tomorrow = scheduleForDate(addDaysIso(venueIsoDate(), 1)) || nextScheduleAfter(venueIsoDate());
+      if(tomorrow){
+        return jazzyWrap(`The listed sets for today are done. Next loaded date: ${escapeHtml(formatLongDate(tomorrow.date))} — ${escapeHtml(formatActs(tomorrow))}.`);
+      }
+      return jazzyWrap('The listed sets for today look finished, and I do not have the next date loaded yet.');
+    }
+
+    function buildTourLinks(){
+      const tours = state.knowledge?.history?.haunted_tours_list || [];
+      if(!tours.length) return '';
+      return tours.map(t => `<a href="${escapeHtml(t.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t.name)}</a>${t.note ? ` — ${escapeHtml(t.note)}` : ''}`).join('<br>');
+    }
+
+    function faqScore(question, item){
+      const q = normalizeText(question);
+      const qTokens = tokenSet(question);
+      let score = 0;
+      (item.keywords || []).forEach(keyword => {
+        const k = normalizeText(keyword);
+        if(!k) return;
+        if(q.includes(k)) score += Math.max(3, k.split(' ').length * 2);
+        score += k.split(' ').filter(part => qTokens.has(part)).length;
+      });
+      if(item.question && q.includes(normalizeText(item.question))) score += 8;
+      return score;
+    }
+
+    function findFaqAnswer(question){
+      let best = null;
+      let bestScore = 0;
+      (state.knowledge?.faq || []).forEach(item => {
+        const score = faqScore(question, item);
+        if(score > bestScore){ best = item; bestScore = score; }
+      });
+      return bestScore > 1 ? best : null;
+    }
+
+    function jazzyWrap(text){
+      return `<strong>JazzyCat:</strong> ${text}`;
+    }
+
+    function artistLinksHtml(artist){
+      const links = Object.entries(artist.links || {}).filter(([, value]) => typeof value === 'string' && value.trim());
+      if(!links.length) return '';
+      return links.map(([key, value]) => `<a href="${escapeHtml(value)}" target="_blank" rel="noopener noreferrer">${escapeHtml(key.replace(/_/g, ' '))}</a>`).join(' • ');
+    }
+
+    function buildArtistAnswer(question, artist){
+      const q = normalizeText(question);
+      if(/instagram|facebook|website|site|link|links/.test(q)){
+        const links = artistLinksHtml(artist);
+        if(links) return jazzyWrap(`${escapeHtml(artist.artist_name)} links: ${links}`);
+        return jazzyWrap(`I do not have public links loaded for ${escapeHtml(artist.artist_name)} yet.`);
+      }
+      let body = `${escapeHtml(artist.artist_name)}: ${escapeHtml(artist.style_summary || 'I have the name but not a verified style summary yet.')}`;
+      if((artist.genres || []).length) body += ` Genres: ${escapeHtml(artist.genres.join(', '))}.`;
+      if(artist.performance_history) body += ` ${escapeHtml(artist.performance_history)}`;
+      if(artist.verification_status && artist.verification_status !== 'verified') body += ` (${escapeHtml(artist.verification_status)} entry)`;
+      const links = artistLinksHtml(artist);
+      if(links) body += `<br><br><strong>Public links:</strong> ${links}`;
+      return jazzyWrap(body);
+    }
+
+    function answerQuestion(question){
+      const q = normalizeText(question);
+      if(/\bright now\b|\bcurrently\b|\bhappening now\b/.test(q)) return describeNow();
+      if(/\bspecial event\b|\bspecial guest\b/.test(q)){
+        const iso = resolveTargetDate(question) || venueIsoDate();
+        const day = scheduleForDate(iso);
+        if(day){
+          const specials = daySpecials(day).filter(Boolean);
+          if(specials.length) return jazzyWrap(`${escapeHtml(formatLongDate(day.date))}: ${specials.map(escapeHtml).join(' ')}`);
+          return jazzyWrap(`I do not have a special event loaded for ${escapeHtml(formatLongDate(day.date))}.`);
+        }
+      }
+      if(/who.*play|who.*playing|what.*happening|what.*on|schedule|tonight|today|tomorrow|this weekend|friday|saturday|sunday|wednesday|thursday|monday|tuesday/.test(q)){
+        const iso = resolveTargetDate(question) || venueIsoDate();
+        const day = scheduleForDate(iso);
+        if(day) return describeDaySchedule(day);
+      }
+      if(/haunted tour|ghost tour|pub crawl|tour stop/.test(q)){
+        const links = buildTourLinks();
+        return jazzyWrap(`${escapeHtml(state.knowledge?.history?.haunted_tours || 'BMC is part of local haunted-tour lore.')}<br><br>${links}`);
+      }
+      if(/building history|early history|historic building|what was here before|citizens bank|sewell/.test(q)){
+        const history = state.knowledge?.history || {};
+        return jazzyWrap(`${escapeHtml(history.early_building_history || 'I do not have the early building history loaded yet.')} ${escapeHtml(history.current_location_note || '')}`);
+      }
+      if(/where.*located|address|504 esplanade|1331 decatur|where are you/.test(q)){
+        return jazzyWrap(`${escapeHtml(state.knowledge?.site?.address || '')}. ${escapeHtml(state.knowledge?.site?.current_location_note || '')}`);
+      }
+      const artist = findArtistByQuestion(question);
+      if(artist) return buildArtistAnswer(question, artist);
+      const faq = findFaqAnswer(question);
+      if(faq) return jazzyWrap(escapeHtml(faq.answer));
+      return jazzyWrap(escapeHtml(state.knowledge?.routing?.unknown_fallback || 'I can help with the club, the current lineup, specials, history, and artist descriptions.'));
+    }
+
+    function renderShell(){
+      const k = state.knowledge;
+      if(!k) return;
+      document.getElementById('heroSummary').textContent = k.site?.core_summary || '';
+      document.getElementById('badgeLine').textContent = k.site?.badge_line || k.site?.name || 'Balcony Music Club';
+      document.getElementById('heroNote').textContent = `${k.site?.current_location_note || k.site?.house_atmosphere || ''}`;
+      document.getElementById('sidebarSummary').textContent = k.site?.sidebar_summary || '';
+      document.getElementById('posterCaption').textContent = k.site?.poster_caption || '';
+      document.getElementById('marketingLine').textContent = k.site?.marketing_line || '';
+      document.getElementById('eventsChip').href = k.contacts?.general_events?.mailto || 'mailto:BMC@marullomgmt.com';
+      document.getElementById('paintChip').href = k.contacts?.paint_and_sip?.tel || 'tel:+15042818736';
+      intro.innerHTML = `&gt; JazzyCat online.<br>&gt; Venue clock: New Orleans time.<br>&gt; Schedule source: ${escapeHtml(state.scheduleSourceLabel)}.`;
+    }
+
+    function renderFacts(){
+      const k = state.knowledge || {};
+      const history = k.history || {};
+      const facts = [
+        { title: 'Address', body: k.site?.address },
+        { title: 'Founded', body: history.founded ? `Opened in ${history.founded}.` : '' },
+        { title: 'Cover', body: history.cover_policy || '' },
+        { title: 'Early Building History', body: history.early_building_history || '' },
+        { title: 'Haunted Tours', body: history.haunted_tours || '' },
+        { title: 'Courtyard Backbar', body: k.food?.patio_backbar || '' }
+      ].filter(item => item.body);
+      const grid = document.getElementById('factGrid');
+      grid.innerHTML = '';
+      facts.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'fact-card';
+        card.innerHTML = `<strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.body)}</span>`;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderSchedule(){
+      const list = document.getElementById('scheduleList');
+      list.innerHTML = '';
+      const today = venueIsoDate();
+      const entries = (state.schedule?.schedule || []).filter(day => day.date >= today);
+      const chosen = (entries.length ? entries : (state.schedule?.schedule || [])).slice(0, 6);
+      chosen.forEach(day => {
+        const item = document.createElement('div');
+        item.className = 'schedule-day';
+        const acts = (day.acts || []).map(act => `<li>${escapeHtml(act.start_time)}${act.end_time ? `–${escapeHtml(act.end_time)}` : ''} — ${escapeHtml(act.artist_name)}</li>`).join('');
+        const specials = daySpecials(day);
+        item.innerHTML = `<strong>${escapeHtml(day.day)} • ${escapeHtml(formatDate(day.date))}</strong><ul>${acts}</ul>${specials.length ? `<div class="bmc90-note">${specials.map(escapeHtml).join(' ')}</div>` : ''}`;
+        list.appendChild(item);
+      });
+      if(!chosen.length){
+        list.innerHTML = '<div class="schedule-day"><strong>No schedule loaded yet.</strong></div>';
+      }
+    }
+
+    function renderContacts(){
+      const c = state.knowledge?.contacts || {};
+      const strip = document.getElementById('contactStrip');
+      strip.innerHTML = '';
+      const cards = [
+        { title: 'General Events', body: 'Email booking and event questions.', link: c.general_events?.mailto, label: c.general_events?.email || 'Email' },
+        { title: 'Private Events Phone', body: 'Best for private event booking questions.', link: c.general_events?.tel, label: c.general_events?.phone || 'Call' },
+        { title: 'Paint & Sip', body: 'Call or text for registration.', link: c.paint_and_sip?.tel, label: c.paint_and_sip?.phone || 'Call' }
+      ];
+      cards.forEach(card => {
+        const box = document.createElement('div');
+        box.className = 'bmc90-contact-box';
+        box.innerHTML = `<strong>${escapeHtml(card.title)}</strong><div class="bmc90-line">${escapeHtml(card.body)}</div><div class="bmc90-line" style="margin-top:8px">${card.link ? `<a href="${escapeHtml(card.link)}">${escapeHtml(card.label)}</a>` : escapeHtml(card.label)}</div>`;
+        strip.appendChild(box);
+      });
+    }
+
+    function renderMenu(){
+      const menu = state.knowledge?.menu || {};
+      document.getElementById('menuHeadline').textContent = menu.headline || '';
+      document.getElementById('menuMarketing').textContent = menu.marketing_line || '';
+      const mg = document.getElementById('menuGrid');
+      mg.innerHTML = '';
+      (menu.categories || []).forEach(cat => {
+        const div = document.createElement('div');
+        div.className = 'menu-blurb';
+        div.innerHTML = `<strong>${escapeHtml(cat.name)}</strong><span>${escapeHtml(cat.description)}</span>`;
+        mg.appendChild(div);
+      });
+      const cg = document.getElementById('cocktailGrid');
+      cg.innerHTML = '';
+      (menu.signature_cocktails || []).forEach(drink => {
+        const div = document.createElement('div');
+        div.className = 'cocktail-card';
+        div.innerHTML = `<strong>${escapeHtml(drink.name)}</strong><span>${escapeHtml(drink.brief)}</span>${drink.spirit_options ? `<em>${escapeHtml(drink.spirit_options)}</em>` : ''}`;
+        cg.appendChild(div);
+      });
+    }
+
+    function renderQuickList(){
+      const list = document.getElementById('quickList');
+      list.innerHTML = '';
+      (state.knowledge?.quick_questions || []).slice(0, 8).forEach(q => {
+        const li = document.createElement('li');
+        li.textContent = q;
+        list.appendChild(li);
+      });
+      quickWrap.innerHTML = '';
+      (state.knowledge?.quick_questions || []).slice(0, 8).forEach(q => {
+        const btn = document.createElement('button');
+        btn.className = 'jc-q';
+        btn.type = 'button';
+        btn.textContent = q;
+        btn.addEventListener('click', () => askQuestion(q, true));
+        quickWrap.appendChild(btn);
+      });
+    }
+
+    async function askQuestion(question, fromQuick){
+      const raw = String(question || '').trim();
+      if(!raw || isThinking) return;
+      addLog('user', `<strong>You:</strong> ${escapeHtml(raw)}`);
+      input.value = '';
+      isThinking = true;
+      setStatus('thinking', 'Thinking');
+      showTyping();
+      try{
+        const answer = answerQuestion(raw);
+        removeTyping();
+        addLog('bot', answer);
+        say(fromQuick ? 'Pulled it up for you.' : 'There we go.', false);
+      }catch(err){
+        removeTyping();
+        addLog('bot', jazzyWrap('Something in my shell glitched. Try that again.'));
+      }finally{
+        isThinking = false;
+        setStatus('ready', state.liveScheduleLoaded ? 'Live schedule ready' : 'Snapshot ready');
+      }
+    }
+
+    function animate(){
+      let tick = 0;
+      function frame(){
+        tick += 0.018;
+        const x = Math.sin(tick) * 14;
+        const y = Math.sin(tick * 1.9) * 9;
+        pet.style.transform = `translate(${x}px, ${y}px)`;
+        shadow.style.transform = `scale(${1 + Math.sin(tick * 1.9) * 0.04})`;
+        if(bubble.classList.contains('show')) positionBubble();
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    async function init(){
+      helper.classList.remove('is-hidden');
+      setStatus('thinking', 'Loading');
+      try{
+        const [knowledge, schedule, artists] = await Promise.all([
+          loadJson('./data/jazzycat-knowledge.json'),
+          loadJson('./data/jazzycat-current-schedule.json'),
+          loadJson('./data/jazzycat-artists.json')
+        ]);
+        state.knowledge = knowledge;
+        state.schedule = schedule;
+        state.artists = artists;
+        buildArtistLookup();
+        sortSchedule();
+        await tryLoadLiveSchedule();
+        sortSchedule();
+        renderShell();
+        renderFacts();
+        renderSchedule();
+        renderContacts();
+        renderMenu();
+        renderQuickList();
+        setStatus('ready', state.liveScheduleLoaded ? 'Live schedule ready' : 'Snapshot ready');
+        addLog('bot', jazzyWrap(`Loaded. I’m reading New Orleans time, using ${escapeHtml(state.scheduleSourceLabel)}, and the current club address is ${escapeHtml(state.knowledge?.site?.address || '')}.`));
+        say('Terminal is up top now.', false);
+      }catch(err){
+        console.error(err);
+        setStatus('ready', 'Error');
+        addLog('bot', jazzyWrap('I could not load part of the local knowledge files.'));
+      }
+    }
+
+    send.addEventListener('click', () => askQuestion(input.value, false));
+    input.addEventListener('keydown', event => {
+      if(event.key === 'Enter'){
+        event.preventDefault();
+        askQuestion(input.value, false);
+      }
+    });
+    if(openHelperBtn){
+      openHelperBtn.textContent = 'Focus JazzyCat';
+      openHelperBtn.addEventListener('click', () => {
+        focusHelper();
+        say('Ask away.', false);
+      });
+    }
+    hitbox.addEventListener('click', () => {
+      focusHelper();
+      emitNotes(4);
+      say('The terminal is up top, darling.', false);
+    });
+    document.querySelectorAll('.corner-cat').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prompt = btn.getAttribute('data-prompt') || btn.getAttribute('data-label') || 'What is happening today?';
+        focusHelper();
+        askQuestion(prompt, true);
+      });
+    });
+    window.addEventListener('resize', positionBubble);
+
+    const idleLines = [
+      'Ask who is playing today.',
+      'I know the address changed to 504 Esplanade.',
+      'Try me on haunted tours.',
+      'Need the current lineup? I’m date-aware now.'
+    ];
+    setInterval(() => {
+      if(isThinking) return;
+      if(Math.random() < 0.38) say(idleLines[Math.floor(Math.random() * idleLines.length)], false);
+    }, 8200);
+
+    animate();
+    init();
+  })();
+  </script>
+</body>
+</html>

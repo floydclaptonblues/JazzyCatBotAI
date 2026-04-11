@@ -1,0 +1,438 @@
+{
+  "version": "1.1.0",
+  "snapshot_date": "2026-04-11",
+  "source": {
+    "label": "Balcony Music Club shows page with WWOZ-informed fallback snapshot",
+    "url": "https://balconymusicclub.com/shows",
+    "note": "The live page should be fetched in-browser when possible. This JSON is a fallback snapshot seeded from the public schedule and preserved in case the live page cannot be read."
+  },
+  "schedule": [
+    {
+      "date": "2026-04-08",
+      "day": "Wednesday",
+      "acts": [
+        {
+          "artist_name": "Ed Wills",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-09",
+      "day": "Thursday",
+      "acts": [
+        {
+          "artist_name": "Munk & The Rabbi",
+          "start_time": "5:00 PM",
+          "end_time": "6:00 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Maurice Cade & ESS",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Kat Kiley Experience",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "day": "Friday",
+      "acts": [
+        {
+          "artist_name": "Dave Pareti",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Rumpshakers",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "R&R Smokin' Foundation",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "day": "Saturday",
+      "acts": [
+        {
+          "artist_name": "Andre Lovett Band",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "River Rock",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Sierra Green",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-12",
+      "day": "Sunday",
+      "acts": [
+        {
+          "artist_name": "Deej & Mother Ruckus",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Better Late Than Jake",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "J.A.M Brass Band",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-15",
+      "day": "Wednesday",
+      "acts": [
+        {
+          "artist_name": "Michael Lobue Quartet",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Under the Covers",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "day": "Thursday",
+      "acts": [
+        {
+          "artist_name": "Aileis",
+          "start_time": "5:00 PM",
+          "end_time": "6:00 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Dapper Dandies",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Kat Kiley Experience",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "day": "Friday",
+      "acts": [
+        {
+          "artist_name": "Scratch & Dent",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "T Marie & Bayou Juju",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Maurice Cade & ESS",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-18",
+      "day": "Saturday",
+      "acts": [
+        {
+          "artist_name": "Andre Lovett Band",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Mother Ruckus",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Sierra Green",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-19",
+      "day": "Sunday",
+      "acts": [
+        {
+          "artist_name": "Dizzy",
+          "start_time": "12:00 PM",
+          "end_time": "2:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Deej & Mother Ruckus",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Better Late Than Jake",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "J.A.M Brass Band",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-22",
+      "day": "Wednesday",
+      "acts": [
+        {
+          "artist_name": "Johnny Mastro",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Under the Covers",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-23",
+      "day": "Thursday",
+      "acts": [
+        {
+          "artist_name": "Aileis",
+          "start_time": "5:00 PM",
+          "end_time": "6:00 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Leroy Marshall Band",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Kat Kiley Experience",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-24",
+      "day": "Friday",
+      "acts": [
+        {
+          "artist_name": "Special Guest",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "special_guest",
+          "is_special_event": true
+        },
+        {
+          "artist_name": "Rumpshakers",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Big Mike & The R&B Kings",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-25",
+      "day": "Saturday",
+      "acts": [
+        {
+          "artist_name": "Andre Lovett Band",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Mother Ruckus",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "John Lisi & Delta Funk",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-26",
+      "day": "Sunday",
+      "acts": [
+        {
+          "artist_name": "Deej & Mother Ruckus",
+          "start_time": "3:00 PM",
+          "end_time": "5:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Better Late Than Jake",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "J.A.M Brass Band",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-29",
+      "day": "Wednesday",
+      "acts": [
+        {
+          "artist_name": "Maurice Cade & ESS",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Willie's Blues Extravaganza",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "day": "Thursday",
+      "acts": [
+        {
+          "artist_name": "Dapper Dandies",
+          "start_time": "6:00 PM",
+          "end_time": "8:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        },
+        {
+          "artist_name": "Kat Kiley Experience",
+          "start_time": "9:00 PM",
+          "end_time": "11:30 PM",
+          "slot_type": "music",
+          "is_special_event": false
+        }
+      ]
+    }
+  ],
+  "timezone": "America/Chicago",
+  "venue_name": "Balcony Music Club",
+  "venue_address": "504 Esplanade Avenue, New Orleans, LA 70116"
+}

@@ -1,0 +1,446 @@
+{
+  "version": "4.1.0",
+  "last_updated": "2026-04-11",
+  "assistant": {
+    "name": "JazzyCat",
+    "display_name": "JazzyCat",
+    "role": "Balcony Music Club website guide",
+    "tone": [
+      "playful",
+      "helpful",
+      "clear",
+      "Mardi Gras-flavored",
+      "brief first, then detailed if asked"
+    ],
+    "identity_lines": [
+      "Hey, I'm JazzyCat — Balcony Music Club's pixel-house guide.",
+      "Ask me who is playing today, tonight, or right now and I’ll check the current day in New Orleans time before I answer.",
+      "I answer from the club files loaded into this page, the live BMC shows page when it is reachable, and I say clearly when something still needs human confirmation."
+    ],
+    "rules": [
+      "Use the live Balcony Music Club shows page first when it is reachable in the browser.",
+      "If the live shows page cannot be read, fall back to the local schedule snapshot and say that clearly.",
+      "Do not invent prices, times, dates, policies, or artist details.",
+      "If an artist genre, menu item, or event detail is not loaded, say that clearly instead of guessing.",
+      "Prefer direct answers first and then give the best contact route when relevant."
+    ]
+  },
+  "site": {
+    "name": "Balcony Music Club",
+    "short_name": "BMC",
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "address": "504 Esplanade Avenue, New Orleans, LA 70116",
+    "website": "https://balconymusicclub.com/",
+    "summary": "Balcony Music Club is a live music room at 504 Esplanade in New Orleans with a no-cover, no-charge spirit, haunted-tour lore, a courtyard/patio backbar, and a craft-focused drink program.",
+    "core_summary": "Balcony Music Club opened in 2011 and now publicly lists 504 Esplanade Avenue. No cover. No charge. Haunted-tour energy, a courtyard backbar with fresh-made-to-order chicken paninis, and a drink list built around specialty cocktails, THC seltzers, and craft beer.",
+    "house_atmosphere": "504 Esplanade • No Cover • No Charge • founded 2011 • haunted bar lore • courtyard backbar paninis • cocktails • THC seltzers • craft beer",
+    "badge_line": "504 Esplanade • No Cover • No Charge",
+    "poster_caption": "A haunted New Orleans room at 504 Esplanade with live music, marquee glow, no cover, courtyard backbar paninis, and a house drink list worth asking about.",
+    "sidebar_summary": "Balcony Music Club opened in 2011, now publicly lists 504 Esplanade Avenue, keeps a no-cover/no-charge spirit, appears on haunted pub crawls, serves fresh-made-to-order chicken paninis from the courtyard backbar, and pours specialty craft cocktails alongside THC seltzers and craft beer.",
+    "marketing_line": "Whether you’re looking for a craft cocktail in the French Quarter, a courtyard bar by Esplanade, or the right first stop before your night opens up, BMC is the move.",
+    "venue_areas": [
+      "courtyard",
+      "main stage",
+      "balcony bar"
+    ],
+    "current_location_note": "The current BMC site lists 504 Esplanade Avenue. Some older third-party listings still show 1331 Decatur because the venue sits on the same corner building at Decatur and Esplanade.",
+    "schedule_fetch_urls": [
+      "/shows",
+      "https://balconymusicclub.com/shows"
+    ],
+    "backup_calendar_urls": [
+      "https://www.wwoz.org/organizations/bmc"
+    ]
+  },
+  "contacts": {
+    "venue_phone_public": {
+      "label": "Venue phone listed on WWOZ",
+      "phone": "(504) 301-5912",
+      "source": "WWOZ venue page"
+    },
+    "general_events": {
+      "email": "BMC@marullomgmt.com",
+      "phone": "504-428-5494",
+      "mailto": "mailto:BMC@marullomgmt.com",
+      "tel": "tel:+15044285494",
+      "use_for": [
+        "private events",
+        "event inquiries",
+        "venue booking questions"
+      ],
+      "source": "User-provided club contact"
+    },
+    "paint_and_sip": {
+      "phone": "504-281-8736",
+      "tel": "tel:+15042818736",
+      "use_for": [
+        "Paint and Sip registration",
+        "Paint and Sip questions"
+      ],
+      "source": "User-provided Paint and Sip registration contact"
+    }
+  },
+  "recurring_programming": {
+    "live_music": {
+      "title": "Live Music",
+      "days": [
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "schedule_text": "Live music every Wednesday through Sunday, open to close.",
+      "short_answer": "Live music runs every Wednesday through Sunday, open to close.",
+      "source": "User-provided recurring programming detail"
+    },
+    "bloody_mary_brunch": {
+      "title": "Build Your Own Bloody Mary Sunday Brunch",
+      "day": "Sunday",
+      "time": "Noon - 4:00 PM",
+      "price": "$15",
+      "refill_price": "$10",
+      "availability_note": "Featured item only available during this Sunday brunch window.",
+      "description": "Build your own Bloody Mary with all the breakfast necessities.",
+      "short_answer": "Build Your Own Bloody Mary Sunday Brunch is every Sunday from noon to 4:00 PM. It is $15, and refills are $10.",
+      "source": "User-provided recurring programming detail"
+    },
+    "paint_and_sip": {
+      "title": "Paint and Sip",
+      "registration_phone": "504-281-8736",
+      "short_answer": "Paint and Sip registration is handled at 504-281-8736.",
+      "source": "User-provided recurring programming detail"
+    },
+    "private_events": {
+      "title": "Private Events",
+      "spaces": [
+        "courtyard",
+        "main stage",
+        "balcony bar"
+      ],
+      "ideal_for": [
+        "weddings",
+        "graduations",
+        "Mardi Gras balls",
+        "private celebrations"
+      ],
+      "email": "BMC@marullomgmt.com",
+      "phone": "504-428-5494",
+      "short_answer": "Private events can be booked for the courtyard, main stage, or balcony bar. Contact BMC@marullomgmt.com or 504-428-5494.",
+      "source": "User-provided recurring programming detail"
+    },
+    "happy_hour": {
+      "title": "Thursday Happy Hour",
+      "day": "Thursday",
+      "time": "4:30 PM - 5:30 PM",
+      "description": "Thursday happy hour with nice cocktail lounge music.",
+      "short_answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
+      "source": "User-provided recurring programming detail"
+    }
+  },
+  "history": {
+    "founded": 2011,
+    "cover_policy": "No cover, no charge.",
+    "early_building_history": "The corner building at Decatur and Esplanade traces back to a row of c. 1840 exposed-brick townhouses designed by E. W. Sewell for the Citizen's Bank, with later 19th-century changes to the 500-04 Esplanade corner portion.",
+    "current_location_note": "The current BMC site lists 504 Esplanade Avenue. Older web listings may still say 1331 Decatur because they refer to the same corner property.",
+    "haunted_tours": "BMC is part of the city's haunted-bar lore and currently appears on at least one public haunted pub crawl route.",
+    "haunted_tours_list": [
+      {
+        "name": "Ghost Tour: Haunted Bars & Free Shots",
+        "url": "https://www.peek.com/new-orleans-louisiana/r0kz/ghost-tour-haunted-bars-free-shots/a0g4rmr?list_info=Activity%7CSiblings%7C2",
+        "note": "Peek itinerary currently lists BMC Balcony Music Club as a stop with drink offers and haunted-history storytelling."
+      },
+      {
+        "name": "WWOZ BMC venue page",
+        "url": "https://www.wwoz.org/organizations/bmc",
+        "note": "Useful backup public calendar reference, though some details there still reflect the older Decatur listing."
+      }
+    ],
+    "source": "Current BMC site, Historic New Orleans Collection Vieux Carré Survey, and public tour listings."
+  },
+  "food": {
+    "patio_backbar": "The patio backbar serves fresh-made-to-order chicken paninis.",
+    "source": "User-provided venue food detail"
+  },
+  "menu": {
+    "headline": "Specialty craft cocktails, THC seltzers, craft beer, and patio backbar bites.",
+    "categories": [
+      {
+        "name": "Specialty Craft Cocktails",
+        "description": "The signature list leans bright, musical, and New Orleans-night ready without giving away the whole playbook."
+      },
+      {
+        "name": "THC Seltzers",
+        "description": "For guests looking for a mellow canned option alongside the cocktail list. Availability can vary."
+      },
+      {
+        "name": "Craft Beer",
+        "description": "Cold craft selections for beer drinkers who want something easy before or between sets."
+      },
+      {
+        "name": "Patio Backbar",
+        "description": "Fresh-made-to-order chicken paninis from the patio backbar round out the house menu."
+      }
+    ],
+    "signature_cocktails": [
+      {
+        "name": "The BMC",
+        "keywords": [
+          "the bmc",
+          "bmc drink",
+          "house drink"
+        ],
+        "brief": "A cool, bright house cocktail with minty snap, citrus lift, and a playful late-night edge.",
+        "spirit_options": "Available with tequila, vodka, gin, or rum."
+      },
+      {
+        "name": "Etta Jameson",
+        "keywords": [
+          "etta jameson",
+          "jameson drink"
+        ],
+        "brief": "Smooth and expressive with whiskey warmth, soft orchard sweetness, and a tangy finish."
+      },
+      {
+        "name": "Jimi Hendrix Fizz",
+        "keywords": [
+          "jimi hendrix fizz",
+          "hendrix fizz"
+        ],
+        "brief": "Floral, sparkling, and slightly dreamy — a gin-forward fizz with a polished finish."
+      },
+      {
+        "name": "Uptown Funk",
+        "keywords": [
+          "uptown funk"
+        ],
+        "brief": "Bright, tropical, and punchy with lime-driven freshness and a sunny groove."
+      },
+      {
+        "name": "Muddy Waters",
+        "keywords": [
+          "muddy waters"
+        ],
+        "brief": "Rich, dark, and dessert-leaning with coffeehouse depth and chocolate mood."
+      },
+      {
+        "name": "Billie Holiday",
+        "keywords": [
+          "billie holiday"
+        ],
+        "brief": "Rum-led and fruit-bright with soft tropical sweetness and an easygoing finish."
+      },
+      {
+        "name": "Prince Pimms",
+        "keywords": [
+          "prince pimms",
+          "pimms"
+        ],
+        "brief": "Crisp, cool, and refreshing with garden notes and a lively ginger sparkle."
+      },
+      {
+        "name": "Esplanade Lemonade",
+        "keywords": [
+          "esplanade lemonade"
+        ],
+        "brief": "Pink, juicy, and patio-friendly with berry brightness and a fizzy citrus close."
+      }
+    ],
+    "marketing_line": "Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move."
+  },
+  "faq": [
+    {
+      "question": "Where is Balcony Music Club located now?",
+      "answer": "The current BMC site lists Balcony Music Club at 504 Esplanade Avenue, New Orleans, LA 70116. Some older listings still show 1331 Decatur because the venue sits on the same corner building at Decatur and Esplanade.",
+      "keywords": [
+        "address",
+        "where are you located",
+        "location",
+        "504 esplanade",
+        "1331 decatur",
+        "where is bmc"
+      ]
+    },
+    {
+      "question": "When did Balcony Music Club open?",
+      "answer": "Balcony Music Club opened in 2011 and keeps a no-cover, no-charge house identity.",
+      "keywords": [
+        "when did bmc open",
+        "when did balcony music club open",
+        "founded",
+        "open",
+        "opened"
+      ]
+    },
+    {
+      "question": "Is there a cover charge?",
+      "answer": "No cover. No charge.",
+      "keywords": [
+        "cover",
+        "cover charge",
+        "door charge",
+        "admission"
+      ]
+    },
+    {
+      "question": "What is the early history of the building?",
+      "answer": "The corner building at Decatur and Esplanade traces back to a row of c. 1840 exposed-brick townhouses designed by E. W. Sewell for the Citizen's Bank, with later 19th-century changes to the 500-04 Esplanade corner portion.",
+      "keywords": [
+        "building history",
+        "early history",
+        "old building",
+        "historic building",
+        "what was here before",
+        "sewell",
+        "citizens bank"
+      ]
+    },
+    {
+      "question": "Is Balcony Music Club haunted?",
+      "answer": "BMC lives inside New Orleans haunted-bar lore and it currently appears on at least one public haunted pub crawl route.",
+      "keywords": [
+        "haunted",
+        "ghost",
+        "ghosts",
+        "is the bar haunted",
+        "haunted tours"
+      ]
+    },
+    {
+      "question": "Which haunted tours come through BMC?",
+      "answer": "A currently marketed option is Ghost Tour: Haunted Bars & Free Shots on Peek, which lists BMC Balcony Music Club as one of its stops.",
+      "keywords": [
+        "which haunted tours",
+        "haunted tour links",
+        "pub crawl",
+        "ghost tour",
+        "tour stop"
+      ]
+    },
+    {
+      "question": "What food does the courtyard backbar serve?",
+      "answer": "The patio backbar serves fresh-made-to-order chicken paninis.",
+      "keywords": [
+        "food",
+        "panini",
+        "paninis",
+        "patio backbar",
+        "courtyard food",
+        "what do you serve"
+      ]
+    },
+    {
+      "question": "What kinds of drinks does BMC have?",
+      "answer": "Specialty craft cocktails, THC seltzers, craft beer, and patio backbar bites.",
+      "keywords": [
+        "drinks",
+        "cocktails",
+        "menu",
+        "beer",
+        "thc seltzer",
+        "what do you have to drink"
+      ]
+    },
+    {
+      "question": "When is live music?",
+      "answer": "Live music runs Wednesday through Sunday. Ask me who is playing today, tonight, tomorrow, or on a specific date and I will check the schedule.",
+      "keywords": [
+        "live music",
+        "when is music",
+        "schedule",
+        "bands",
+        "who is playing"
+      ]
+    },
+    {
+      "question": "When is Thursday happy hour?",
+      "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
+      "keywords": [
+        "happy hour",
+        "thursday happy hour"
+      ]
+    },
+    {
+      "question": "When is Bloody Mary brunch?",
+      "answer": "Build Your Own Bloody Mary Sunday Brunch is every Sunday from noon to 4:00 PM. It is $15, and refills are $10.",
+      "keywords": [
+        "bloody mary",
+        "brunch",
+        "sunday brunch"
+      ]
+    },
+    {
+      "question": "How do I register for Paint and Sip?",
+      "answer": "Call or text 504-281-8736 for Paint and Sip registration and questions.",
+      "keywords": [
+        "paint and sip",
+        "paint & sip",
+        "register",
+        "registration"
+      ]
+    },
+    {
+      "question": "How do I book a private event?",
+      "answer": "For private events and venue questions, email BMC@marullomgmt.com or call 504-428-5494.",
+      "keywords": [
+        "private events",
+        "book event",
+        "rent the room",
+        "venue rental",
+        "booking"
+      ]
+    }
+  ],
+  "quick_questions": [
+    "Who is playing today?",
+    "What is happening tonight?",
+    "What is happening right now?",
+    "Who is playing tomorrow?",
+    "What special event is on today?",
+    "Where are you located now?",
+    "Tell me the early history of the building.",
+    "Which haunted tours come through BMC?",
+    "What does the courtyard backbar serve?",
+    "What kind of drinks do you have?",
+    "Tell me about Sierra Green.",
+    "Tell me about John Lisi & Delta Funk.",
+    "When is Thursday happy hour?",
+    "When is Bloody Mary brunch?",
+    "How do I book a private event?"
+  ],
+  "routing": {
+    "unknown_fallback": "I can help with today's lineup, the current day's specials, artist descriptions, the building history, haunted tour links, drinks, food, and booking contact info. Try asking who is playing today, what is happening right now, or which haunted tours stop here."
+  },
+  "ui": {
+    "page_title": "Ask JazzyCat",
+    "panel_title": "JazzyCat Live Desk",
+    "status_label": "Local knowledge loaded",
+    "input_placeholder": "Ask JazzyCat about BMC…",
+    "send_label": "Ask JazzyCat",
+    "welcome_prompt": "Ask about cocktails, tonight, brunch, happy hour, private events, Paint and Sip, or a loaded artist.",
+    "marquee_text": "NO COVER • NO CHARGE • SPECIALTY CRAFT COCKTAILS • THC SELTZERS • CRAFT BEER • PATIO BACKBAR PANINIS • LIVE MUSIC WEDNESDAY–SUNDAY •"
+  },
+  "sources": [
+    {
+      "label": "Balcony Music Club official site",
+      "url": "https://balconymusicclub.com/"
+    },
+    {
+      "label": "Balcony Music Club shows page",
+      "url": "https://balconymusicclub.com/shows"
+    },
+    {
+      "label": "Historic New Orleans Collection Vieux Carré Survey",
+      "url": "https://vcs.hnoc.org/property_info.php?lot=22652-A"
+    },
+    {
+      "label": "Ghost Tour: Haunted Bars & Free Shots",
+      "url": "https://www.peek.com/new-orleans-louisiana/r0kz/ghost-tour-haunted-bars-free-shots/a0g4rmr?list_info=Activity%7CSiblings%7C2"
+    },
+    {
+      "label": "WWOZ BMC backup page",
+      "url": "https://www.wwoz.org/organizations/bmc"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balcony Music Club | JazzyCat</title>
+  <meta http-equiv="refresh" content="0; url=./jazzycat.html" />
+  <link rel="icon" type="image/png" href="./assets/jazzycat-icon.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700;800&display=swap');
+    :root{--purple:#3a1763;--purple2:#6d2ec8;--gold:#ffc93b;--green:#18d26b;--cream:#fff6d7;--ink:#0b0317;}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:'Outfit',system-ui,sans-serif;color:var(--cream)}
+    body{
+      display:grid;place-items:center;padding:24px;overflow:hidden;
+      background:
+        linear-gradient(rgba(6,2,17,.42), rgba(6,2,17,.82)),
+        url('./assets/jazzycat-bg-wide.webp') center/cover fixed no-repeat;
+    }
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;background:
+      radial-gradient(circle at 10% 14%, rgba(255,201,59,.32), transparent 20%),
+      radial-gradient(circle at 85% 16%, rgba(24,210,107,.22), transparent 18%),
+      radial-gradient(circle at 50% 0%, rgba(146,78,255,.35), transparent 34%);
+      mix-blend-mode:screen;}
+    .card{
+      width:min(980px,100%);display:grid;grid-template-columns:1.2fr .9fr;gap:22px;align-items:center;
+      padding:24px;border-radius:30px;position:relative;
+      background:linear-gradient(180deg, rgba(23,8,47,.9), rgba(9,3,20,.94));
+      border:4px solid rgba(255,201,59,.92);
+      box-shadow:0 0 0 3px rgba(108,46,200,.45) inset, 0 25px 80px rgba(0,0,0,.45), 0 0 40px rgba(255,201,59,.18);
+    }
+    .card::before{content:'';position:absolute;inset:10px;border-radius:22px;pointer-events:none;background:
+      radial-gradient(circle, rgba(255,214,109,.95) 0 24%, transparent 27%) 0 0/20px 20px round;
+      mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;padding:8px;opacity:.85;}
+    h1{margin:0 0 14px;font-family:'Press Start 2P',monospace;font-size:clamp(1.5rem,3vw,2.6rem);line-height:1.25;color:#ffd86a;text-shadow:0 0 18px rgba(255,201,59,.26)}
+    p{font-size:1.05rem;line-height:1.6;margin:0 0 16px;max-width:40rem}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px;text-decoration:none;color:#1c0822;background:linear-gradient(180deg, #ffd862, #ffbf1b);font-weight:800;box-shadow:0 10px 26px rgba(255,191,27,.24)}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .chip{padding:10px 12px;border-radius:999px;background:rgba(109,46,200,.4);border:1px solid rgba(255,255,255,.14);font-size:.86rem;font-weight:700}
+    .poster{justify-self:end;width:min(360px,100%);border-radius:22px;overflow:hidden;border:3px solid rgba(255,201,59,.8);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+    .poster img{display:block;width:100%;height:auto}
+    .sprite{position:fixed;right:18px;bottom:18px;width:88px;height:88px;image-rendering:pixelated;background:url('./assets/jazzycat-sprite-sheet.png') 0 0/352px 88px no-repeat;animation:steps .9s steps(4) infinite, float 6s ease-in-out infinite;filter:drop-shadow(0 10px 16px rgba(0,0,0,.4));pointer-events:none}
+    @keyframes steps{from{background-position:0 0}to{background-position:-352px 0}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @media (max-width:860px){.card{grid-template-columns:1fr}.poster{justify-self:center;max-width:280px}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div>
+      <h1>Ask JazzyCat</h1>
+      <p>The rebuilt BMC page is loading now. JazzyCat now lives at the top of the page, reads New Orleans time, checks the current-day lineup, and points visitors to the current 504 Esplanade address.</p>
+      <a class="btn" href="./jazzycat.html">Open JazzyCat</a>
+      <div class="chips">
+        <span class="chip">Top-of-page JazzyCat</span>
+        <span class="chip">Thursday Happy Hour</span>
+        <span class="chip">Sunday Bloody Mary Brunch</span>
+        <span class="chip">Private Events</span>
+      </div>
+    </div>
+    <div class="poster"><img src="./assets/jazzycat-poster.webp" alt="Balcony Music Club pixel poster" /></div>
+  </div>
+  <div class="sprite" aria-hidden="true"></div>
+</body>
+</html>
