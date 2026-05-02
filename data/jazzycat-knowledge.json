@@ -1,6 +1,6 @@
 {
-  "version": "4.1.0",
-  "last_updated": "2026-04-11",
+  "version": "3.0.0",
+  "last_updated": "2026-04-10",
   "assistant": {
     "name": "JazzyCat",
     "display_name": "JazzyCat",
@@ -14,15 +14,15 @@
     ],
     "identity_lines": [
       "Hey, I'm JazzyCat — Balcony Music Club's pixel-house guide.",
-      "Ask me who is playing today, tonight, or right now and I’ll check the current day in New Orleans time before I answer.",
-      "I answer from the club files loaded into this page, the live BMC shows page when it is reachable, and I say clearly when something still needs human confirmation."
+      "Ask me about the club's founding in 2011, the no-cover spirit, haunted-history-tour lore, patio backbar chicken paninis, craft cocktails, THC seltzers, craft beer, tonight's lineup, or how to book the room.",
+      "I answer from the facts loaded into this page and say clearly when something has not been entered yet."
     ],
     "rules": [
-      "Use the live Balcony Music Club shows page first when it is reachable in the browser.",
-      "If the live shows page cannot be read, fall back to the local schedule snapshot and say that clearly.",
+      "Use only facts loaded from the JSON files on this page unless a separate live search route is connected.",
       "Do not invent prices, times, dates, policies, or artist details.",
-      "If an artist genre, menu item, or event detail is not loaded, say that clearly instead of guessing.",
-      "Prefer direct answers first and then give the best contact route when relevant."
+      "If a genre, artist link, or menu detail is not loaded, say that clearly.",
+      "Prefer direct answers first and then give the best contact route when relevant.",
+      "Treat the schedule snapshot as a public-calendar snapshot, not a permanent promise."
     ]
   },
   "site": {
@@ -30,27 +30,19 @@
     "short_name": "BMC",
     "city": "New Orleans",
     "state": "Louisiana",
-    "address": "504 Esplanade Avenue, New Orleans, LA 70116",
-    "website": "https://balconymusicclub.com/",
-    "summary": "Balcony Music Club is a live music room at 504 Esplanade in New Orleans with a no-cover, no-charge spirit, haunted-tour lore, a courtyard/patio backbar, and a craft-focused drink program.",
-    "core_summary": "Balcony Music Club opened in 2011 and now publicly lists 504 Esplanade Avenue. No cover. No charge. Haunted-tour energy, a courtyard backbar with fresh-made-to-order chicken paninis, and a drink list built around specialty cocktails, THC seltzers, and craft beer.",
-    "house_atmosphere": "504 Esplanade • No Cover • No Charge • founded 2011 • haunted bar lore • courtyard backbar paninis • cocktails • THC seltzers • craft beer",
-    "badge_line": "504 Esplanade • No Cover • No Charge",
-    "poster_caption": "A haunted New Orleans room at 504 Esplanade with live music, marquee glow, no cover, courtyard backbar paninis, and a house drink list worth asking about.",
-    "sidebar_summary": "Balcony Music Club opened in 2011, now publicly lists 504 Esplanade Avenue, keeps a no-cover/no-charge spirit, appears on haunted pub crawls, serves fresh-made-to-order chicken paninis from the courtyard backbar, and pours specialty craft cocktails alongside THC seltzers and craft beer.",
-    "marketing_line": "Whether you’re looking for a craft cocktail in the French Quarter, a courtyard bar by Esplanade, or the right first stop before your night opens up, BMC is the move.",
+    "address": "504 Esplanade Ave., New Orleans, LA 70116",
+    "website": "https://balconymusicclubnola.com/",
+    "summary": "Balcony Music Club is a live music room in New Orleans with a no-cover, no-charge spirit, haunted-history-tour lore, a patio backbar, and a craft-focused drink program.",
+    "core_summary": "Founded in 2011. No cover. No charge. Haunted-history-tour energy, a patio backbar serving fresh-made-to-order chicken paninis, and a drink list built around specialty cocktails, THC seltzers, and craft beer.",
+    "house_atmosphere": "NO COVER • NO CHARGE • founded 2011 • haunted bar lore • patio backbar paninis • cocktails • THC seltzers • craft beer",
+    "badge_line": "Founded 2011 • No Cover • No Charge",
+    "poster_caption": "A haunted New Orleans room with live music, marquee glow, no cover, patio backbar paninis, and a house drink list worth asking about.",
+    "sidebar_summary": "Balcony Music Club opened in 2011, keeps a no-cover/no-charge spirit, appears in local haunted-history-tour conversation, serves fresh-made-to-order chicken paninis from the patio backbar, and pours specialty craft cocktails alongside THC seltzers and craft beer.",
+    "marketing_line": "Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar at 504 Esplanade, or the perfect start to your night, BMC is the move.",
     "venue_areas": [
       "courtyard",
       "main stage",
       "balcony bar"
-    ],
-    "current_location_note": "The current BMC site lists 504 Esplanade Avenue. Some older third-party listings still show 1331 Decatur because the venue sits on the same corner building at Decatur and Esplanade.",
-    "schedule_fetch_urls": [
-      "/shows",
-      "https://balconymusicclub.com/shows"
-    ],
-    "backup_calendar_urls": [
-      "https://www.wwoz.org/organizations/bmc"
     ]
   },
   "contacts": {
@@ -142,22 +134,8 @@
   "history": {
     "founded": 2011,
     "cover_policy": "No cover, no charge.",
-    "early_building_history": "The corner building at Decatur and Esplanade traces back to a row of c. 1840 exposed-brick townhouses designed by E. W. Sewell for the Citizen's Bank, with later 19th-century changes to the 500-04 Esplanade corner portion.",
-    "current_location_note": "The current BMC site lists 504 Esplanade Avenue. Older web listings may still say 1331 Decatur because they refer to the same corner property.",
-    "haunted_tours": "BMC is part of the city's haunted-bar lore and currently appears on at least one public haunted pub crawl route.",
-    "haunted_tours_list": [
-      {
-        "name": "Ghost Tour: Haunted Bars & Free Shots",
-        "url": "https://www.peek.com/new-orleans-louisiana/r0kz/ghost-tour-haunted-bars-free-shots/a0g4rmr?list_info=Activity%7CSiblings%7C2",
-        "note": "Peek itinerary currently lists BMC Balcony Music Club as a stop with drink offers and haunted-history storytelling."
-      },
-      {
-        "name": "WWOZ BMC venue page",
-        "url": "https://www.wwoz.org/organizations/bmc",
-        "note": "Useful backup public calendar reference, though some details there still reflect the older Decatur listing."
-      }
-    ],
-    "source": "Current BMC site, Historic New Orleans Collection Vieux Carré Survey, and public tour listings."
+    "haunted_tours": "The bar is part of local haunted-bar lore and can be included on haunted history tours in the city.",
+    "source": "User-provided venue history detail"
   },
   "food": {
     "patio_backbar": "The patio backbar serves fresh-made-to-order chicken paninis.",
@@ -251,166 +229,169 @@
   },
   "faq": [
     {
-      "question": "Where is Balcony Music Club located now?",
-      "answer": "The current BMC site lists Balcony Music Club at 504 Esplanade Avenue, New Orleans, LA 70116. Some older listings still show 1331 Decatur because the venue sits on the same corner building at Decatur and Esplanade.",
-      "keywords": [
-        "address",
-        "where are you located",
-        "location",
-        "504 esplanade",
-        "1331 decatur",
-        "where is bmc"
-      ]
-    },
-    {
+      "id": "faq_founded",
       "question": "When did Balcony Music Club open?",
-      "answer": "Balcony Music Club opened in 2011 and keeps a no-cover, no-charge house identity.",
       "keywords": [
-        "when did bmc open",
-        "when did balcony music club open",
+        "when did it open",
         "founded",
-        "open",
-        "opened"
-      ]
+        "2011",
+        "when was balcony music club founded"
+      ],
+      "answer": "Balcony Music Club opened in 2011.",
+      "source": "User-provided venue history detail"
     },
     {
+      "id": "faq_cover",
       "question": "Is there a cover charge?",
-      "answer": "No cover. No charge.",
       "keywords": [
         "cover",
         "cover charge",
-        "door charge",
-        "admission"
-      ]
+        "no cover",
+        "no charge"
+      ],
+      "answer": "No cover, no charge.",
+      "source": "User-provided venue policy detail"
     },
     {
-      "question": "What is the early history of the building?",
-      "answer": "The corner building at Decatur and Esplanade traces back to a row of c. 1840 exposed-brick townhouses designed by E. W. Sewell for the Citizen's Bank, with later 19th-century changes to the 500-04 Esplanade corner portion.",
-      "keywords": [
-        "building history",
-        "early history",
-        "old building",
-        "historic building",
-        "what was here before",
-        "sewell",
-        "citizens bank"
-      ]
-    },
-    {
+      "id": "faq_haunted",
       "question": "Is Balcony Music Club haunted?",
-      "answer": "BMC lives inside New Orleans haunted-bar lore and it currently appears on at least one public haunted pub crawl route.",
       "keywords": [
         "haunted",
         "ghost",
-        "ghosts",
-        "is the bar haunted",
-        "haunted tours"
-      ]
+        "haunted tour",
+        "haunted history"
+      ],
+      "answer": "Balcony Music Club is part of local haunted-bar lore and can be toured on haunted-history routes in the city.",
+      "source": "User-provided haunted-tour detail"
     },
     {
-      "question": "Which haunted tours come through BMC?",
-      "answer": "A currently marketed option is Ghost Tour: Haunted Bars & Free Shots on Peek, which lists BMC Balcony Music Club as one of its stops.",
+      "id": "faq_panini",
+      "question": "What food does the patio backbar serve?",
       "keywords": [
-        "which haunted tours",
-        "haunted tour links",
-        "pub crawl",
-        "ghost tour",
-        "tour stop"
-      ]
-    },
-    {
-      "question": "What food does the courtyard backbar serve?",
-      "answer": "The patio backbar serves fresh-made-to-order chicken paninis.",
-      "keywords": [
-        "food",
         "panini",
-        "paninis",
+        "chicken panini",
+        "food",
         "patio backbar",
-        "courtyard food",
-        "what do you serve"
-      ]
+        "backbar food"
+      ],
+      "answer": "The patio backbar serves fresh-made-to-order chicken paninis.",
+      "source": "User-provided venue food detail"
     },
     {
+      "id": "faq_menu",
       "question": "What kinds of drinks does BMC have?",
-      "answer": "Specialty craft cocktails, THC seltzers, craft beer, and patio backbar bites.",
       "keywords": [
         "drinks",
         "cocktails",
         "menu",
-        "beer",
-        "thc seltzer",
-        "what do you have to drink"
-      ]
+        "craft cocktails",
+        "thc seltzers",
+        "craft beer"
+      ],
+      "answer": "BMC highlights specialty craft cocktails, THC seltzers, craft beer, and patio backbar food.",
+      "source": "User-provided drink menu detail"
     },
     {
+      "id": "faq_marketing",
+      "question": "Why should I start my night at BMC?",
+      "keywords": [
+        "start to your night",
+        "start my night",
+        "why bmc",
+        "craft cocktail in new orleans",
+        "courtyard bar on frenchmen street"
+      ],
+      "answer": "Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move.",
+      "source": "User-provided marketing line"
+    },
+    {
+      "id": "faq_where",
+      "question": "Where is Balcony Music Club located?",
+      "keywords": [
+        "where is balcony music club",
+        "address",
+        "location",
+        "decatur"
+      ],
+      "answer": "Balcony Music Club is located at 1331 Decatur St., New Orleans, LA 70116.",
+      "source": "WWOZ venue page"
+    },
+    {
+      "id": "faq_live_music_when",
       "question": "When is live music?",
-      "answer": "Live music runs Wednesday through Sunday. Ask me who is playing today, tonight, tomorrow, or on a specific date and I will check the schedule.",
       "keywords": [
         "live music",
         "when is music",
-        "schedule",
-        "bands",
-        "who is playing"
-      ]
+        "music nights"
+      ],
+      "answer": "Live music runs every Wednesday through Sunday, open to close.",
+      "source": "User-provided recurring programming detail"
     },
     {
+      "id": "faq_happy_hour",
       "question": "When is Thursday happy hour?",
-      "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
       "keywords": [
         "happy hour",
-        "thursday happy hour"
-      ]
+        "thursday happy hour",
+        "4:30",
+        "5:30"
+      ],
+      "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
+      "source": "User-provided recurring programming detail"
     },
     {
+      "id": "faq_brunch",
       "question": "When is Bloody Mary brunch?",
-      "answer": "Build Your Own Bloody Mary Sunday Brunch is every Sunday from noon to 4:00 PM. It is $15, and refills are $10.",
       "keywords": [
         "bloody mary",
-        "brunch",
+        "bloody mary brunch",
         "sunday brunch"
-      ]
+      ],
+      "answer": "Build Your Own Bloody Mary Sunday Brunch runs every Sunday from noon to 4:00 PM.",
+      "source": "User-provided recurring programming detail"
     },
     {
+      "id": "faq_paint",
       "question": "How do I register for Paint and Sip?",
-      "answer": "Call or text 504-281-8736 for Paint and Sip registration and questions.",
       "keywords": [
         "paint and sip",
         "paint & sip",
         "register",
-        "registration"
-      ]
+        "sign up"
+      ],
+      "answer": "Call 504-281-8736 for Paint and Sip registration.",
+      "source": "User-provided recurring programming detail"
     },
     {
+      "id": "faq_private",
       "question": "How do I book a private event?",
-      "answer": "For private events and venue questions, email BMC@marullomgmt.com or call 504-428-5494.",
       "keywords": [
+        "book private event",
         "private events",
-        "book event",
-        "rent the room",
-        "venue rental",
-        "booking"
-      ]
+        "reserve the club"
+      ],
+      "answer": "For private events, email BMC@marullomgmt.com or call 504-428-5494.",
+      "source": "User-provided private events contact"
     }
   ],
   "quick_questions": [
-    "Who is playing today?",
-    "What is happening tonight?",
-    "What is happening right now?",
-    "Who is playing tomorrow?",
-    "What special event is on today?",
-    "Where are you located now?",
-    "Tell me the early history of the building.",
-    "Which haunted tours come through BMC?",
-    "What does the courtyard backbar serve?",
+    "When did Balcony Music Club open?",
+    "Is there a cover charge?",
+    "Is the bar haunted?",
+    "What does the patio backbar serve?",
     "What kind of drinks do you have?",
-    "Tell me about Sierra Green.",
-    "Tell me about John Lisi & Delta Funk.",
+    "Tell me about The BMC cocktail.",
+    "Tell me about the Jimi Hendrix Fizz.",
+    "Do you have THC seltzers?",
+    "Do you have craft beer?",
+    "What is happening tonight?",
     "When is Thursday happy hour?",
     "When is Bloody Mary brunch?",
+    "How do I register for Paint and Sip?",
     "How do I book a private event?"
   ],
   "routing": {
-    "unknown_fallback": "I can help with today's lineup, the current day's specials, artist descriptions, the building history, haunted tour links, drinks, food, and booking contact info. Try asking who is playing today, what is happening right now, or which haunted tours stop here."
+    "unknown_fallback": "I do not have that loaded in this repo yet. Ask me about the club history, no-cover policy, haunted-tour angle, patio backbar paninis, house cocktails, THC seltzers, craft beer, the current schedule snapshot, Thursday happy hour, Sunday Bloody Mary brunch, Paint and Sip, or private events."
   },
   "ui": {
     "page_title": "Ask JazzyCat",
@@ -422,25 +403,8 @@
     "marquee_text": "NO COVER • NO CHARGE • SPECIALTY CRAFT COCKTAILS • THC SELTZERS • CRAFT BEER • PATIO BACKBAR PANINIS • LIVE MUSIC WEDNESDAY–SUNDAY •"
   },
   "sources": [
-    {
-      "label": "Balcony Music Club official site",
-      "url": "https://balconymusicclub.com/"
-    },
-    {
-      "label": "Balcony Music Club shows page",
-      "url": "https://balconymusicclub.com/shows"
-    },
-    {
-      "label": "Historic New Orleans Collection Vieux Carré Survey",
-      "url": "https://vcs.hnoc.org/property_info.php?lot=22652-A"
-    },
-    {
-      "label": "Ghost Tour: Haunted Bars & Free Shots",
-      "url": "https://www.peek.com/new-orleans-louisiana/r0kz/ghost-tour-haunted-bars-free-shots/a0g4rmr?list_info=Activity%7CSiblings%7C2"
-    },
-    {
-      "label": "WWOZ BMC backup page",
-      "url": "https://www.wwoz.org/organizations/bmc"
-    }
+    "Local JazzyCat venue knowledge JSON",
+    "Current public schedule snapshot loaded into this repo",
+    "Local artist metadata JSON"
   ]
 }
