@@ -1,410 +1,89 @@
 {
-  "version": "3.0.0",
-  "last_updated": "2026-04-10",
-  "assistant": {
-    "name": "JazzyCat",
-    "display_name": "JazzyCat",
-    "role": "Balcony Music Club website guide",
-    "tone": [
-      "playful",
-      "helpful",
-      "clear",
-      "Mardi Gras-flavored",
-      "brief first, then detailed if asked"
-    ],
-    "identity_lines": [
-      "Hey, I'm JazzyCat — Balcony Music Club's pixel-house guide.",
-      "Ask me about the club's founding in 2011, the no-cover spirit, haunted-history-tour lore, patio backbar chicken paninis, craft cocktails, THC seltzers, craft beer, tonight's lineup, or how to book the room.",
-      "I answer from the facts loaded into this page and say clearly when something has not been entered yet."
-    ],
-    "rules": [
-      "Use only facts loaded from the JSON files on this page unless a separate live search route is connected.",
-      "Do not invent prices, times, dates, policies, or artist details.",
-      "If a genre, artist link, or menu detail is not loaded, say that clearly.",
-      "Prefer direct answers first and then give the best contact route when relevant.",
-      "Treat the schedule snapshot as a public-calendar snapshot, not a permanent promise."
-    ]
-  },
+  "version": "4.0.0",
+  "last_updated": "2026-06-15",
   "site": {
     "name": "Balcony Music Club",
     "short_name": "BMC",
-    "city": "New Orleans",
-    "state": "Louisiana",
     "address": "504 Esplanade Ave., New Orleans, LA 70116",
-    "website": "https://balconymusicclubnola.com/",
-    "summary": "Balcony Music Club is a live music room in New Orleans with a no-cover, no-charge spirit, haunted-history-tour lore, a patio backbar, and a craft-focused drink program.",
-    "core_summary": "Founded in 2011. No cover. No charge. Haunted-history-tour energy, a patio backbar serving fresh-made-to-order chicken paninis, and a drink list built around specialty cocktails, THC seltzers, and craft beer.",
-    "house_atmosphere": "NO COVER • NO CHARGE • founded 2011 • haunted bar lore • patio backbar paninis • cocktails • THC seltzers • craft beer",
+    "address_short": "504 Esplanade • New Orleans",
+    "website": "https://www.balconymusicclub.com/",
+    "shows_url": "https://balconymusicclub.com/shows",
+    "app_url": "https://app.balconymusicclub.com/",
     "badge_line": "Founded 2011 • No Cover • No Charge",
-    "poster_caption": "A haunted New Orleans room with live music, marquee glow, no cover, patio backbar paninis, and a house drink list worth asking about.",
-    "sidebar_summary": "Balcony Music Club opened in 2011, keeps a no-cover/no-charge spirit, appears in local haunted-history-tour conversation, serves fresh-made-to-order chicken paninis from the patio backbar, and pours specialty craft cocktails alongside THC seltzers and craft beer.",
+    "core_summary": "Founded in 2011. No cover. No charge. Live music, haunted-history energy, fresh-made-to-order chicken paninis, specialty cocktails, THC seltzers, and craft beer at 504 Esplanade.",
+    "house_atmosphere": "NO COVER • NO CHARGE • 504 ESPLANADE • LIVE MUSIC • HAUNTED-HISTORY ENERGY • COCKTAILS • THC SELTZERS • CRAFT BEER",
+    "poster_caption": "A haunted New Orleans live-music room with marquee glow, no cover, patio backbar paninis, and a house drink list worth asking about.",
+    "sidebar_summary": "JazzyCat is the fast BMC guide for guests who want music, drinks, food, haunted-history context, the current address, or private-event contacts without digging around.",
     "marketing_line": "Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar at 504 Esplanade, or the perfect start to your night, BMC is the move.",
-    "venue_areas": [
-      "courtyard",
-      "main stage",
-      "balcony bar"
-    ]
+    "venue_areas": ["courtyard", "speakeasy", "balcony bar", "main stage"],
+    "schedule_fetch_urls": ["https://balconymusicclub.com/shows", "https://shows.balconymusicclub.com/"]
   },
   "contacts": {
-    "venue_phone_public": {
-      "label": "Venue phone listed on WWOZ",
-      "phone": "(504) 301-5912",
-      "source": "WWOZ venue page"
-    },
-    "general_events": {
-      "email": "BMC@marullomgmt.com",
-      "phone": "504-428-5494",
-      "mailto": "mailto:BMC@marullomgmt.com",
-      "tel": "tel:+15044285494",
-      "use_for": [
-        "private events",
-        "event inquiries",
-        "venue booking questions"
-      ],
-      "source": "User-provided club contact"
-    },
-    "paint_and_sip": {
-      "phone": "504-281-8736",
-      "tel": "tel:+15042818736",
-      "use_for": [
-        "Paint and Sip registration",
-        "Paint and Sip questions"
-      ],
-      "source": "User-provided Paint and Sip registration contact"
-    }
+    "general_events": {"email": "BMC@marullomgmt.com", "phone": "504-428-5494", "mailto": "mailto:BMC@marullomgmt.com", "tel": "tel:+15044285494"},
+    "paint_and_sip": {"phone": "504-428-5494", "tel": "tel:+15044285494"}
   },
   "recurring_programming": {
-    "live_music": {
-      "title": "Live Music",
-      "days": [
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "schedule_text": "Live music every Wednesday through Sunday, open to close.",
-      "short_answer": "Live music runs every Wednesday through Sunday, open to close.",
-      "source": "User-provided recurring programming detail"
-    },
-    "bloody_mary_brunch": {
-      "title": "Build Your Own Bloody Mary Sunday Brunch",
-      "day": "Sunday",
-      "time": "Noon - 4:00 PM",
-      "price": "$15",
-      "refill_price": "$10",
-      "availability_note": "Featured item only available during this Sunday brunch window.",
-      "description": "Build your own Bloody Mary with all the breakfast necessities.",
-      "short_answer": "Build Your Own Bloody Mary Sunday Brunch is every Sunday from noon to 4:00 PM. It is $15, and refills are $10.",
-      "source": "User-provided recurring programming detail"
-    },
-    "paint_and_sip": {
-      "title": "Paint and Sip",
-      "registration_phone": "504-281-8736",
-      "short_answer": "Paint and Sip registration is handled at 504-281-8736.",
-      "source": "User-provided recurring programming detail"
-    },
-    "private_events": {
-      "title": "Private Events",
-      "spaces": [
-        "courtyard",
-        "main stage",
-        "balcony bar"
-      ],
-      "ideal_for": [
-        "weddings",
-        "graduations",
-        "Mardi Gras balls",
-        "private celebrations"
-      ],
-      "email": "BMC@marullomgmt.com",
-      "phone": "504-428-5494",
-      "short_answer": "Private events can be booked for the courtyard, main stage, or balcony bar. Contact BMC@marullomgmt.com or 504-428-5494.",
-      "source": "User-provided recurring programming detail"
-    },
-    "happy_hour": {
-      "title": "Thursday Happy Hour",
-      "day": "Thursday",
-      "time": "4:30 PM - 5:30 PM",
-      "description": "Thursday happy hour with nice cocktail lounge music.",
-      "short_answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
-      "source": "User-provided recurring programming detail"
-    }
+    "live_music": {"short_answer": "Live music runs every Wednesday through Sunday, open to close. For the newest lineup, check the Shows page or BMC app."},
+    "bloody_mary_brunch": {"short_answer": "Build Your Own Bloody Mary Sunday Brunch is every Sunday from noon to 4:00 PM. It is $15, and refills are $10."},
+    "paint_and_sip": {"ticket_note": "One ticket with one complimentary drink: $35. Two tickets with two complimentary drinks: $60.", "short_answer": "For Paint and Sip registration, call or text 504-428-5494. One ticket with one complimentary drink is $35; two tickets with two complimentary drinks are $60."},
+    "private_events": {"spaces": ["courtyard", "speakeasy", "balcony bar", "main stage"], "ideal_for": ["weddings", "graduations", "Mardi Gras balls", "private celebrations", "receptions"], "short_answer": "Book the courtyard, speakeasy, balcony bar, or main stage for weddings, graduations, Mardi Gras balls, private celebrations, and receptions. Contact BMC@marullomgmt.com or 504-428-5494."},
+    "happy_hour": {"short_answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with cocktail lounge music."}
   },
   "history": {
     "founded": 2011,
     "cover_policy": "No cover, no charge.",
-    "haunted_tours": "The bar is part of local haunted-bar lore and can be included on haunted history tours in the city.",
-    "source": "User-provided venue history detail"
+    "haunted_tours": {
+      "public_summary": "BMC sits inside the haunted-history conversation of old New Orleans: a live room on Esplanade with ghost-tour energy, old-city atmosphere, music, drinks, and stories moving through the night.",
+      "guest_answer": "Haunted-history tours and ghost-tour guests can treat BMC as a good Esplanade stop before or after a route. This page does not claim a specific named ghost, but the room leans into the old New Orleans haunted-bar mood: history, music, courtyard shadows, and late-night stories.",
+      "what_to_ask_staff": "Ask the staff what stories guests usually bring in after tours and what the room has been feeling like that night.",
+      "after_tour_suggestion": "After a haunted-history tour, stop in for no-cover live music, a cocktail, a THC seltzer, craft beer, or a fresh chicken panini from the patio backbar."
+    }
   },
   "food": {
     "patio_backbar": "The patio backbar serves fresh-made-to-order chicken paninis.",
-    "source": "User-provided venue food detail"
+    "guest_answer": "Food-wise, ask for the patio backbar chicken paninis: hot, fresh-made-to-order, and built for people who want something satisfying between drinks, sets, or tour stops."
   },
   "menu": {
     "headline": "Specialty craft cocktails, THC seltzers, craft beer, and patio backbar bites.",
     "categories": [
-      {
-        "name": "Specialty Craft Cocktails",
-        "description": "The signature list leans bright, musical, and New Orleans-night ready without giving away the whole playbook."
-      },
-      {
-        "name": "THC Seltzers",
-        "description": "For guests looking for a mellow canned option alongside the cocktail list. Availability can vary."
-      },
-      {
-        "name": "Craft Beer",
-        "description": "Cold craft selections for beer drinkers who want something easy before or between sets."
-      },
-      {
-        "name": "Patio Backbar",
-        "description": "Fresh-made-to-order chicken paninis from the patio backbar round out the house menu."
-      }
+      {"name": "Specialty Craft Cocktails", "description": "A music-themed house cocktail list with bright, refreshing, tropical, whiskey-warm, and dessert-leaning options. Ask JazzyCat by mood or spirit."},
+      {"name": "THC Seltzers", "description": "A mellow canned option alongside the cocktail list. Availability can vary, so ask the bar what is cold today."},
+      {"name": "Craft Beer", "description": "Cold craft selections for beer drinkers who want something easy before or between sets. Ask the bar for the current lineup."},
+      {"name": "Patio Backbar", "description": "Fresh-made-to-order chicken paninis from the patio backbar round out the house menu."}
     ],
     "signature_cocktails": [
-      {
-        "name": "The BMC",
-        "keywords": [
-          "the bmc",
-          "bmc drink",
-          "house drink"
-        ],
-        "brief": "A cool, bright house cocktail with minty snap, citrus lift, and a playful late-night edge.",
-        "spirit_options": "Available with tequila, vodka, gin, or rum."
-      },
-      {
-        "name": "Etta Jameson",
-        "keywords": [
-          "etta jameson",
-          "jameson drink"
-        ],
-        "brief": "Smooth and expressive with whiskey warmth, soft orchard sweetness, and a tangy finish."
-      },
-      {
-        "name": "Jimi Hendrix Fizz",
-        "keywords": [
-          "jimi hendrix fizz",
-          "hendrix fizz"
-        ],
-        "brief": "Floral, sparkling, and slightly dreamy — a gin-forward fizz with a polished finish."
-      },
-      {
-        "name": "Uptown Funk",
-        "keywords": [
-          "uptown funk"
-        ],
-        "brief": "Bright, tropical, and punchy with lime-driven freshness and a sunny groove."
-      },
-      {
-        "name": "Muddy Waters",
-        "keywords": [
-          "muddy waters"
-        ],
-        "brief": "Rich, dark, and dessert-leaning with coffeehouse depth and chocolate mood."
-      },
-      {
-        "name": "Billie Holiday",
-        "keywords": [
-          "billie holiday"
-        ],
-        "brief": "Rum-led and fruit-bright with soft tropical sweetness and an easygoing finish."
-      },
-      {
-        "name": "Prince Pimms",
-        "keywords": [
-          "prince pimms",
-          "pimms"
-        ],
-        "brief": "Crisp, cool, and refreshing with garden notes and a lively ginger sparkle."
-      },
-      {
-        "name": "Esplanade Lemonade",
-        "keywords": [
-          "esplanade lemonade"
-        ],
-        "brief": "Pink, juicy, and patio-friendly with berry brightness and a fizzy citrus close."
-      }
+      {"name": "The BMC", "keywords": ["the bmc", "bmc drink", "house drink", "mint", "citrus", "refreshing"], "spirit_family": ["tequila", "vodka", "gin", "rum"], "flavor_profile": ["cool", "bright", "minty", "citrus", "refreshing"], "sweetness_level": "medium-bright", "brief": "A cool, bright house cocktail with minty snap, citrus lift, and a playful late-night edge.", "guest_answer": "The BMC is the house cocktail: cool, bright, minty, and citrusy. You can take it with tequila, vodka, gin, or rum, so it works for a lot of drinkers."},
+      {"name": "Etta Jameson", "keywords": ["etta jameson", "jameson", "whiskey", "smooth", "tangy"], "spirit_family": ["whiskey"], "flavor_profile": ["smooth", "whiskey-warm", "orchard", "softly sweet", "tangy"], "sweetness_level": "medium", "brief": "Smooth and expressive with whiskey warmth, soft orchard sweetness, and a tangy finish.", "guest_answer": "Etta Jameson is the whiskey pick: smooth, warm, lightly sweet, and a little tangy on the finish."},
+      {"name": "Jimi Hendrix Fizz", "keywords": ["jimi hendrix fizz", "hendrix fizz", "gin", "fizz", "floral", "sparkling", "refreshing"], "spirit_family": ["gin"], "flavor_profile": ["floral", "sparkling", "dreamy", "bright", "refreshing"], "sweetness_level": "light-medium", "brief": "Floral, sparkling, and slightly dreamy — a gin-forward fizz with a polished finish.", "guest_answer": "The Jimi Hendrix Fizz is floral, bubbly, and gin-forward — a lighter, sparkling cocktail with a polished finish."},
+      {"name": "Uptown Funk", "keywords": ["uptown funk", "tropical", "lime", "bright", "refreshing", "punchy"], "spirit_family": ["tropical"], "flavor_profile": ["bright", "tropical", "lime", "sunny", "punchy"], "sweetness_level": "medium", "brief": "Bright, tropical, and punchy with lime-driven freshness and a sunny groove.", "guest_answer": "Uptown Funk is bright, tropical, and limey — the lively sunny one."},
+      {"name": "Muddy Waters", "keywords": ["muddy waters", "coffee", "chocolate", "dessert", "rich", "dark", "sweet"], "spirit_family": ["dessert"], "flavor_profile": ["rich", "dark", "coffee", "chocolate", "dessert-leaning"], "sweetness_level": "medium-rich", "brief": "Rich, dark, and dessert-leaning with coffeehouse depth and chocolate mood.", "guest_answer": "Muddy Waters is the rich one: dark, coffeehouse-style, chocolatey, and dessert-leaning."},
+      {"name": "Billie Holiday", "keywords": ["billie holiday", "rum", "fruit", "tropical", "sweet", "easygoing"], "spirit_family": ["rum"], "flavor_profile": ["rum-led", "fruit-bright", "tropical", "softly sweet", "easygoing"], "sweetness_level": "medium-sweet", "brief": "Rum-led and fruit-bright with soft tropical sweetness and an easygoing finish.", "guest_answer": "Billie Holiday is a rum-led, fruit-bright cocktail with soft tropical sweetness."},
+      {"name": "Prince Pimms", "keywords": ["prince pimms", "pimms", "ginger", "garden", "crisp", "cool", "refreshing"], "spirit_family": ["pimms"], "flavor_profile": ["crisp", "cool", "garden", "ginger", "refreshing"], "sweetness_level": "light-medium", "brief": "Crisp, cool, and refreshing with garden notes and a lively ginger sparkle.", "guest_answer": "Prince Pimms is crisp, cool, garden-fresh, and ginger-sparkly — a strong refreshing pick."},
+      {"name": "Esplanade Lemonade", "keywords": ["esplanade lemonade", "lemonade", "pink", "berry", "fizzy", "sweet", "refreshing"], "spirit_family": ["lemonade"], "flavor_profile": ["pink", "juicy", "berry", "fizzy", "citrus"], "sweetness_level": "medium-sweet", "brief": "Pink, juicy, and patio-friendly with berry brightness and a fizzy citrus close.", "guest_answer": "Esplanade Lemonade is pink, juicy, fizzy, berry-bright, and citrusy — one of the easiest sweet-refreshing picks."}
     ],
-    "marketing_line": "Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move."
+    "menu_answers": {
+      "overview": "BMC has specialty craft cocktails, THC seltzers, craft beer, and fresh-made-to-order chicken paninis from the patio backbar. Ask by mood: sweet, refreshing, whiskey, gin, rum, dessert, or tropical.",
+      "sweet": "For sweeter drinks, start with Esplanade Lemonade, Billie Holiday, Muddy Waters, or Uptown Funk.",
+      "refreshing": "For refreshing drinks, ask about The BMC, Jimi Hendrix Fizz, Prince Pimms, Esplanade Lemonade, or Uptown Funk.",
+      "whiskey": "For whiskey, ask about the Etta Jameson: smooth, warm, softly sweet, and tangy on the finish.",
+      "gin": "For gin, ask about the Jimi Hendrix Fizz. The BMC can also be made with gin if you want the house cocktail in a brighter mint-citrus lane.",
+      "rum": "For rum, ask about Billie Holiday. The BMC can also be made with rum if you want the house cocktail with mint and citrus.",
+      "tequila": "For tequila, ask for The BMC with tequila: cool, minty, bright, and citrusy.",
+      "vodka": "For vodka, ask for The BMC with vodka: clean, bright, minty, and citrusy.",
+      "thc": "BMC carries THC seltzers when available. Ask the bar what is cold today.",
+      "beer": "BMC carries craft beer. Ask the bar for the current craft selections."
+    },
+    "marketing_line": "Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar at 504 Esplanade, or the perfect start to your night, BMC is the move."
   },
   "faq": [
-    {
-      "id": "faq_founded",
-      "question": "When did Balcony Music Club open?",
-      "keywords": [
-        "when did it open",
-        "founded",
-        "2011",
-        "when was balcony music club founded"
-      ],
-      "answer": "Balcony Music Club opened in 2011.",
-      "source": "User-provided venue history detail"
-    },
-    {
-      "id": "faq_cover",
-      "question": "Is there a cover charge?",
-      "keywords": [
-        "cover",
-        "cover charge",
-        "no cover",
-        "no charge"
-      ],
-      "answer": "No cover, no charge.",
-      "source": "User-provided venue policy detail"
-    },
-    {
-      "id": "faq_haunted",
-      "question": "Is Balcony Music Club haunted?",
-      "keywords": [
-        "haunted",
-        "ghost",
-        "haunted tour",
-        "haunted history"
-      ],
-      "answer": "Balcony Music Club is part of local haunted-bar lore and can be toured on haunted-history routes in the city.",
-      "source": "User-provided haunted-tour detail"
-    },
-    {
-      "id": "faq_panini",
-      "question": "What food does the patio backbar serve?",
-      "keywords": [
-        "panini",
-        "chicken panini",
-        "food",
-        "patio backbar",
-        "backbar food"
-      ],
-      "answer": "The patio backbar serves fresh-made-to-order chicken paninis.",
-      "source": "User-provided venue food detail"
-    },
-    {
-      "id": "faq_menu",
-      "question": "What kinds of drinks does BMC have?",
-      "keywords": [
-        "drinks",
-        "cocktails",
-        "menu",
-        "craft cocktails",
-        "thc seltzers",
-        "craft beer"
-      ],
-      "answer": "BMC highlights specialty craft cocktails, THC seltzers, craft beer, and patio backbar food.",
-      "source": "User-provided drink menu detail"
-    },
-    {
-      "id": "faq_marketing",
-      "question": "Why should I start my night at BMC?",
-      "keywords": [
-        "start to your night",
-        "start my night",
-        "why bmc",
-        "craft cocktail in new orleans",
-        "courtyard bar on frenchmen street"
-      ],
-      "answer": "Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar on Frenchmen Street, or the perfect start to your night, BMC is the move.",
-      "source": "User-provided marketing line"
-    },
-    {
-      "id": "faq_where",
-      "question": "Where is Balcony Music Club located?",
-      "keywords": [
-        "where is balcony music club",
-        "address",
-        "location",
-        "decatur"
-      ],
-      "answer": "Balcony Music Club is located at 1331 Decatur St., New Orleans, LA 70116.",
-      "source": "WWOZ venue page"
-    },
-    {
-      "id": "faq_live_music_when",
-      "question": "When is live music?",
-      "keywords": [
-        "live music",
-        "when is music",
-        "music nights"
-      ],
-      "answer": "Live music runs every Wednesday through Sunday, open to close.",
-      "source": "User-provided recurring programming detail"
-    },
-    {
-      "id": "faq_happy_hour",
-      "question": "When is Thursday happy hour?",
-      "keywords": [
-        "happy hour",
-        "thursday happy hour",
-        "4:30",
-        "5:30"
-      ],
-      "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with nice cocktail lounge music.",
-      "source": "User-provided recurring programming detail"
-    },
-    {
-      "id": "faq_brunch",
-      "question": "When is Bloody Mary brunch?",
-      "keywords": [
-        "bloody mary",
-        "bloody mary brunch",
-        "sunday brunch"
-      ],
-      "answer": "Build Your Own Bloody Mary Sunday Brunch runs every Sunday from noon to 4:00 PM.",
-      "source": "User-provided recurring programming detail"
-    },
-    {
-      "id": "faq_paint",
-      "question": "How do I register for Paint and Sip?",
-      "keywords": [
-        "paint and sip",
-        "paint & sip",
-        "register",
-        "sign up"
-      ],
-      "answer": "Call 504-281-8736 for Paint and Sip registration.",
-      "source": "User-provided recurring programming detail"
-    },
-    {
-      "id": "faq_private",
-      "question": "How do I book a private event?",
-      "keywords": [
-        "book private event",
-        "private events",
-        "reserve the club"
-      ],
-      "answer": "For private events, email BMC@marullomgmt.com or call 504-428-5494.",
-      "source": "User-provided private events contact"
-    }
+    {"keywords": ["founded", "2011"], "answer": "Balcony Music Club opened in 2011."},
+    {"keywords": ["cover", "cover charge", "no cover", "no charge"], "answer": "No cover, no charge."},
+    {"keywords": ["address", "location", "esplanade", "504 esplanade", "decatur"], "answer": "Balcony Music Club is located at 504 Esplanade Ave., New Orleans, LA 70116."},
+    {"keywords": ["happy hour"], "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with cocktail lounge music."},
+    {"keywords": ["bloody mary", "brunch"], "answer": "Build Your Own Bloody Mary Sunday Brunch runs every Sunday from noon to 4:00 PM. It is $15, and refills are $10."},
+    {"keywords": ["paint and sip", "paint & sip"], "answer": "For Paint and Sip registration, call or text 504-428-5494."},
+    {"keywords": ["private events", "book courtyard", "book speakeasy", "book balcony", "book main stage"], "answer": "Book the courtyard, speakeasy, balcony bar, or main stage for weddings, graduations, Mardi Gras balls, private celebrations, and receptions. Contact BMC@marullomgmt.com or 504-428-5494."}
   ],
-  "quick_questions": [
-    "When did Balcony Music Club open?",
-    "Is there a cover charge?",
-    "Is the bar haunted?",
-    "What does the patio backbar serve?",
-    "What kind of drinks do you have?",
-    "Tell me about The BMC cocktail.",
-    "Tell me about the Jimi Hendrix Fizz.",
-    "Do you have THC seltzers?",
-    "Do you have craft beer?",
-    "What is happening tonight?",
-    "When is Thursday happy hour?",
-    "When is Bloody Mary brunch?",
-    "How do I register for Paint and Sip?",
-    "How do I book a private event?"
-  ],
-  "routing": {
-    "unknown_fallback": "I do not have that loaded in this repo yet. Ask me about the club history, no-cover policy, haunted-tour angle, patio backbar paninis, house cocktails, THC seltzers, craft beer, the current schedule snapshot, Thursday happy hour, Sunday Bloody Mary brunch, Paint and Sip, or private events."
-  },
-  "ui": {
-    "page_title": "Ask JazzyCat",
-    "panel_title": "JazzyCat Live Desk",
-    "status_label": "Local knowledge loaded",
-    "input_placeholder": "Ask JazzyCat about BMC…",
-    "send_label": "Ask JazzyCat",
-    "welcome_prompt": "Ask about cocktails, tonight, brunch, happy hour, private events, Paint and Sip, or a loaded artist.",
-    "marquee_text": "NO COVER • NO CHARGE • SPECIALTY CRAFT COCKTAILS • THC SELTZERS • CRAFT BEER • PATIO BACKBAR PANINIS • LIVE MUSIC WEDNESDAY–SUNDAY •"
-  },
-  "sources": [
-    "Local JazzyCat venue knowledge JSON",
-    "Current public schedule snapshot loaded into this repo",
-    "Local artist metadata JSON"
-  ]
+  "quick_questions": ["Who is playing tonight?", "What drinks are sweet?", "What drinks are refreshing?", "Tell me about haunted-history tours.", "Is there a cover charge?", "What food do you have?", "How do I book a private event?", "How do I register for Paint and Sip?"],
+  "routing": {"unknown_fallback": "I don’t have that detail on this page yet, but I can help with tonight’s music, the drink list, haunted-history tour info, private events, Paint and Sip, brunch, happy hour, and booking contacts."}
 }
