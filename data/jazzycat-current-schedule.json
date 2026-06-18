@@ -1,8 +1,8 @@
 {
-  "version": "0.3.0",
-  "last_updated": "2026-05-29",
+  "version": "0.4.0",
+  "last_updated": "2026-06-16",
   "purpose": "Current public schedule snapshot loaded by the JazzyCat static page.",
-  "source_note": "May 29-31, 2026 weekend lineup preserved from the existing current file; June 2026 BMC schedule provided by Ryan. Artist photo labels omitted from bot-facing schedule entries.",
+  "source_note": "Updated from the UpcomingShows repository so JazzyCat no longer starts with the stale May 29-June 4 schedule block. Bot-facing entries begin with the current June 17, 2026 week and continue through June 28, 2026.",
   "timezone": "America/Chicago",
   "fields": {
     "day": "Weekday display label.",
@@ -14,276 +14,6 @@
     "artist_id": "Stable machine-friendly identifier matching jazzycat-artists.json when available."
   },
   "schedule": [
-    {
-      "day": "Friday",
-      "date": "2026-05-29",
-      "acts": [
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "JOHN LISI & DELTA FUNK",
-          "artist_id": "john_lisi_and_delta_funk"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "KAT KILEY EXPERIENCE",
-          "artist_id": "kat_kiley_experience"
-        }
-      ]
-    },
-    {
-      "day": "Saturday",
-      "date": "2026-05-30",
-      "acts": [
-        {
-          "start_time": "3:00 PM",
-          "end_time": "5:30 PM",
-          "artist_name": "ANDRE LOVETT BAND",
-          "artist_id": "andre_lovett_band"
-        },
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "MOTHER RUCKUS",
-          "artist_id": "mother_ruckus"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "SIERRA",
-          "artist_id": "sierra_green"
-        }
-      ]
-    },
-    {
-      "day": "Sunday",
-      "date": "2026-05-31",
-      "acts": [
-        {
-          "start_time": "3:00 PM",
-          "end_time": "5:30 PM",
-          "artist_name": "DEEJ FLAVA & MOTHER RUCKUS",
-          "artist_id": "deej_and_mother_ruckus"
-        },
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "SPECIAL GUEST",
-          "artist_id": "special_guest"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "MAURICE CADE & ESS",
-          "artist_id": "maurice_cade_and_ess"
-        }
-      ]
-    },
-    {
-      "day": "Wednesday",
-      "date": "2026-06-03",
-      "acts": [
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "ARMANDO LEDUC Content Live",
-          "artist_id": "armando_leduc_content_live"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "FELIPE ANTIONIO MUSIC",
-          "artist_id": "felipe_antionio_music"
-        }
-      ]
-    },
-    {
-      "day": "Thursday",
-      "date": "2026-06-04",
-      "acts": [
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "JOHN LISI & DELTA FUNK",
-          "artist_id": "john_lisi_and_delta_funk"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "JAM BRASS BAND",
-          "artist_id": "j_a_m_brass_band"
-        }
-      ]
-    },
-    {
-      "day": "Friday",
-      "date": "2026-06-05",
-      "acts": [
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "COVERTONES",
-          "artist_id": "covertones"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "BIG MIKE & THE R&B KINGS",
-          "artist_id": "big_mike_and_the_r_and_b_kings"
-        }
-      ]
-    },
-    {
-      "day": "Saturday",
-      "date": "2026-06-06",
-      "acts": [
-        {
-          "start_time": "3:00 PM",
-          "end_time": "5:30 PM",
-          "artist_name": "ANDRE LOVETT BAND",
-          "artist_id": "andre_lovett_band"
-        },
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "WOODYS RAMPAGE",
-          "artist_id": "woodys_rampage"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "CAESAR BROTHERS",
-          "artist_id": "caesar_bros"
-        }
-      ]
-    },
-    {
-      "day": "Sunday",
-      "date": "2026-06-07",
-      "acts": [
-        {
-          "start_time": "3:00 PM",
-          "end_time": "5:30 PM",
-          "artist_name": "SIERRA & GREEN NOTES",
-          "artist_id": "sierra_green"
-        },
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "MAURICE CADE & ESS",
-          "artist_id": "maurice_cade_and_ess"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "KIM INDA WIND BAND",
-          "artist_id": "kim_inda_wind_band"
-        }
-      ]
-    },
-    {
-      "day": "Wednesday",
-      "date": "2026-06-10",
-      "acts": [
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "RUMPSHAKERS",
-          "artist_id": "rumpshakers"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "UNDER THE COVERS",
-          "artist_id": "under_the_covers"
-        }
-      ]
-    },
-    {
-      "day": "Thursday",
-      "date": "2026-06-11",
-      "acts": [
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "DAPPER DANDIES",
-          "artist_id": "dapper_dandies"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "JAM BRASS BAND",
-          "artist_id": "j_a_m_brass_band"
-        }
-      ]
-    },
-    {
-      "day": "Friday",
-      "date": "2026-06-12",
-      "acts": [
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "TROPICAL WEATHER",
-          "artist_id": "tropical_weather"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "KAT KILEY EXPERIENCE",
-          "artist_id": "kat_kiley_experience"
-        }
-      ]
-    },
-    {
-      "day": "Saturday",
-      "date": "2026-06-13",
-      "acts": [
-        {
-          "start_time": "3:00 PM",
-          "end_time": "5:30 PM",
-          "artist_name": "ANDRE LOVETT BAND",
-          "artist_id": "andre_lovett_band"
-        },
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "MOTHER RUCKUS",
-          "artist_id": "mother_ruckus"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "SIERRA GREEN",
-          "artist_id": "sierra_green"
-        }
-      ]
-    },
-    {
-      "day": "Sunday",
-      "date": "2026-06-14",
-      "acts": [
-        {
-          "start_time": "3:00 PM",
-          "end_time": "5:30 PM",
-          "artist_name": "Deej Flava & Mother Ruckus",
-          "artist_id": "deej_and_mother_ruckus"
-        },
-        {
-          "start_time": "6:00 PM",
-          "end_time": "8:30 PM",
-          "artist_name": "MAURICE CADE & ESS",
-          "artist_id": "maurice_cade_and_ess"
-        },
-        {
-          "start_time": "9:00 PM",
-          "end_time": "11:30 PM",
-          "artist_name": "KIM INDA WIND BAND",
-          "artist_id": "kim_inda_wind_band"
-        }
-      ]
-    },
     {
       "day": "Wednesday",
       "date": "2026-06-17",
@@ -399,8 +129,8 @@
         {
           "start_time": "9:00 PM",
           "end_time": "11:30 PM",
-          "artist_name": "UNDER COVERS",
-          "artist_id": "under_the_covers"
+          "artist_name": "ASHLEY PAIGE & THE SOULCIAL CLUB",
+          "artist_id": "ashley_paige_and_the_soulcial_club"
         }
       ]
     },
@@ -471,7 +201,7 @@
         {
           "start_time": "3:00 PM",
           "end_time": "5:30 PM",
-          "artist_name": "Deej Flava & Mother Ruckus",
+          "artist_name": "DEEJ FLAVA & MOTHER RUCKUS",
           "artist_id": "deej_and_mother_ruckus"
         },
         {
@@ -483,7 +213,7 @@
         {
           "start_time": "9:00 PM",
           "end_time": "11:30 PM",
-          "artist_name": "KIM INDA WIND BAND",
+          "artist_name": "KIM IN THE WIND",
           "artist_id": "kim_inda_wind_band"
         }
       ]
