@@ -1,8 +1,8 @@
 {
-  "version": "0.4.0",
-  "last_updated": "2026-06-16",
+  "version": "0.4.1",
+  "last_updated": "2026-06-18",
   "purpose": "Current public schedule snapshot loaded by the JazzyCat static page.",
-  "source_note": "Updated from the UpcomingShows repository so JazzyCat no longer starts with the stale May 29-June 4 schedule block. Bot-facing entries begin with the current June 17, 2026 week and continue through June 28, 2026.",
+  "source_note": "Updated from the UpcomingShows repository so JazzyCat no longer starts with the stale May 29-June 4 schedule block. Bot-facing entries begin with the current June 17, 2026 week and continue through June 28, 2026. T Marie listing updated to T Marie & Bayou JuJu.",
   "timezone": "America/Chicago",
   "fields": {
     "day": "Weekday display label.",
@@ -81,8 +81,8 @@
         {
           "start_time": "6:00 PM",
           "end_time": "8:30 PM",
-          "artist_name": "T MARIE",
-          "artist_id": "t_marie"
+          "artist_name": "T Marie & Bayou JuJu",
+          "artist_id": "t_marie_and_bayou_juju"
         },
         {
           "start_time": "9:00 PM",
