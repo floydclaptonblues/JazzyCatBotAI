@@ -1,8 +1,8 @@
 {
-  "version": "0.4.1",
-  "last_updated": "2026-06-18",
+  "version": "0.4.2",
+  "last_updated": "2026-06-23",
   "purpose": "Current public schedule snapshot loaded by the JazzyCat static page.",
-  "source_note": "Updated from the UpcomingShows repository so JazzyCat no longer starts with the stale May 29-June 4 schedule block. Bot-facing entries begin with the current June 17, 2026 week and continue through June 28, 2026. T Marie listing updated to T Marie & Bayou JuJu.",
+  "source_note": "Updated from the UpcomingShows repository so JazzyCat no longer starts with the stale May 29-June 4 schedule block. Bot-facing entries begin with the current June 17, 2026 week and continue through June 28, 2026. T Marie listing updated to T Marie & Bayou JuJu. June 24 6:00 PM-8:30 PM listing updated to Louisiana Parish Line.",
   "timezone": "America/Chicago",
   "fields": {
     "day": "Weekday display label.",
@@ -123,8 +123,8 @@
         {
           "start_time": "6:00 PM",
           "end_time": "8:30 PM",
-          "artist_name": "RUMPSHAKERS",
-          "artist_id": "rumpshakers"
+          "artist_name": "Louisiana Parish Line",
+          "artist_id": "louisiana_parish_line"
         },
         {
           "start_time": "9:00 PM",
