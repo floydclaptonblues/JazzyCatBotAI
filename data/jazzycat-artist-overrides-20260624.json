@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "last_updated": "2026-06-23",
+  "purpose": "Reviewable artist override slot for the June 24, 2026 6:00 PM-8:30 PM Balcony Music Club listing.",
+  "artists": [
+    {
+      "artist_id": "louisiana_parish_line",
+      "artist_name": "Louisiana Parish Line",
+      "aliases": [
+        "LOUISIANA PARISH LINE"
+      ],
+      "verification_status": "needs_review",
+      "genre_confidence": "unknown",
+      "image_slot": {
+        "expected_path": "assets/artists/14FA40D0-F6EC-48BB-9A69-08C469C16B73.PNG",
+        "uploaded_filename": "14FA40D0-F6EC-48BB-9A69-08C469C16B73.PNG",
+        "notes": "Drop the supplied Louisiana Parish Line poster at this exact path/name when binary assets are imported."
+      },
+      "sources": [
+        {
+          "label": "Ryan Hall update request",
+          "date": "2026-06-23",
+          "note": "June 24 6:00 PM-8:30 PM listing changed to Louisiana Parish Line."
+        }
+      ]
+    }
+  ]
+}
