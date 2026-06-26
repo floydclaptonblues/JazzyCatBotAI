@@ -12,30 +12,61 @@
     .fallback{position:fixed;left:12px;bottom:12px;z-index:30;font:700 12px/1.35 Geneva,Verdana,Arial,sans-serif;color:#fff6e8;background:rgba(5,2,12,.72);border:1px solid rgba(255,216,87,.45);padding:8px 10px;border-radius:10px}
     .fallback a{color:#5ee6ff}
     .real-jazzycat-strip{position:fixed;left:0;right:0;top:70px;z-index:25;display:grid;grid-template-columns:repeat(2,minmax(74px,150px));justify-content:space-between;align-items:start;gap:clamp(12px,3vw,42px);padding:0 clamp(18px,7vw,96px);pointer-events:none}
-    .real-jazzycat-strip img{width:100%;max-height:162px;object-fit:contain;opacity:.96;filter:drop-shadow(0 12px 14px rgba(0,0,0,.58));transform-origin:50% 100%;will-change:transform,opacity}
+    .real-jazzycat-strip img{width:100%;max-height:162px;object-fit:contain;opacity:.96;filter:drop-shadow(0 12px 14px rgba(0,0,0,.58));transform-origin:50% 100%;will-change:transform,opacity;pointer-events:auto;cursor:pointer;user-select:none;-webkit-user-drag:none}
+    .real-jazzycat-strip img:focus-visible{outline:3px solid #ffd857;outline-offset:6px;border-radius:14px}
     .real-jazzycat-strip img:nth-child(1){animation:catLeft 3.1s ease-in-out infinite}
     .real-jazzycat-strip img:nth-child(2){animation:catRight 4.2s ease-in-out infinite -1.3s}
+    .realcat-bubble{position:fixed;z-index:45;max-width:min(300px,calc(100vw - 28px));padding:10px 13px;color:#241028;background:#fffce8;border:2px solid #000;border-radius:14px;font:900 12px/1.35 Geneva,Verdana,Arial,sans-serif;text-align:center;text-shadow:none;box-shadow:0 8px 0 rgba(0,0,0,.34),0 0 24px rgba(255,216,87,.22);opacity:0;transform:translate(-50%,-115%) scale(.96);transition:opacity .16s ease,transform .16s ease;pointer-events:none}
+    .realcat-bubble::after{content:"";position:absolute;left:50%;bottom:-10px;transform:translateX(-50%) rotate(45deg);width:16px;height:16px;background:#fffce8;border-right:2px solid #000;border-bottom:2px solid #000}
+    .realcat-bubble.show{opacity:1;transform:translate(-50%,-125%) scale(1)}
     @keyframes catLeft{0%,100%{transform:translate(-3px,0) rotate(-1.2deg)}50%{transform:translate(3px,-9px) rotate(.7deg)}}
     @keyframes catRight{0%,100%{transform:translate(-2px,10px) rotate(.5deg)}50%{transform:translate(4px,-3px) rotate(-1deg)}}
-    @media(max-width:680px){.real-jazzycat-strip{top:62px;grid-template-columns:repeat(2,minmax(58px,96px));gap:4px;padding:0 10px}.real-jazzycat-strip img{max-height:118px}}
-    @media(prefers-reduced-motion:reduce){.real-jazzycat-strip img{animation:none}}
+    @media(max-width:680px){.real-jazzycat-strip{top:62px;grid-template-columns:repeat(2,minmax(58px,96px));gap:4px;padding:0 10px}.real-jazzycat-strip img{max-height:118px}.realcat-bubble{font-size:11px;max-width:min(250px,calc(100vw - 20px));padding:9px 11px}}
+    @media(prefers-reduced-motion:reduce){.real-jazzycat-strip img{animation:none}.realcat-bubble{transition:none}}
   </style>
 </head>
 <body>
   <iframe id="jazzycat-frame" src="../jazzycat.html?v=20260626-jazzycatbotai-inline" title="Ask JazzyCat" scrolling="no"></iframe>
-  <div class="real-jazzycat-strip" aria-hidden="true">
-    <img id="realcat-left" alt="" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-left.png?v=20260626g">
-    <img id="realcat-right" alt="" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-right.png?v=20260626g">
+  <div class="real-jazzycat-strip">
+    <img id="realcat-left" alt="" role="button" tabindex="0" aria-label="Talk to left JazzyCat" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-left.png?v=20260626h">
+    <img id="realcat-right" alt="" role="button" tabindex="0" aria-label="Talk to right JazzyCat" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-right.png?v=20260626h">
   </div>
+  <div id="realcat-bubble" class="realcat-bubble" role="status" aria-live="polite"></div>
   <div class="fallback"><a href="../jazzycat.html?v=20260626-jazzycatbotai-inline">Open standard JazzyCat</a></div>
   <script>
     (() => {
       const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const root = '../assets/real-jazzycat/';
-      const version = '20260626g';
+      const version = '20260626h';
       const leftCat = document.getElementById('realcat-left');
       const rightCat = document.getElementById('realcat-right');
       const frame = document.getElementById('jazzycat-frame');
+      const bubble = document.getElementById('realcat-bubble');
+      let quipIndex = Math.floor(Math.random() * 1000);
+      let bubbleTimer = 0;
+
+      const quips = [
+        'Rub my belly... very carefully.',
+        'Keep scratching. You are doing civic work.',
+        'Whole milk on the rocks, please.',
+        'I accept tips in shrimp, applause, and suspiciously warm laundry.',
+        'New Orleans rule: the cat owns the balcony.',
+        'French Quarter pigeons owe me money.',
+        'I am not loafing. I am preserving jazz history.',
+        'The Mississippi River does not ask permission. Respect.',
+        'Streetcars have better rhythm than most drummers.',
+        'If you hear a trumpet at noon, that is breakfast music.',
+        'This city was built for night creatures and dramatic entrances.',
+        'Bourbon Street is loud. I am louder, but only spiritually.',
+        'Jackson Square has artists. I have demands.',
+        'Do not boop the snoot unless the contract is notarized.',
+        'The French Quarter is older than my patience.',
+        'Another scratch and I may reveal tonight’s secrets.',
+        'I came for jazz. I stayed for the air conditioning.',
+        'Balcony detected. Royal posture engaged.',
+        'My whiskers are tuned to New Orleans humidity.',
+        'Meow means check the shows page, probably.'
+      ];
 
       function versioned(name) {
         return root + name + '?v=' + version;
@@ -74,6 +105,30 @@
         window.setTimeout(tick, startDelay || 0);
       }
 
+      function showQuip(cat) {
+        if (!cat || !bubble) return;
+        const rect = cat.getBoundingClientRect();
+        const text = quips[quipIndex % quips.length];
+        quipIndex += 1;
+        bubble.textContent = text;
+        bubble.style.left = Math.min(window.innerWidth - 20, Math.max(20, rect.left + rect.width / 2)) + 'px';
+        bubble.style.top = Math.max(86, rect.top - 4) + 'px';
+        bubble.classList.add('show');
+        window.clearTimeout(bubbleTimer);
+        bubbleTimer = window.setTimeout(() => bubble.classList.remove('show'), 3400);
+      }
+
+      function bindCat(cat) {
+        if (!cat) return;
+        cat.addEventListener('click', () => showQuip(cat));
+        cat.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            showQuip(cat);
+          }
+        });
+      }
+
       preload(leftFrames);
       preload(rightFrames);
 
@@ -81,6 +136,9 @@
         animateCat(leftCat, leftFrames, [520, 260, 420, 900], 120);
         animateCat(rightCat, rightFrames, [640, 280, 460, 980], 420);
       }
+
+      bindCat(leftCat);
+      bindCat(rightCat);
 
       function hideScheduleSnapshot() {
         if (!frame || !frame.contentDocument) return;
