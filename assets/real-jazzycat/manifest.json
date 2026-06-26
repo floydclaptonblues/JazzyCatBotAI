@@ -1,5 +1,5 @@
 {
-  "version": "2026-06-26b",
+  "version": "2026-06-26c",
   "enabled": true,
   "mode": "frames",
   "dropFolder": "assets/real-jazzycat/",
@@ -19,6 +19,11 @@
       "name": "trumpet-right",
       "src": "jazzycat-photo-trumpet-right.png",
       "durationMs": 700
+    },
+    {
+      "name": "center-look-up-alt",
+      "src": "jazzycat-photo-center-look-up-alt.png",
+      "durationMs": 950
     },
     {
       "name": "cute-center-hold",
