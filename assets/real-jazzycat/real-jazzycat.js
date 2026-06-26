@@ -5,37 +5,54 @@
   const MANIFEST_URL = new URL('manifest.json?v=20260626e', ROOT).href;
   const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const DEFAULT_MANIFEST = {
-    version: '2026-06-26e',
+    version: '2026-06-26m',
     enabled: true,
     mode: 'frames',
     optionalGif: 'jazzycat-photo-loop.gif',
     frames: [
-      { name: 'trumpet-left', src: 'jazzycat-photo-trumpet-left.png', durationMs: 700 },
-      { name: 'cute-center', src: 'jazzycat-photo-center.png', durationMs: 950 },
       { name: 'trumpet-right', src: 'jazzycat-photo-trumpet-right.png', durationMs: 700 },
+      { name: 'cute-center', src: 'jazzycat-photo-center.png', durationMs: 950 },
       { name: 'center-look-up-alt', src: 'jazzycat-photo-center-look-up-alt.png', durationMs: 950 },
       { name: 'cute-center-hold', src: 'jazzycat-photo-center.png', durationMs: 1200 }
     ]
   };
 
+  const QUIPS = [
+    'Rub my belly... very carefully.',
+    'Keep scratching. You are doing civic work.',
+    'Whole milk on the rocks, please.',
+    'I accept tips in shrimp, applause, and suspiciously warm laundry.',
+    'New Orleans rule: the cat owns the balcony.',
+    'French Quarter pigeons owe me money.',
+    'I am not loafing. I am preserving jazz history.',
+    'If you hear a trumpet at noon, that is breakfast music.',
+    'This city was built for night creatures and dramatic entrances.',
+    'Bourbon Street is loud. I am louder, but only spiritually.',
+    'Jackson Square has artists. I have demands.',
+    'Do not boop the snoot unless the contract is notarized.',
+    'The French Quarter is older than my patience.',
+    'New Orleans once hosted the Eiffel Tower’s old restaurant. Fancy leftovers, mon ami.',
+    'Another scratch and I may reveal tonight’s secrets.',
+    'I came for jazz. I stayed for the air conditioning.',
+    'Balcony detected. Royal posture engaged.',
+    'My whiskers are tuned to New Orleans humidity.',
+    'The streetcar bell is basically New Orleans punctuation.',
+    'A brass band can turn a sidewalk into a parade.',
+    'Meow means check the shows page, probably.'
+  ];
+
   const css = `
-    .real-jazzycat-layer{position:fixed;inset:0;z-index:8600;pointer-events:none;overflow:hidden;}
-    .real-jazzycat-top-strip{position:fixed;left:0;right:0;top:70px;z-index:8650;display:grid;grid-template-columns:repeat(4,minmax(58px,132px));justify-content:center;align-items:start;gap:clamp(12px,3vw,42px);padding:0 12px;pointer-events:none;}
-    .real-jazzycat-top-strip img{width:100%;max-height:150px;object-fit:contain;opacity:0;filter:drop-shadow(0 12px 14px rgba(0,0,0,.58));transition:opacity .18s ease, transform .18s ease;transform-origin:50% 100%;will-change:transform;}
-    .real-jazzycat-top-strip img.is-ready{opacity:.96;}
-    .real-jazzycat-top-strip img.cat-a{animation:catA 3.1s ease-in-out infinite;}
-    .real-jazzycat-top-strip img.cat-b{animation:catB 3.7s ease-in-out infinite -.9s;}
-    .real-jazzycat-top-strip img.cat-c{animation:catC 2.9s ease-in-out infinite -1.4s;}
-    .real-jazzycat-top-strip img.cat-d{animation:catD 4.2s ease-in-out infinite -2.2s;}
-    .real-jazzycat{position:fixed;right:18px;bottom:92px;z-index:8660;width:clamp(120px,13vw,210px);height:auto;max-width:32vw;filter:drop-shadow(0 16px 18px rgba(0,0,0,.55));transform-origin:50% 100%;animation:realJazzyCatFloat 3.8s ease-in-out infinite;opacity:0;transition:opacity .22s ease;user-select:none;-webkit-user-drag:none;}
-    .real-jazzycat.is-ready{opacity:.98;}
-    @keyframes catA{0%,100%{transform:translate(-3px,0) rotate(-1.2deg)}50%{transform:translate(3px,-9px) rotate(.7deg)}}
-    @keyframes catB{0%,100%{transform:translate(2px,8px) rotate(.8deg)}50%{transform:translate(-4px,-4px) rotate(-.9deg)}}
-    @keyframes catC{0%,100%{transform:translate(4px,3px) rotate(-.4deg)}50%{transform:translate(-2px,-10px) rotate(1.1deg)}}
-    @keyframes catD{0%,100%{transform:translate(-2px,10px) rotate(.5deg)}50%{transform:translate(4px,-3px) rotate(-1deg)}}
+    .real-jazzycat-layer{position:fixed;inset:0;z-index:8600;pointer-events:none;overflow:visible;}
+    .real-jazzycat-top-strip{display:none!important;}
+    .real-jazzycat{position:fixed;right:clamp(10px,3vw,28px);top:clamp(82px,10vh,118px);z-index:8660;width:clamp(64px,8vw,112px);height:auto;max-height:118px;max-width:26vw;object-fit:contain;filter:drop-shadow(0 14px 16px rgba(0,0,0,.58));transform-origin:50% 100%;animation:realJazzyCatFloat 3.8s ease-in-out infinite;opacity:0;transition:opacity .22s ease;user-select:none;-webkit-user-drag:none;pointer-events:auto;cursor:pointer;}
+    .real-jazzycat.is-ready{opacity:.96;}
+    .real-jazzycat:focus-visible{outline:3px solid #ffd857;outline-offset:6px;border-radius:14px;}
+    .real-jazzycat-bubble{position:fixed;z-index:8670;max-width:min(300px,calc(100vw - 28px));padding:10px 13px;color:#241028;background:#fffce8;border:2px solid #000;border-radius:14px;font:900 12px/1.35 Geneva,Verdana,Arial,sans-serif;text-align:center;text-shadow:none;box-shadow:0 8px 0 rgba(0,0,0,.34),0 0 24px rgba(255,216,87,.22);opacity:0;transform:translate(-50%,-115%) scale(.96);transition:opacity .16s ease,transform .16s ease;pointer-events:none;}
+    .real-jazzycat-bubble::after{content:"";position:absolute;left:50%;bottom:-10px;transform:translateX(-50%) rotate(45deg);width:16px;height:16px;background:#fffce8;border-right:2px solid #000;border-bottom:2px solid #000;}
+    .real-jazzycat-bubble.show{opacity:1;transform:translate(-50%,-125%) scale(1);}
     @keyframes realJazzyCatFloat{0%,100%{transform:translateY(0) rotate(-.8deg)}50%{transform:translateY(-8px) rotate(.8deg)}}
-    @media(max-width:680px){.real-jazzycat-top-strip{top:62px;grid-template-columns:repeat(4,minmax(44px,84px));gap:4px;padding:0 5px}.real-jazzycat{width:92px;right:10px;bottom:92px;max-width:28vw;}}
-    @media(prefers-reduced-motion:reduce){.real-jazzycat,.real-jazzycat-top-strip img{animation:none;}}
+    @media(max-width:680px){.real-jazzycat{width:68px;right:8px;top:70px;max-height:88px;}.real-jazzycat-bubble{font-size:11px;max-width:min(250px,calc(100vw - 20px));padding:9px 11px;}}
+    @media(prefers-reduced-motion:reduce){.real-jazzycat{animation:none;}.real-jazzycat-bubble{transition:none;}}
   `;
 
   function addStyle() {
@@ -99,25 +116,24 @@
     if (old) old.remove();
     const layer = document.createElement('div');
     layer.className = 'real-jazzycat-layer';
-    layer.setAttribute('aria-hidden', 'true');
-    const strip = document.createElement('div');
-    strip.className = 'real-jazzycat-top-strip';
-    ['cat-a','cat-b','cat-c','cat-d'].forEach((klass, index) => {
-      const img = document.createElement('img');
-      img.className = klass;
-      img.alt = '';
-      img.decoding = 'async';
-      img.dataset.slotIndex = String(index);
-      strip.appendChild(img);
-    });
+
     const main = document.createElement('img');
     main.className = 'real-jazzycat';
     main.alt = '';
     main.decoding = 'async';
-    layer.appendChild(strip);
+    main.tabIndex = 0;
+    main.setAttribute('role', 'button');
+    main.setAttribute('aria-label', 'Talk to Real JazzyCat');
+
+    const bubble = document.createElement('div');
+    bubble.className = 'real-jazzycat-bubble';
+    bubble.setAttribute('role', 'status');
+    bubble.setAttribute('aria-live', 'polite');
+
     layer.appendChild(main);
+    layer.appendChild(bubble);
     document.body.appendChild(layer);
-    return { strip, main };
+    return { main, bubble };
   }
 
   function cycleImage(img, frames, sequence, offsetMs) {
@@ -135,18 +151,26 @@
     run();
   }
 
-  function runTopStrip(strip, frames) {
-    if (!frames.length) return;
-    const sequences = [
-      [0,1,0,3,1,2],
-      [1,3,1,2,0,1],
-      [2,1,2,3,1,0],
-      [3,1,0,1,2,3]
-    ];
-    Array.from(strip.querySelectorAll('img')).forEach((img, index) => {
-      img.src = frames[index % frames.length].src;
-      img.classList.add('is-ready');
-      if (!REDUCED) cycleImage(img, frames, sequences[index % sequences.length], index * 110);
+  function showQuip(target, bubble) {
+    if (!target || !bubble) return;
+    const rect = target.getBoundingClientRect();
+    const index = Number(target.dataset.quipIndex || Math.floor(Math.random() * 1000));
+    target.dataset.quipIndex = String(index + 1);
+    bubble.textContent = QUIPS[index % QUIPS.length];
+    bubble.style.left = Math.min(window.innerWidth - 20, Math.max(20, rect.left + rect.width / 2)) + 'px';
+    bubble.style.top = Math.max(86, rect.top - 4) + 'px';
+    bubble.classList.add('show');
+    window.clearTimeout(showQuip.timer);
+    showQuip.timer = window.setTimeout(() => bubble.classList.remove('show'), 3400);
+  }
+
+  function bindQuips(main, bubble) {
+    main.addEventListener('click', () => showQuip(main, bubble));
+    main.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        showQuip(main, bubble);
+      }
     });
   }
 
@@ -154,10 +178,10 @@
     if (!frames.length) return;
     if (manifest.mode === 'gif') {
       const gifSrc = new URL((manifest.optionalGif || 'jazzycat-photo-loop.gif') + '?v=' + encodeURIComponent(manifest.version || DEFAULT_MANIFEST.version), ROOT).href;
-      preload(gifSrc).then(src => { main.src = src; main.classList.add('is-ready'); }).catch(() => cycleImage(main, frames, [0,1,2,3,1], 0));
+      preload(gifSrc).then(src => { main.src = src; main.classList.add('is-ready'); }).catch(() => cycleImage(main, frames, [0,1,2,1], 0));
       return;
     }
-    cycleImage(main, frames, [0,1,2,3,1], 0);
+    cycleImage(main, frames, [0,1,2,1], 0);
   }
 
   async function boot() {
@@ -167,8 +191,8 @@
     const frames = await loadFrames(manifest);
     if (!frames.length) return;
     const nodes = makeLayer();
-    runTopStrip(nodes.strip, frames);
     runMain(nodes.main, manifest, frames);
+    bindQuips(nodes.main, nodes.bubble);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
