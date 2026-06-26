@@ -4,28 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Balcony Music Club • Ask JazzyCat</title>
-  <meta name="description" content="Ask JazzyCat with a lighter Real JazzyCat overlay and fewer decorative cats." />
+  <meta name="description" content="Ask JazzyCat with a lighter Real JazzyCat overlay, the 8-bit JazzyCat pet, and fewer decorative cats." />
   <style>
     *{box-sizing:border-box}
     html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05020c;color:#fff6e8}
     iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#05020c;z-index:1;overflow:hidden}
     .fallback{position:fixed;left:12px;bottom:12px;z-index:30;font:700 12px/1.35 Geneva,Verdana,Arial,sans-serif;color:#fff6e8;background:rgba(5,2,12,.72);border:1px solid rgba(255,216,87,.45);padding:8px 10px;border-radius:10px}
     .fallback a{color:#5ee6ff}
-    .real-jazzycat-single{position:fixed;right:clamp(10px,3vw,28px);bottom:clamp(16px,4vh,46px);z-index:25;width:clamp(72px,10vw,132px);pointer-events:none}
-    .real-jazzycat-single img{display:block;width:100%;max-height:132px;object-fit:contain;opacity:.93;filter:drop-shadow(0 12px 14px rgba(0,0,0,.58));transform-origin:50% 100%;will-change:transform,opacity;pointer-events:auto;cursor:pointer;user-select:none;-webkit-user-drag:none;animation:catSide 3.8s ease-in-out infinite}
+    .real-jazzycat-single{position:fixed;right:clamp(10px,3vw,28px);top:clamp(82px,10vh,118px);z-index:25;width:clamp(64px,8vw,112px);pointer-events:none}
+    .real-jazzycat-single img{display:block;width:100%;max-height:118px;object-fit:contain;opacity:.93;filter:drop-shadow(0 12px 14px rgba(0,0,0,.58));transform-origin:50% 100%;will-change:transform,opacity;pointer-events:auto;cursor:pointer;user-select:none;-webkit-user-drag:none;animation:catSide 3.8s ease-in-out infinite}
     .real-jazzycat-single img:focus-visible{outline:3px solid #ffd857;outline-offset:6px;border-radius:14px}
     .realcat-bubble{position:fixed;z-index:45;max-width:min(300px,calc(100vw - 28px));padding:10px 13px;color:#241028;background:#fffce8;border:2px solid #000;border-radius:14px;font:900 12px/1.35 Geneva,Verdana,Arial,sans-serif;text-align:center;text-shadow:none;box-shadow:0 8px 0 rgba(0,0,0,.34),0 0 24px rgba(255,216,87,.22);opacity:0;transform:translate(-50%,-115%) scale(.96);transition:opacity .16s ease,transform .16s ease;pointer-events:none}
     .realcat-bubble::after{content:"";position:absolute;left:50%;bottom:-10px;transform:translateX(-50%) rotate(45deg);width:16px;height:16px;background:#fffce8;border-right:2px solid #000;border-bottom:2px solid #000}
     .realcat-bubble.show{opacity:1;transform:translate(-50%,-125%) scale(1)}
     @keyframes catSide{0%,100%{transform:translateY(0) rotate(-.8deg)}50%{transform:translateY(-7px) rotate(.8deg)}}
-    @media(max-width:680px){.real-jazzycat-single{width:72px;right:8px;bottom:14px}.real-jazzycat-single img{max-height:92px}.realcat-bubble{font-size:11px;max-width:min(250px,calc(100vw - 20px));padding:9px 11px}}
+    @media(max-width:680px){.real-jazzycat-single{width:68px;right:8px;top:70px}.real-jazzycat-single img{max-height:88px}.realcat-bubble{font-size:11px;max-width:min(250px,calc(100vw - 20px));padding:9px 11px}}
     @media(prefers-reduced-motion:reduce){.real-jazzycat-single img{animation:none}.realcat-bubble{transition:none}}
   </style>
 </head>
 <body>
   <iframe id="jazzycat-frame" src="../jazzycat.html?v=20260626-jazzycatbotai-inline" title="Ask JazzyCat" scrolling="no"></iframe>
   <div class="real-jazzycat-single">
-    <img id="realcat-side" alt="" role="button" tabindex="0" aria-label="Talk to JazzyCat" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-right.png?v=20260626k">
+    <img id="realcat-side" alt="" role="button" tabindex="0" aria-label="Talk to Real JazzyCat" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-right.png?v=20260626l">
   </div>
   <div id="realcat-bubble" class="realcat-bubble" role="status" aria-live="polite"></div>
   <div class="fallback"><a href="../jazzycat.html?v=20260626-jazzycatbotai-inline">Open standard JazzyCat</a></div>
@@ -33,7 +33,7 @@
     (() => {
       const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const root = '../assets/real-jazzycat/';
-      const version = '20260626k';
+      const version = '20260626l';
       const cat = document.getElementById('realcat-side');
       const frame = document.getElementById('jazzycat-frame');
       const bubble = document.getElementById('realcat-bubble');
@@ -132,7 +132,7 @@
         if (doc.getElementById('ask-jazzycat-embed-cleanup')) return;
         const style = doc.createElement('style');
         style.id = 'ask-jazzycat-embed-cleanup';
-        style.textContent = '.schedule{display:none!important}.hero.window{grid-template-columns:1fr!important}.hero.window>.panel{width:100%!important}#sprite-layer,#pet,#bubble,#realJazzyCat,.corner-cat,.march{display:none!important;visibility:hidden!important;pointer-events:none!important}';
+        style.textContent = '.schedule{display:none!important}.hero.window{grid-template-columns:1fr!important}.hero.window>.panel{width:100%!important}#sprite-layer,#realJazzyCat,.corner-cat,.march{display:none!important;visibility:hidden!important;pointer-events:none!important}#pet{display:block!important;visibility:visible!important;left:12px!important;top:auto!important;bottom:82px!important;transform:scale(.78)!important;transform-origin:left bottom!important}#bubble{display:block!important;visibility:visible!important}';
         doc.head.appendChild(style);
       }
 
