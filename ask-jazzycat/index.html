@@ -8,11 +8,11 @@
   <style>
     *{box-sizing:border-box}
     html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05020c;color:#fff6e8}
-    iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#05020c;z-index:1}
+    iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#05020c;z-index:1;overflow:hidden}
     .fallback{position:fixed;left:12px;bottom:12px;z-index:30;font:700 12px/1.35 Geneva,Verdana,Arial,sans-serif;color:#fff6e8;background:rgba(5,2,12,.72);border:1px solid rgba(255,216,87,.45);padding:8px 10px;border-radius:10px}
     .fallback a{color:#5ee6ff}
     .real-jazzycat-strip{position:fixed;left:0;right:0;top:70px;z-index:25;display:grid;grid-template-columns:repeat(2,minmax(74px,150px));justify-content:space-between;align-items:start;gap:clamp(12px,3vw,42px);padding:0 clamp(18px,7vw,96px);pointer-events:none}
-    .real-jazzycat-strip img{width:100%;max-height:162px;object-fit:contain;opacity:.96;filter:drop-shadow(0 12px 14px rgba(0,0,0,.58));transform-origin:50% 100%;will-change:transform}
+    .real-jazzycat-strip img{width:100%;max-height:162px;object-fit:contain;opacity:.96;filter:drop-shadow(0 12px 14px rgba(0,0,0,.58));transform-origin:50% 100%;will-change:transform,opacity}
     .real-jazzycat-strip img:nth-child(1){animation:catLeft 3.1s ease-in-out infinite}
     .real-jazzycat-strip img:nth-child(2){animation:catRight 4.2s ease-in-out infinite -1.3s}
     @keyframes catLeft{0%,100%{transform:translate(-3px,0) rotate(-1.2deg)}50%{transform:translate(3px,-9px) rotate(.7deg)}}
@@ -22,11 +22,80 @@
   </style>
 </head>
 <body>
-  <iframe src="../jazzycat.html?v=20260626-jazzycatbotai-inline" title="Ask JazzyCat"></iframe>
+  <iframe id="jazzycat-frame" src="../jazzycat.html?v=20260626-jazzycatbotai-inline" title="Ask JazzyCat" scrolling="no"></iframe>
   <div class="real-jazzycat-strip" aria-hidden="true">
-    <img alt="" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-left.png?v=20260626f">
-    <img alt="" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-right.png?v=20260626f">
+    <img id="realcat-left" alt="" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-left.png?v=20260626g">
+    <img id="realcat-right" alt="" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-right.png?v=20260626g">
   </div>
   <div class="fallback"><a href="../jazzycat.html?v=20260626-jazzycatbotai-inline">Open standard JazzyCat</a></div>
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const root = '../assets/real-jazzycat/';
+      const version = '20260626g';
+      const leftCat = document.getElementById('realcat-left');
+      const rightCat = document.getElementById('realcat-right');
+      const frame = document.getElementById('jazzycat-frame');
+
+      function versioned(name) {
+        return root + name + '?v=' + version;
+      }
+
+      const leftFrames = [
+        'jazzycat-photo-trumpet-left.png',
+        'jazzycat-photo-center.png',
+        'jazzycat-photo-center-look-up-alt.png',
+        'jazzycat-photo-center.png'
+      ].map(versioned);
+
+      const rightFrames = [
+        'jazzycat-photo-trumpet-right.png',
+        'jazzycat-photo-center.png',
+        'jazzycat-photo-center-look-up-alt.png',
+        'jazzycat-photo-center.png'
+      ].map(versioned);
+
+      function preload(frames) {
+        frames.forEach(src => {
+          const img = new Image();
+          img.src = src;
+        });
+      }
+
+      function animateCat(img, frames, delays, startDelay) {
+        if (!img || !frames.length) return;
+        let i = 0;
+        const tick = () => {
+          img.src = frames[i % frames.length];
+          const wait = delays[i % delays.length];
+          i += 1;
+          window.setTimeout(tick, wait);
+        };
+        window.setTimeout(tick, startDelay || 0);
+      }
+
+      preload(leftFrames);
+      preload(rightFrames);
+
+      if (!reduceMotion) {
+        animateCat(leftCat, leftFrames, [520, 260, 420, 900], 120);
+        animateCat(rightCat, rightFrames, [640, 280, 460, 980], 420);
+      }
+
+      function hideScheduleSnapshot() {
+        if (!frame || !frame.contentDocument) return;
+        const doc = frame.contentDocument;
+        if (doc.getElementById('ask-jazzycat-embed-cleanup')) return;
+        const style = doc.createElement('style');
+        style.id = 'ask-jazzycat-embed-cleanup';
+        style.textContent = '.schedule{display:none!important}.hero.window{grid-template-columns:1fr!important}.hero.window>.panel{width:100%!important}';
+        doc.head.appendChild(style);
+      }
+
+      frame?.addEventListener('load', hideScheduleSnapshot);
+      window.setTimeout(hideScheduleSnapshot, 700);
+      window.setTimeout(hideScheduleSnapshot, 1600);
+    })();
+  </script>
 </body>
 </html>
