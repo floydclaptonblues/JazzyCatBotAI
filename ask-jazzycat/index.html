@@ -28,8 +28,8 @@
 <body>
   <iframe id="jazzycat-frame" src="../jazzycat.html?v=20260626-jazzycatbotai-inline" title="Ask JazzyCat" scrolling="no"></iframe>
   <div class="real-jazzycat-strip">
-    <img id="realcat-left" alt="" role="button" tabindex="0" aria-label="Talk to left JazzyCat" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-left.png?v=20260626h">
-    <img id="realcat-right" alt="" role="button" tabindex="0" aria-label="Talk to right JazzyCat" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-right.png?v=20260626h">
+    <img id="realcat-left" alt="" role="button" tabindex="0" aria-label="Talk to left JazzyCat" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-left.png?v=20260626i">
+    <img id="realcat-right" alt="" role="button" tabindex="0" aria-label="Talk to right JazzyCat" decoding="async" src="../assets/real-jazzycat/jazzycat-photo-trumpet-right.png?v=20260626i">
   </div>
   <div id="realcat-bubble" class="realcat-bubble" role="status" aria-live="polite"></div>
   <div class="fallback"><a href="../jazzycat.html?v=20260626-jazzycatbotai-inline">Open standard JazzyCat</a></div>
@@ -37,7 +37,7 @@
     (() => {
       const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const root = '../assets/real-jazzycat/';
-      const version = '20260626h';
+      const version = '20260626i';
       const leftCat = document.getElementById('realcat-left');
       const rightCat = document.getElementById('realcat-right');
       const frame = document.getElementById('jazzycat-frame');
@@ -53,8 +53,6 @@
         'New Orleans rule: the cat owns the balcony.',
         'French Quarter pigeons owe me money.',
         'I am not loafing. I am preserving jazz history.',
-        'The Mississippi River does not ask permission. Respect.',
-        'Streetcars have better rhythm than most drummers.',
         'If you hear a trumpet at noon, that is breakfast music.',
         'This city was built for night creatures and dramatic entrances.',
         'Bourbon Street is loud. I am louder, but only spiritually.',
@@ -65,6 +63,8 @@
         'I came for jazz. I stayed for the air conditioning.',
         'Balcony detected. Royal posture engaged.',
         'My whiskers are tuned to New Orleans humidity.',
+        'The streetcar bell is basically New Orleans punctuation.',
+        'A brass band can turn a sidewalk into a parade.',
         'Meow means check the shows page, probably.'
       ];
 
