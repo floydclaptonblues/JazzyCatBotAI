@@ -44,3 +44,49 @@
     }
   }
 }
+{
+  "version": "2026-06-26d",
+  "enabled": true,
+  "mode": "frames",
+  "dropFolder": "assets/real-jazzycat/",
+  "optionalGif": "jazzycat-photo-loop.gif",
+  "frames": [
+    {
+      "name": "trumpet-left",
+      "src": "jazzycat-photo-trumpet-left.png",
+      "durationMs": 700
+    },
+    {
+      "name": "cute-center",
+      "src": "jazzycat-photo-center.png",
+      "durationMs": 950
+    },
+    {
+      "name": "trumpet-right",
+      "src": "jazzycat-photo-trumpet-right.png",
+      "durationMs": 700
+    },
+    {
+      "name": "center-look-up-alt",
+      "src": "jazzycat-photo-center-look-up-alt.png",
+      "durationMs": 950
+    },
+    {
+      "name": "cute-center-hold",
+      "src": "jazzycat-photo-center.png",
+      "durationMs": 1200
+    }
+  ],
+  "placement": {
+    "desktop": {
+      "width": "clamp(120px, 13vw, 210px)",
+      "right": "18px",
+      "bottom": "92px"
+    },
+    "mobile": {
+      "width": "92px",
+      "right": "10px",
+      "bottom": "92px"
+    }
+  }
+}
