@@ -1,6 +1,8 @@
 (() => {
-  const ROOT = './assets/real-jazzycat/';
-  const MANIFEST_URL = ROOT + 'manifest.json?v=20260626a';
+  const SCRIPT = document.currentScript;
+  const SRC = SCRIPT && SCRIPT.src ? new URL(SCRIPT.src, document.baseURI) : null;
+  const ROOT = SRC ? new URL('./', SRC).href : new URL('./assets/real-jazzycat/', document.baseURI).href;
+  const MANIFEST_URL = new URL('manifest.json?v=20260626b', ROOT).href;
   const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const css = `
@@ -66,6 +68,8 @@
   }
 
   function makeLayer() {
+    const old = document.querySelector('.real-jazzycat-layer');
+    if (old) old.remove();
     const layer = document.createElement('div');
     layer.className = 'real-jazzycat-layer';
     layer.setAttribute('aria-hidden', 'true');
@@ -79,7 +83,7 @@
   }
 
   async function runGif(img, manifest) {
-    const gifSrc = ROOT + (manifest.optionalGif || 'jazzycat-photo-loop.gif') + '?v=' + encodeURIComponent(manifest.version || Date.now());
+    const gifSrc = new URL((manifest.optionalGif || 'jazzycat-photo-loop.gif') + '?v=' + encodeURIComponent(manifest.version || Date.now()), ROOT).href;
     await preload(gifSrc);
     img.src = gifSrc;
     img.classList.add('is-ready');
@@ -89,7 +93,7 @@
     const frames = (manifest.frames || [])
       .filter(frame => frame && frame.src)
       .map(frame => ({
-        src: ROOT + frame.src + '?v=' + encodeURIComponent(manifest.version || Date.now()),
+        src: new URL(frame.src + '?v=' + encodeURIComponent(manifest.version || Date.now()), ROOT).href,
         durationMs: Number(frame.durationMs || 850)
       }));
 
