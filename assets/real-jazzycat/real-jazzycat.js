@@ -2,113 +2,45 @@
   const SCRIPT = document.currentScript;
   const SRC = SCRIPT && SCRIPT.src ? new URL(SCRIPT.src, document.baseURI) : null;
   const ROOT = SRC ? new URL('./', SRC).href : new URL('./assets/real-jazzycat/', document.baseURI).href;
-  const MANIFEST_URL = new URL('manifest.json?v=20260626d', ROOT).href;
-  const REDUCED =
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MANIFEST_URL = new URL('manifest.json?v=20260626e', ROOT).href;
+  const REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DEFAULT_MANIFEST = {
+    version: '2026-06-26e',
+    enabled: true,
+    mode: 'frames',
+    optionalGif: 'jazzycat-photo-loop.gif',
+    frames: [
+      { name: 'trumpet-left', src: 'jazzycat-photo-trumpet-left.png', durationMs: 700 },
+      { name: 'cute-center', src: 'jazzycat-photo-center.png', durationMs: 950 },
+      { name: 'trumpet-right', src: 'jazzycat-photo-trumpet-right.png', durationMs: 700 },
+      { name: 'center-look-up-alt', src: 'jazzycat-photo-center-look-up-alt.png', durationMs: 950 },
+      { name: 'cute-center-hold', src: 'jazzycat-photo-center.png', durationMs: 1200 }
+    ]
+  };
 
   const css = `
-    .real-jazzycat-layer{
-      position:fixed;
-      inset:0;
-      z-index:8600;
-      pointer-events:none;
-      overflow:hidden;
-    }
-
-    .real-jazzycat-top-strip{
-      position:fixed;
-      left:0;
-      right:0;
-      top:74px;
-      z-index:8650;
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      gap:clamp(10px,2vw,26px);
-      pointer-events:none;
-      padding:0 14px;
-      min-height:120px;
-    }
-
-    .real-jazzycat-top-strip img{
-      width:clamp(72px,8vw,132px);
-      max-height:148px;
-      object-fit:contain;
-      opacity:0;
-      filter:drop-shadow(0 12px 14px rgba(0,0,0,.55));
-      transition:opacity .22s ease;
-      transform-origin:50% 100%;
-      animation:realJazzyCatTopFloat 3.2s ease-in-out infinite;
-      will-change:transform;
-    }
-
+    .real-jazzycat-layer{position:fixed;inset:0;z-index:8600;pointer-events:none;overflow:hidden;}
+    .real-jazzycat-top-strip{position:fixed;left:0;right:0;top:70px;z-index:8650;display:grid;grid-template-columns:repeat(4,minmax(58px,132px));justify-content:center;align-items:start;gap:clamp(12px,3vw,42px);padding:0 12px;pointer-events:none;}
+    .real-jazzycat-top-strip img{width:100%;max-height:150px;object-fit:contain;opacity:0;filter:drop-shadow(0 12px 14px rgba(0,0,0,.58));transition:opacity .18s ease, transform .18s ease;transform-origin:50% 100%;will-change:transform;}
     .real-jazzycat-top-strip img.is-ready{opacity:.96;}
-    .real-jazzycat-top-strip img:nth-child(2){animation-delay:-.7s;}
-    .real-jazzycat-top-strip img:nth-child(3){animation-delay:-1.4s;}
-    .real-jazzycat-top-strip img:nth-child(4){animation-delay:-2.1s;}
-
-    .real-jazzycat{
-      position:fixed;
-      right:18px;
-      bottom:92px;
-      width:clamp(120px,13vw,210px);
-      height:auto;
-      max-width:32vw;
-      filter:drop-shadow(0 16px 18px rgba(0,0,0,.55));
-      transform-origin:50% 100%;
-      animation:realJazzyCatFloat 3.8s ease-in-out infinite;
-      opacity:0;
-      transition:opacity .22s ease;
-      user-select:none;
-      -webkit-user-drag:none;
-    }
-
+    .real-jazzycat-top-strip img.cat-a{animation:catA 3.1s ease-in-out infinite;}
+    .real-jazzycat-top-strip img.cat-b{animation:catB 3.7s ease-in-out infinite -.9s;}
+    .real-jazzycat-top-strip img.cat-c{animation:catC 2.9s ease-in-out infinite -1.4s;}
+    .real-jazzycat-top-strip img.cat-d{animation:catD 4.2s ease-in-out infinite -2.2s;}
+    .real-jazzycat{position:fixed;right:18px;bottom:92px;z-index:8660;width:clamp(120px,13vw,210px);height:auto;max-width:32vw;filter:drop-shadow(0 16px 18px rgba(0,0,0,.55));transform-origin:50% 100%;animation:realJazzyCatFloat 3.8s ease-in-out infinite;opacity:0;transition:opacity .22s ease;user-select:none;-webkit-user-drag:none;}
     .real-jazzycat.is-ready{opacity:.98;}
-
-    @keyframes realJazzyCatFloat{
-      0%,100%{transform:translateY(0) rotate(-.8deg)}
-      50%{transform:translateY(-8px) rotate(.8deg)}
-    }
-
-    @keyframes realJazzyCatTopFloat{
-      0%,100%{transform:translateY(0) rotate(-.6deg)}
-      50%{transform:translateY(-7px) rotate(.6deg)}
-    }
-
-    @media(max-width:680px){
-      .real-jazzycat{
-        width:92px;
-        right:10px;
-        bottom:92px;
-        max-width:28vw;
-      }
-
-      .real-jazzycat-top-strip{
-        top:64px;
-        justify-content:space-around;
-        gap:4px;
-        padding:0 5px;
-      }
-
-      .real-jazzycat-top-strip img{
-        width:clamp(54px,20vw,84px);
-        max-height:96px;
-      }
-    }
-
-    @media(prefers-reduced-motion:reduce){
-      .real-jazzycat,
-      .real-jazzycat-top-strip img{
-        animation:none;
-      }
-    }
+    @keyframes catA{0%,100%{transform:translate(-3px,0) rotate(-1.2deg)}50%{transform:translate(3px,-9px) rotate(.7deg)}}
+    @keyframes catB{0%,100%{transform:translate(2px,8px) rotate(.8deg)}50%{transform:translate(-4px,-4px) rotate(-.9deg)}}
+    @keyframes catC{0%,100%{transform:translate(4px,3px) rotate(-.4deg)}50%{transform:translate(-2px,-10px) rotate(1.1deg)}}
+    @keyframes catD{0%,100%{transform:translate(-2px,10px) rotate(.5deg)}50%{transform:translate(4px,-3px) rotate(-1deg)}}
+    @keyframes realJazzyCatFloat{0%,100%{transform:translateY(0) rotate(-.8deg)}50%{transform:translateY(-8px) rotate(.8deg)}}
+    @media(max-width:680px){.real-jazzycat-top-strip{top:62px;grid-template-columns:repeat(4,minmax(44px,84px));gap:4px;padding:0 5px}.real-jazzycat{width:92px;right:10px;bottom:92px;max-width:28vw;}}
+    @media(prefers-reduced-motion:reduce){.real-jazzycat,.real-jazzycat-top-strip img{animation:none;}}
   `;
 
   function addStyle() {
-    const oldStyle = document.getElementById('real-jazzycat-style');
-    if (oldStyle) oldStyle.remove();
-
+    const prior = document.getElementById('real-jazzycat-style');
+    if (prior) prior.remove();
     const style = document.createElement('style');
     style.id = 'real-jazzycat-style';
     style.textContent = css;
@@ -125,197 +57,120 @@
   }
 
   async function loadManifest() {
-    const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
-    if (!response.ok) throw new Error('Real JazzyCat manifest not available.');
-    return response.json();
-  }
-
-  function makeLayer() {
-    const old = document.querySelector('.real-jazzycat-layer');
-    if (old) old.remove();
-
-    const layer = document.createElement('div');
-    layer.className = 'real-jazzycat-layer';
-    layer.setAttribute('aria-hidden', 'true');
-
-    const strip = document.createElement('div');
-    strip.className = 'real-jazzycat-top-strip';
-
-    for (let i = 0; i < 4; i += 1) {
-      const topCat = document.createElement('img');
-      topCat.alt = '';
-      topCat.decoding = 'async';
-      topCat.dataset.slotIndex = String(i);
-      strip.appendChild(topCat);
+    try {
+      const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
+      if (!response.ok) throw new Error('Manifest not found');
+      const manifest = await response.json();
+      return manifest && Array.isArray(manifest.frames) ? manifest : DEFAULT_MANIFEST;
+    } catch (_) {
+      return DEFAULT_MANIFEST;
     }
-
-    layer.appendChild(strip);
-
-    const img = document.createElement('img');
-    img.className = 'real-jazzycat';
-    img.alt = '';
-    img.decoding = 'async';
-    layer.appendChild(img);
-
-    document.body.appendChild(layer);
-    return { main: img, strip };
   }
 
-  function uniqueFrames(manifest) {
+  function buildFrameList(manifest) {
     const seen = new Set();
-
-    return (manifest.frames || [])
+    return (manifest.frames || DEFAULT_MANIFEST.frames)
+      .filter(frame => frame && frame.src)
       .filter(frame => {
-        if (!frame || !frame.src || seen.has(frame.src)) return false;
+        if (seen.has(frame.src)) return false;
         seen.add(frame.src);
         return true;
       })
       .map(frame => ({
-        src: new URL(
-          frame.src + '?v=' + encodeURIComponent(manifest.version || Date.now()),
-          ROOT
-        ).href,
+        src: new URL(frame.src + '?v=' + encodeURIComponent(manifest.version || DEFAULT_MANIFEST.version), ROOT).href,
         durationMs: Number(frame.durationMs || 850),
-        name: frame.name || ''
+        name: frame.name || frame.src
       }));
   }
 
-  async function runGif(img, manifest) {
-    const gifSrc = new URL(
-      (manifest.optionalGif || 'jazzycat-photo-loop.gif') +
-        '?v=' +
-        encodeURIComponent(manifest.version || Date.now()),
-      ROOT
-    ).href;
-
-    await preload(gifSrc);
-    img.src = gifSrc;
-    img.classList.add('is-ready');
-  }
-
-  function startCycle(img, frames, sequence, durationOffset) {
-    let i = 0;
-
-    const tick = () => {
-      const frame = frames[sequence[i % sequence.length]];
-
-      if (frame) {
-        img.src = frame.src;
-        img.classList.add('is-ready');
-      }
-
-      const base = frame ? frame.durationMs : 900;
-      const variance = ((i % 3) - 1) * 70;
-      const wait = Math.max(420, base + durationOffset + variance);
-
-      i += 1;
-      window.setTimeout(tick, REDUCED ? 3000 : wait);
-    };
-
-    tick();
-  }
-
-  async function runTopStrip(strip, manifest) {
-    const frames = uniqueFrames(manifest);
-    if (!frames.length) return;
-
-    const available = [];
-    for (const frame of frames) {
-      try {
-        await preload(frame.src);
-        available.push(frame);
-      } catch (_) {}
-    }
-
-    if (!available.length) return;
-
-    const imgs = Array.from(strip.querySelectorAll('img'));
-
-    // Each cat gets a different order, so they don't all switch together.
-    const baseSequences = [
-      [0, 1, 0, 3, 0, 1], // cat 1
-      [1, 3, 1, 2, 1, 0], // cat 2
-      [2, 1, 2, 3, 2, 1], // cat 3
-      [3, 1, 0, 1, 3, 2]  // cat 4
-    ].map(seq => seq.map(index => index % available.length));
-
-    imgs.forEach((img, catIndex) => {
-      const initial = available[catIndex % available.length];
-      img.src = initial.src;
-      img.classList.add('is-ready');
-
-      if (!REDUCED) {
-        startCycle(
-          img,
-          available,
-          baseSequences[catIndex % baseSequences.length],
-          catIndex * 90
-        );
-      }
-    });
-  }
-
-  async function runFrames(img, manifest) {
-    const frames = (manifest.frames || [])
-      .filter(frame => frame && frame.src)
-      .map(frame => ({
-        src: new URL(
-          frame.src + '?v=' + encodeURIComponent(manifest.version || Date.now()),
-          ROOT
-        ).href,
-        durationMs: Number(frame.durationMs || 850)
-      }));
-
-    if (!frames.length) return;
-
+  async function loadFrames(manifest) {
     const loaded = [];
-    for (const frame of frames) {
+    for (const frame of buildFrameList(manifest)) {
       try {
         await preload(frame.src);
         loaded.push(frame);
       } catch (_) {}
     }
+    return loaded;
+  }
 
-    if (!loaded.length) return;
+  function makeLayer() {
+    const old = document.querySelector('.real-jazzycat-layer');
+    if (old) old.remove();
+    const layer = document.createElement('div');
+    layer.className = 'real-jazzycat-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    const strip = document.createElement('div');
+    strip.className = 'real-jazzycat-top-strip';
+    ['cat-a','cat-b','cat-c','cat-d'].forEach((klass, index) => {
+      const img = document.createElement('img');
+      img.className = klass;
+      img.alt = '';
+      img.decoding = 'async';
+      img.dataset.slotIndex = String(index);
+      strip.appendChild(img);
+    });
+    const main = document.createElement('img');
+    main.className = 'real-jazzycat';
+    main.alt = '';
+    main.decoding = 'async';
+    layer.appendChild(strip);
+    layer.appendChild(main);
+    document.body.appendChild(layer);
+    return { strip, main };
+  }
 
-    let i = 0;
-    const show = () => {
-      const frame = REDUCED
-        ? loaded.find(item => /center/i.test(item.src)) || loaded[0]
-        : loaded[i % loaded.length];
-
-      img.src = frame.src;
-      img.classList.add('is-ready');
-
-      if (!REDUCED) {
-        i += 1;
-        window.setTimeout(show, frame.durationMs);
+  function cycleImage(img, frames, sequence, offsetMs) {
+    let step = 0;
+    const run = () => {
+      const frame = frames[sequence[step % sequence.length] % frames.length];
+      if (frame) {
+        img.src = frame.src;
+        img.classList.add('is-ready');
       }
+      step += 1;
+      const wait = Math.max(420, (frame ? frame.durationMs : 850) + offsetMs + ((step % 3) - 1) * 80);
+      window.setTimeout(run, REDUCED ? 3000 : wait);
     };
+    run();
+  }
 
-    show();
+  function runTopStrip(strip, frames) {
+    if (!frames.length) return;
+    const sequences = [
+      [0,1,0,3,1,2],
+      [1,3,1,2,0,1],
+      [2,1,2,3,1,0],
+      [3,1,0,1,2,3]
+    ];
+    Array.from(strip.querySelectorAll('img')).forEach((img, index) => {
+      img.src = frames[index % frames.length].src;
+      img.classList.add('is-ready');
+      if (!REDUCED) cycleImage(img, frames, sequences[index % sequences.length], index * 110);
+    });
+  }
+
+  function runMain(main, manifest, frames) {
+    if (!frames.length) return;
+    if (manifest.mode === 'gif') {
+      const gifSrc = new URL((manifest.optionalGif || 'jazzycat-photo-loop.gif') + '?v=' + encodeURIComponent(manifest.version || DEFAULT_MANIFEST.version), ROOT).href;
+      preload(gifSrc).then(src => { main.src = src; main.classList.add('is-ready'); }).catch(() => cycleImage(main, frames, [0,1,2,3,1], 0));
+      return;
+    }
+    cycleImage(main, frames, [0,1,2,3,1], 0);
   }
 
   async function boot() {
-    try {
-      const manifest = await loadManifest();
-      if (!manifest || manifest.enabled === false) return;
-
-      addStyle();
-      const nodes = makeLayer();
-
-      await runTopStrip(nodes.strip, manifest);
-
-      if (manifest.mode === 'gif') await runGif(nodes.main, manifest);
-      else await runFrames(nodes.main, manifest);
-    } catch (_) {
-      // Optional layer; fail silently.
-    }
+    const manifest = await loadManifest();
+    if (manifest.enabled === false) return;
+    addStyle();
+    const frames = await loadFrames(manifest);
+    if (!frames.length) return;
+    const nodes = makeLayer();
+    runTopStrip(nodes.strip, frames);
+    runMain(nodes.main, manifest, frames);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
-  } else {
-    boot();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
 })();
