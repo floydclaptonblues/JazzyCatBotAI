@@ -4,18 +4,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Balcony Music Club • Ask JazzyCat</title>
-  <meta name="description" content="Ask JazzyCat with the original 8-bit character plus the animated Real JazzyCat counterpart layer." />
+  <meta name="description" content="Ask JazzyCat with the original 8-bit cat and one lighter Real JazzyCat photo animation." />
   <style>
     *{box-sizing:border-box}
     html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05020c}
-    iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#05020c}
-    .fallback{position:fixed;left:12px;bottom:12px;z-index:3;font:700 12px/1.35 Geneva,Verdana,Arial,sans-serif;color:#fff6e8;background:rgba(5,2,12,.72);border:1px solid rgba(255,216,87,.45);padding:8px 10px;border-radius:10px}
-    .fallback a{color:#5ee6ff}
+    iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#05020c;overflow:hidden}
   </style>
 </head>
 <body>
-  <iframe src="./jazzycat.html?v=20260626-photo-counterpart-e" title="Ask JazzyCat"></iframe>
-  <div class="fallback"><a href="./jazzycat.html?v=20260626-photo-counterpart-e">Open standard JazzyCat</a></div>
-  <script src="./assets/real-jazzycat/real-jazzycat.js?v=20260626e" defer></script>
+  <iframe id="jazzycat-frame" src="./jazzycat.html?v=20260626-standard-cat-layout" title="Ask JazzyCat" scrolling="no"></iframe>
+  <script>
+    (() => {
+      const frame = document.getElementById('jazzycat-frame');
+      function cleanEmbeddedPage() {
+        if (!frame || !frame.contentDocument) return;
+        const doc = frame.contentDocument;
+        if (doc.getElementById('ask-jazzycat-standard-layout')) return;
+        const style = doc.createElement('style');
+        style.id = 'ask-jazzycat-standard-layout';
+        style.textContent = '.schedule{display:none!important}.hero.window{grid-template-columns:1fr!important}.hero.window>.panel{width:100%!important}#sprite-layer,#realJazzyCat,.corner-cat,.march{display:none!important;visibility:hidden!important;pointer-events:none!important}#pet{display:block!important;visibility:visible!important;left:12px!important;top:auto!important;bottom:82px!important;transform:scale(.78)!important;transform-origin:left bottom!important}#bubble{display:block!important;visibility:visible!important}';
+        doc.head.appendChild(style);
+      }
+      frame?.addEventListener('load', cleanEmbeddedPage);
+      window.setTimeout(cleanEmbeddedPage, 700);
+      window.setTimeout(cleanEmbeddedPage, 1600);
+    })();
+  </script>
+  <script src="./assets/real-jazzycat/real-jazzycat.js?v=20260626m" defer></script>
 </body>
 </html>
