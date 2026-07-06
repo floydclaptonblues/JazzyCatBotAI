@@ -9,10 +9,16 @@
     *{box-sizing:border-box}
     html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05020c}
     iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#05020c;overflow:hidden}
+    #jazzycat-ufo-bouncer{position:fixed;left:0;top:0;z-index:4;width:clamp(104px,14vw,230px);pointer-events:none;opacity:.82;filter:drop-shadow(0 0 12px rgba(94,230,255,.45)) drop-shadow(0 0 22px rgba(255,216,87,.24));animation:jazzycatUfoZigzag 25s linear infinite alternate;will-change:transform}
+    #jazzycat-ufo-bouncer img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+    @keyframes jazzycatUfoZigzag{0%{transform:translate3d(calc(100vw - min(270px,29vw)),9vh,0) scaleX(1)}18%{transform:translate3d(2vw,22vh,0) scaleX(-1)}36%{transform:translate3d(calc(100vw - min(280px,30vw)),38vh,0) scaleX(1)}54%{transform:translate3d(4vw,53vh,0) scaleX(-1)}72%{transform:translate3d(calc(100vw - min(270px,29vw)),68vh,0) scaleX(1)}100%{transform:translate3d(3vw,82vh,0) scaleX(-1)}}
+    @media(max-width:760px){#jazzycat-ufo-bouncer{width:clamp(76px,20vw,128px);opacity:.72;animation-duration:21s}@keyframes jazzycatUfoZigzag{0%{transform:translate3d(calc(100vw - 124px),8vh,0) scaleX(1)}20%{transform:translate3d(2vw,22vh,0) scaleX(-1)}40%{transform:translate3d(calc(100vw - 124px),38vh,0) scaleX(1)}60%{transform:translate3d(4vw,54vh,0) scaleX(-1)}80%{transform:translate3d(calc(100vw - 124px),70vh,0) scaleX(1)}100%{transform:translate3d(3vw,84vh,0) scaleX(-1)}}}
+    @media(prefers-reduced-motion:reduce){#jazzycat-ufo-bouncer{animation:none;transform:translate3d(calc(100vw - 150px),14vh,0);opacity:.46}}
   </style>
 </head>
 <body>
   <iframe id="jazzycat-frame" src="./jazzycat.html?v=20260626-standard-cat-layout" title="Ask JazzyCat" scrolling="no"></iframe>
+  <div id="jazzycat-ufo-bouncer" aria-hidden="true"><img src="https://floydclaptonblues.github.io/Balcony-Music-Club-PWA/assets/venue/bmc_jazzycat_ufo_360_rotation.gif?v=20260705-jazzycat-zigzag" alt="" loading="lazy" decoding="async"></div>
   <script>
     (() => {
       const frame = document.getElementById('jazzycat-frame');
