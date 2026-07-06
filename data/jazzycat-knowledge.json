@@ -1,6 +1,6 @@
 {
-  "version": "4.0.0",
-  "last_updated": "2026-06-15",
+  "version": "4.1.0",
+  "last_updated": "2026-07-05",
   "site": {
     "name": "Balcony Music Club",
     "short_name": "BMC",
@@ -9,23 +9,24 @@
     "website": "https://www.balconymusicclub.com/",
     "shows_url": "https://balconymusicclub.com/shows",
     "app_url": "https://app.balconymusicclub.com/",
+    "live_url": "https://bmclive.balconymusicclub.com/",
     "badge_line": "Founded 2011 • No Cover • No Charge",
     "core_summary": "Founded in 2011. No cover. No charge. Live music, haunted-history energy, fresh-made-to-order chicken paninis, specialty cocktails, THC seltzers, and craft beer at 504 Esplanade.",
     "house_atmosphere": "NO COVER • NO CHARGE • 504 ESPLANADE • LIVE MUSIC • HAUNTED-HISTORY ENERGY • COCKTAILS • THC SELTZERS • CRAFT BEER",
     "poster_caption": "A haunted New Orleans live-music room with marquee glow, no cover, patio backbar paninis, and a house drink list worth asking about.",
-    "sidebar_summary": "JazzyCat is the fast BMC guide for guests who want music, drinks, food, haunted-history context, the current address, or private-event contacts without digging around.",
+    "sidebar_summary": "JazzyCat is the fast BMC guide for guests who want music, drinks, food, haunted-history context, the current address, the BMC app, BMC LIVE, or private-event contacts without digging around.",
     "marketing_line": "Whether you’re looking for a craft cocktail in New Orleans, a courtyard bar at 504 Esplanade, or the perfect start to your night, BMC is the move.",
     "venue_areas": ["courtyard", "speakeasy", "balcony bar", "main stage"],
     "schedule_fetch_urls": ["https://balconymusicclub.com/shows", "https://shows.balconymusicclub.com/"]
   },
   "contacts": {
-    "general_events": {"email": "BMC@marullomgmt.com", "phone": "504-428-5494", "mailto": "mailto:BMC@marullomgmt.com", "tel": "tel:+15044285494"},
-    "paint_and_sip": {"phone": "504-428-5494", "tel": "tel:+15044285494"}
+    "general_events": {"email": "BMC@marullomgmt.com", "phone": "504-428-5494", "mailto": "mailto:BMC@marullomgmt.com", "tel": "tel:+15044285494"}
   },
   "recurring_programming": {
     "live_music": {"short_answer": "Live music runs every Wednesday through Sunday, open to close. For the newest lineup, check the Shows page or BMC app."},
     "bloody_mary_brunch": {"short_answer": "Build Your Own Bloody Mary Sunday Brunch is every Sunday from noon to 4:00 PM. It is $15, and refills are $10."},
-    "paint_and_sip": {"ticket_note": "One ticket with one complimentary drink: $35. Two tickets with two complimentary drinks: $60.", "short_answer": "For Paint and Sip registration, call or text 504-428-5494. One ticket with one complimentary drink is $35; two tickets with two complimentary drinks are $60."},
+    "bmc_app": {"short_answer": "Open the Balcony Music Club app for the schedule, show alerts, venue info, and JazzyCat."},
+    "bmc_live": {"short_answer": "Check out BMC LIVE for the Balcony Music Club live stream."},
     "private_events": {"spaces": ["courtyard", "speakeasy", "balcony bar", "main stage"], "ideal_for": ["weddings", "graduations", "Mardi Gras balls", "private celebrations", "receptions"], "short_answer": "Book the courtyard, speakeasy, balcony bar, or main stage for weddings, graduations, Mardi Gras balls, private celebrations, and receptions. Contact BMC@marullomgmt.com or 504-428-5494."},
     "happy_hour": {"short_answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with cocktail lounge music."}
   },
@@ -81,9 +82,10 @@
     {"keywords": ["address", "location", "esplanade", "504 esplanade", "decatur"], "answer": "Balcony Music Club is located at 504 Esplanade Ave., New Orleans, LA 70116."},
     {"keywords": ["happy hour"], "answer": "Thursday happy hour runs from 4:30 PM to 5:30 PM with cocktail lounge music."},
     {"keywords": ["bloody mary", "brunch"], "answer": "Build Your Own Bloody Mary Sunday Brunch runs every Sunday from noon to 4:00 PM. It is $15, and refills are $10."},
-    {"keywords": ["paint and sip", "paint & sip"], "answer": "For Paint and Sip registration, call or text 504-428-5494."},
+    {"keywords": ["app", "install", "save"], "answer": "Open the BMC app for the schedule, show alerts, venue info, and JazzyCat."},
+    {"keywords": ["live", "stream", "broadcast"], "answer": "Check out BMC LIVE for the live stream."},
     {"keywords": ["private events", "book courtyard", "book speakeasy", "book balcony", "book main stage"], "answer": "Book the courtyard, speakeasy, balcony bar, or main stage for weddings, graduations, Mardi Gras balls, private celebrations, and receptions. Contact BMC@marullomgmt.com or 504-428-5494."}
   ],
-  "quick_questions": ["Who is playing tonight?", "What drinks are sweet?", "What drinks are refreshing?", "Tell me about haunted-history tours.", "Is there a cover charge?", "What food do you have?", "How do I book a private event?", "How do I register for Paint and Sip?"],
-  "routing": {"unknown_fallback": "I don’t have that detail on this page yet, but I can help with tonight’s music, the drink list, haunted-history tour info, private events, Paint and Sip, brunch, happy hour, and booking contacts."}
+  "quick_questions": ["Who is playing tonight?", "What drinks are sweet?", "What drinks are refreshing?", "Tell me about haunted-history tours.", "Is there a cover charge?", "What food do you have?", "How do I book a private event?", "Where is the BMC app?", "Where is BMC LIVE?"],
+  "routing": {"unknown_fallback": "I don’t have that detail on this page yet, but I can help with tonight’s music, the drink list, haunted-history tour info, private events, brunch, happy hour, the BMC app, BMC LIVE, and booking contacts."}
 }
