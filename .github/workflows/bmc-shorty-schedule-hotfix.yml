@@ -1,0 +1,62 @@
+name: One-time JazzyCat schedule hotfix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bmc-shorty-schedule-hotfix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update JazzyCat schedule authority
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          path = Path('data/jazzycat-current-schedule.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          updated = False
+
+          for day in data.get('schedule', []):
+              if day.get('date') != '2026-08-02':
+                  continue
+              for act in day.get('acts', []):
+                  if act.get('start_time') == '9:00 PM' and act.get('end_time') == '11:30 PM':
+                      act['artist_name'] = 'SHORTY AND THE GIANTS'
+                      act['artist_id'] = 'shorty_and_the_giants'
+                      updated = True
+
+          if not updated:
+              raise SystemExit('August 2 9:00 PM JazzyCat schedule slot was not found')
+
+          data['last_updated'] = '2026-07-30'
+          note = data.get('source_note', '')
+          note = note.replace(
+              'Blank Sunday 9:00 PM August slots are preserved as TBA placeholders.',
+              'The August 2 9:00 PM slot is filled by Shorty and The Giants; remaining blank Sunday 9:00 PM August slots are preserved as TBA placeholders.'
+          )
+          data['source_note'] = note
+          path.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+          workflow = Path('.github/workflows/bmc-shorty-schedule-hotfix.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+
+      - name: Commit final update
+        shell: bash
+        run: |
+          git config user.name "BMC Schedule Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Update JazzyCat for Shorty and The Giants on Aug 2"
+          git push
