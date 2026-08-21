@@ -1,0 +1,30 @@
+name: Validate JazzyCat schedule sync
+
+on:
+  pull_request:
+    paths:
+      - 'data/jazzycat-current-schedule.json'
+      - 'assets/jazzycat-schedule-runtime.js'
+      - 'scripts/validate_schedule_sync.py'
+      - '.github/workflows/validate-schedule-sync.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/jazzycat-current-schedule.json'
+      - 'assets/jazzycat-schedule-runtime.js'
+      - 'scripts/validate_schedule_sync.py'
+      - '.github/workflows/validate-schedule-sync.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out JazzyCatBotAI
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate fallback against UpcomingShows
+        run: python scripts/validate_schedule_sync.py
