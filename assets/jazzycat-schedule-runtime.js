@@ -180,10 +180,11 @@
 
   function resolveExplicitDate(query, todayIso) {
     const text = norm(query);
-    let match = text.match(/\b(20\d{2})-(\d{1,2})-(\d{1,2})\b/);
+    const dateText = String(query || '').trim();
+    let match = dateText.match(/\b(20\d{2})-(\d{1,2})-(\d{1,2})\b/);
     if (match) return isoFromParts(Number(match[1]), Number(match[2]), Number(match[3]));
 
-    match = text.match(/\b(\d{1,2})\/(\d{1,2})(?:\/(20\d{2}|\d{2}))?\b/);
+    match = dateText.match(/\b(\d{1,2})\/(\d{1,2})(?:\/(20\d{2}|\d{2}))?\b/);
     if (match) {
       let year = match[3] ? Number(match[3]) : Number(todayIso.slice(0, 4));
       if (year < 100) year += 2000;
@@ -264,8 +265,13 @@
   }
 
   function artistDates(artist, todayIso) {
+    // Management may vary '&'/'AND' and the optional article between months.
+    // Keep the published display names; compare only this conservative alias key.
+    function artistKey(value) {
+      return norm(value).replace(/\bthe\b/g, '').replace(/\s+/g, ' ').trim();
+    }
     return (scheduleState.schedule || []).filter(function (day) {
-      return day.date >= todayIso && (day.acts || []).some(function (act) { return act.artist_name === artist; });
+      return day.date >= todayIso && (day.acts || []).some(function (act) { return artistKey(act.artist_name) === artistKey(artist); });
     });
   }
 
@@ -299,7 +305,7 @@
     const text = norm(query);
     return /\b(who|play|plays|playing|schedule|show|shows|lineup|music|tonight|today|tomorrow|weekend|week|month|when|now)\b/.test(text) ||
       WEEKDAYS.some(function (day) { return new RegExp('\\b' + day + '\\b').test(text); }) ||
-      /\b(20\d{2}-\d{1,2}-\d{1,2}|\d{1,2}\/\d{1,2})\b/.test(text);
+      /\b(20\d{2}-\d{1,2}-\d{1,2}|\d{1,2}\/\d{1,2})\b/.test(String(query || ''));
   }
 
   function scheduleAnswer(query, now) {
