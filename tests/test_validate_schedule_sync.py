@@ -22,12 +22,24 @@ class ValidatorTests(unittest.TestCase):
 
     def test_full_handoff_matches(self):
         rows = self.validate()
-        self.assertEqual(len(rows), 86)
-        self.assertEqual(len({r[0] for r in rows}), 34)
+        self.assertEqual(len(rows), 40)
+        self.assertEqual(len({r[0] for r in rows}), 16)
 
-    def test_august_only_fails(self):
-        self.l['schedule'] = self.l['schedule'][:18]
+    def test_missing_september_fails(self):
+        self.l['schedule'] = self.l['schedule'][:4]
         with self.assertRaisesRegex(ValueError, 'out of sync'):
+            self.validate()
+
+    def test_august_rejected(self):
+        day = copy.deepcopy(self.l['schedule'][0])
+        day.update(date='2026-08-06', day='Thursday')
+        self.l['schedule'].insert(0, day)
+        with self.assertRaisesRegex(ValueError, 'out of sync'):
+            self.validate()
+
+    def test_future_coverage_rejected(self):
+        self.l['coverage_start'] = '2026-10-01'
+        with self.assertRaisesRegex(ValueError, 'coverage_start'):
             self.validate()
 
     def test_metadata(self):

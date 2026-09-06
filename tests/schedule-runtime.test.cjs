@@ -22,6 +22,9 @@ const now = new Date('2026-09-06T23:30:00Z'); // Sunday 6:30 PM Chicago
 for (const mode of ['canonical', 'fallback']) {
   const api = runtime();
   api.set(mode === 'canonical' ? api.parseAuthority(canonical) : fallback);
+  test(`${mode}: August is removed`, () => {
+    assert.match(api.scheduleAnswer('shows August 23', now), /don't have a show list/);
+  });
   test(`${mode}: today, tomorrow, weekday, named and numeric dates`, () => {
     assert.match(api.scheduleAnswer('lineup tonight', now), /JAM BRASS BAND/);
     assert.match(api.scheduleAnswer('tomorrow', now), /September 7.*yet/);

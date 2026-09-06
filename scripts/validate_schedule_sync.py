@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the complete fallback, not a clock-filtered subset of the source."""
+"""Validate the complete canonical schedule within the declared coverage window."""
 import argparse
 from collections import Counter
 from datetime import date, datetime
@@ -126,6 +126,11 @@ def validate(canonical_data, local_data, today=None):
     require(local_data.get('authority_url') == AUTHORITY_URL, 'local authority_url is incorrect')
     require(any(iso_date(row[0]) >= today for row in canonical),
             f'canonical schedule has no dates on or after {today}; refresh the source')
+    coverage_start = iso_date(local_data.get('coverage_start'))
+    require(coverage_start.day == 1 and coverage_start <= today.replace(day=1),
+            'coverage_start must be a month boundary no later than the current month')
+    canonical = [row for row in canonical if iso_date(row[0]) >= coverage_start]
+    require(bool(canonical), 'no canonical acts within the coverage window')
     if canonical != local:
         missing = Counter(canonical) - Counter(local)
         stale = Counter(local) - Counter(canonical)

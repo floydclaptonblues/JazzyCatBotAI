@@ -63,12 +63,12 @@ Edit:
 
 ### Current schedule snapshot
 The wrapper runtime fetches `floydclaptonblues/UpcomingShows/main/shows.json` first.
-`data/jazzycat-current-schedule.json` is the local fallback and must mirror the entire
-canonical schedule, including retained historical dates. Answers select relevant dates
-in `America/Chicago`; do not delete August rows just because September has started.
+`data/jazzycat-current-schedule.json` is the local fallback and must mirror the canonical schedule from its declared
+`coverage_start` (September 1, 2026) onward. August has been removed from the fallback
+and is filtered from live schedule answers. Answers select relevant dates in `America/Chicago`.
 
 The current fallback mirrors source commit `68504d87ebb1731f0f8a26a1e3bd0a29d8c8a4ae`,
-last updated August 27, 2026: 86 acts across 34 August–September dates.
+last updated August 27, 2026: 40 acts across 16 September dates.
 Keep artist names and times exactly as published and update `last_updated`,
 `source_note`, and `source_commit` whenever refreshing the snapshot.
 
@@ -81,7 +81,7 @@ python -m unittest discover -s tests -p 'test_*.py'
 python scripts/validate_schedule_sync.py
 ```
 
-The validator checks full ordered row equality, update-date equality, the authority URL,
+The validator checks ordered row equality within the declared coverage window, update-date equality, the authority URL,
 venue timezone, real calendar dates and weekdays, nonempty days and acts, artist fields,
 valid same-day clock ranges, duplicate dates, chronological order and overlapping acts.
 Freshness means the source still contains a date on or after today in Chicago, not an

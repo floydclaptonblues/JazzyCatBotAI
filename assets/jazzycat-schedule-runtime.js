@@ -2,6 +2,7 @@
   'use strict';
 
   const AUTHORITY_URL = 'https://raw.githubusercontent.com/floydclaptonblues/UpcomingShows/main/shows.json';
+  const SCHEDULE_START = '2026-09-01';
   const VENUE_TIME_ZONE = 'America/Chicago';
   const MONTHS = {
     january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
@@ -120,7 +121,7 @@
       last_updated: data.last_updated || null,
       timezone: VENUE_TIME_ZONE,
       source: AUTHORITY_URL,
-      schedule: result
+      schedule: result.filter(function (day) { return day.date >= SCHEDULE_START; })
     };
   }
 
@@ -148,7 +149,8 @@
         const fallbackUrl = new URL('./data/jazzycat-current-schedule.json', frameUrl).href;
         const fallback = await loadJson(fallbackUrl);
         if (!isValidSchedule(fallback)) throw new Error('invalid fallback schedule');
-        scheduleState = Object.assign({}, fallback, { source: 'local fallback' });
+        scheduleState = Object.assign({}, fallback, { source: 'local fallback',
+          schedule: fallback.schedule.filter(function (day) { return day.date >= SCHEDULE_START; }) });
         return scheduleState;
       } catch (fallbackError) {
         scheduleState = { schedule: [], source: 'unavailable' };
