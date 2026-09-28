@@ -3,6 +3,7 @@ from datetime import date
 import importlib.util
 import json
 from pathlib import Path
+import re
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,10 +12,46 @@ v = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(v)
 
 
+def historical_fallback(canonical):
+    """Build fixed September input independently of the production validator.
+
+    These regression scenarios deliberately run on September 6. Their local
+    input must remain paired with the retained August/September fixture, not
+    the rolling production snapshot. The unchanged CI live-sync step checks
+    the actual current snapshot against UpcomingShows after these tests.
+    """
+    snapshot = {
+        'last_updated': canonical['last_updated'],
+        'timezone': 'America/Chicago',
+        'authority_url': 'https://raw.githubusercontent.com/floydclaptonblues/UpcomingShows/main/shows.json',
+        'coverage_start': '2026-09-01',
+        'schedule': [],
+    }
+    for day in canonical['shows']:
+        match = re.fullmatch(r'([A-Za-z]+)\s*•\s*September\s+(\d{1,2})', day['date'])
+        if not match:
+            continue
+        acts = []
+        for act in day['shows']:
+            start, end = re.split(r'\s+[–-]\s+', act['time'])
+            acts.append({
+                'start_time': start,
+                'end_time': end,
+                'artist_name': act['artist'],
+                'artist_id': re.sub(r'[^a-z0-9]+', '_', act['artist'].lower()).strip('_'),
+            })
+        snapshot['schedule'].append({
+            'day': match[1],
+            'date': f'2026-09-{int(match[2]):02d}',
+            'acts': acts,
+        })
+    return snapshot
+
+
 class ValidatorTests(unittest.TestCase):
     def setUp(self):
-        self.c = json.loads((ROOT / 'tests/fixtures/upcoming-shows-2026-08-27.json').read_text())
-        self.l = json.loads((ROOT / 'data/jazzycat-current-schedule.json').read_text())
+        self.c = json.loads((ROOT / 'tests/fixtures/upcoming-shows-2026-08-27.json').read_text(encoding='utf-8'))
+        self.l = historical_fallback(self.c)
         self.today = date(2026, 9, 6)
 
     def validate(self):
